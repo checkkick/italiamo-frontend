@@ -4,13 +4,37 @@ import axios from 'axios'
 export default createStore({
     state() {
         return {
-            content: []
+            content: [
+                {
+                    id: 1,
+                    pageId: 'MizurinaTA',
+                    name: 'Мизурина Татьяна Андреевна',
+                    image: 'teacher'
+                },
+                {
+                    id: 2,
+                    pageId: 'MizurinaTA',
+                    name: 'Мизурина Татьяна Андреевна',
+                    image: 'teacher'
+                },
+                {
+                    id: 3,
+                    pageId: 'MuratovaVV',
+                    name: 'Муратова Валентина Владимировна',
+                    image: 'teacher'
+                },
+                {
+                    id: 4,
+                    pageId: 'MizurinaTA',
+                    name: 'Мизурина Татьяна Андреевна',
+                    image: 'teacher'
+                },
+            ]
         }
     },
     mutations: {
         SET_CONTENT(state, content) {
             state.content = content.data;
-            console.log(state.content);
         },
     },
     actions: {

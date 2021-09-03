@@ -53,11 +53,42 @@
           </div>
       </div>
   </section>
+  <section class="flex-column main-teachers">
+      <h2>Наши преподаватели</h2>
+      <div class="flex-row">
+          <app-main-teachers
+                  v-for="content in this.$store.state.content"
+                  :key="content.id"
+                  :page-id="content.pageId"
+                  :name="content.name"
+                  :image="content.image"
+          ></app-main-teachers>
+      </div>
+  </section>
+  <section class="flex-row main-form-call">
+      <div class="flex-column">
+          <button class="btn">Как проходят уроки в Italiamo?</button>
+          <button class="btn">Как быстро можно выучить итальянский?</button>
+          <button class="btn">Посмотреть видео о школе</button>
+      </div>
+      <form action="">
+          <div class="flex-column">
+              <h3>Заполните форму и мы свяжемся с Вами в ближайшее время!</h3>
+              <input class="input" type="text">
+              <input class="input" type="text">
+              <button class="btn">Отправить</button>
+          </div>
+      </form>
+  </section>
 </template>
 
 <script>
+import appMainTeachers from "./appMainTeachers";
+
 export default {
-    
+    components: {
+        appMainTeachers
+    }
 }
 </script>
 
@@ -72,7 +103,7 @@ export default {
         align-items: center;
         flex-direction: column;
         background: linear-gradient(rgba(255, 255, 255, 0.712), rgba(255, 255, 255, 0.712)), 
-            url('../../src/img/Roma-10.jpg') no-repeat center / 100% 100%;
+            url('../img/Roma-10.jpg') no-repeat center / 100% 100%;
     }
 
     .main-header img {
@@ -155,11 +186,11 @@ export default {
     }
 
     .card-course.main {
-        background: url('../../src/img/main-course.png') no-repeat center / 100% 100%;
+        background: url('../img/main-course.png') no-repeat center / 100% 100%;
     }
 
     .card-course.teenage {
-        background: url('../../src/img/teenage-course.png') no-repeat center / 100% 100%;
+        background: url('../img/teenage-course.png') no-repeat center / 100% 100%;
     }
 
     .main-program .btn {
@@ -167,5 +198,12 @@ export default {
         padding: 1rem;
         color: #614021;
         background: rgba(233, 187, 145, 0.9);
+    }
+    .main-form-call {
+        background: url('../img/main-form-call.jpg') no-repeat center / 100% 100%;
+    }
+
+    .main-form-call .flex-column {
+        width: 30rem;
     }
 </style>

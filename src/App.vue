@@ -15,7 +15,12 @@ export default {
   },
 
   mounted() {
+    /*
     this.GET_CONTENT('1')
+    for (const argument of this.$store.state.content) {
+      console.log(argument.content)
+    }
+    */
   },
 
   computed:{
