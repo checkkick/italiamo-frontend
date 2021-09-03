@@ -17,11 +17,15 @@ export default {
 
 <style>
     .navbar-menu {
+        margin: 1rem 0;
+        font-family: 'Poiret One', serif, sans-serif;
+        font-size: 28px;
         list-style: none;
         height: 3rem;
         display: flex;
-        justify-content: center;
+        justify-content: space-evenly;
         align-items: center;
+        text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
     }
 
     .navbar-menu li {

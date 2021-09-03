@@ -1,41 +1,48 @@
 <template>
   <header class="main-header">
-      <h1>Онлайн-школа итальянского языка</h1>
+      <h1>Онлайн школа итальянского языка</h1>
       <img src="../img/logo-1.png" alt="изображение Italiamo">
       <button class="btn">Попробовать бесплатно</button>
   </header>
   <section class="main-section">
-      <h2>Пример: Italiamo - про любовь</h2>
-      <span>Наша миссия - разделить с Вами любовь к Италии.</span>
-      <span>
-          Здесь Вы сможете найти единомышленников, поверите в себя
-            и откроете чудесный новый мир языка, истории, культуры, 
-            архитектуры, кулинарии и искусства Италии.
-      </span>
+      <div class="flex-row">
+          <div class="flex-column">
+              <h2>Italiamo - про любовь</h2>
+              <p>Наша миссия - разделить с Вами любовь к Италии.</p>
+              <p>
+                  Здесь Вы сможете найти единомышленников, поверите в себя
+                  и откроете чудесный новый мир языка, истории, культуры,
+                  архитектуры, кулинарии и искусства Италии.
+              </p>
+          </div>
+          <img src="../img/teacher.png" alt="изображение учителя">
+      </div>
   </section>
   <article class="main-article">
       <h2>Почему нужно выбрать нас?</h2>
       <div class="flex-row">
-          <div><img src="../img/logo-1.png" alt="изображение 1"><h3>Заголовок 1</h3><span>Текст</span></div>
-          <div><img src="../img/logo-1.png" alt="изображение 2"><h3>Заголовок 2</h3><span>Текст</span></div>
-          <div><img src="../img/logo-1.png" alt="изображение 3"><h3>Заголовок 3</h3><span>Текст</span></div>
-          <div><img src="../img/logo-1.png" alt="изображение 4"><h3>Заголовок 4</h3><span>Текст</span></div>
+          <div><h1>1</h1><h3>Профессиональные педагоги</h3><p>Наши преподаватели - лучшие в своем деле. Это выпускники, а в настоящее время педагоги ведущих ВУЗов России, многие из которых долгое время проживали в Италии.
+</p></div>
+          <div><h1>2</h1><h3>Доступное обучение</h3><p>От 670 рублей за 1 занятие (60 минут) в мини-группе до 4-х человек</p></div>
+          <div><h1>3</h1><h3>Наша школа присоединена к P.R.I.A</h3><p>P.R.I.A - программа отдела образования при генеральном консульстве Италии в Москве</p></div>
+          <div><h1>4</h1><h3>Индивидуальный подход</h3><p>На наших уроках Вы не будете получать “сухие” знания. Вас ждёт увлекательное путешествие в мир Италии, которое мы организуем в соответствии с Вашими целями.</p></div>
       </div>
   </article>
   <section class="flex-row">
-      <div class="flex-column">
+      <div class="flex-column main-comments">
             <h2>Что пишут нашу ученики?</h2>
             <button class="btn">Заглянуть в виртуальный класс</button>
       </div>
-      <div class="comments-animation">Отзывы с наимацией</div>
+      <div class="main-comments-animation">Отзывы с наимацией</div>
   </section>
-  <section class="flex-column">
+  <section class="flex-column main-program">
+      <h2>Программы обучения</h2>
       <div class="flex-row cards">
-          <div class="card-course">
+          <div class="card-course main">
               <p>Основной курс итальянского</p>
               <button class="btn">Подробнее</button>
           </div>
-          <div class="card-course">
+          <div class="card-course teenage">
               <p>Курс итальнянского для детей и подростков</p>
               <button class="btn">Подробнее</button>
           </div>
@@ -57,6 +64,8 @@ export default {
 <style>
     .main-header {
         margin-top: 2rem;
+        line-height: 40px;
+        text-align: center;
         padding: 2rem;
         display: flex;
         justify-content: center;
@@ -80,9 +89,18 @@ export default {
         flex-direction: column;
     }
 
+    .main-section .flex-row {
+        align-items: center;
+    }
+
+    .main-section img {
+        border-radius: 10px;
+        width: 206px;
+        height: 191px;
+    }
+
     .main-article {
         margin: 0;
-        font-family: 'Times New Roman', Times, serif;
         color: rgb(146, 89, 35);
         padding: 1rem;
         display: flex;
@@ -90,14 +108,26 @@ export default {
         text-align: center;
         flex-direction: column;
         background-color: white;
-    } 
-
-    .flex-row img {
-        width: 5rem;
-        height: 5rem;
     }
 
-    .flex-row .comments-animation {
+    .main-article h1 {
+        font-size: 50px;
+        line-height: 58px;
+        margin: 1rem;
+        font-weight: lighter;
+        color: #000000;
+    }
+
+    .main-article .flex-row div {
+        margin: 0.5rem;
+        max-width: 18rem;
+    }
+
+    .main-comments {
+        max-width: 30rem;
+    }
+
+    .flex-row .main-comments-animation {
         background-color: white;
         width: 20rem;
         height: 10rem;
@@ -106,22 +136,36 @@ export default {
         padding-top: 4rem;
     }
 
+    .main-program {
+        background-color: #FFFCE6;
+    }
+
     .card-course {
-        background-color: brown;
         display: flex;
-        padding: 2rem;
-        justify-content: space-between;
+        margin: 1rem;
+        justify-content: center;
         flex-direction: column;
         width: 20rem;
         height: 20rem;
     }
 
-    .cards .btn {
-        float: right;
+    .card-course p {
+        background: rgba(255, 255, 255, 0.7);
+        padding: 0.7rem;
+    }
+
+    .card-course.main {
+        background: url('../../src/img/main-course.png') no-repeat center / 100% 100%;
+    }
+
+    .card-course.teenage {
+        background: url('../../src/img/teenage-course.png') no-repeat center / 100% 100%;
+    }
+
+    .main-program .btn {
         margin: 2rem;
-        font-weight: lighter;
-        letter-spacing: 0.05em;
-        padding: 0.5rem 1rem;
-        font-size: small;
+        padding: 1rem;
+        color: #614021;
+        background: rgba(233, 187, 145, 0.9);
     }
 </style>

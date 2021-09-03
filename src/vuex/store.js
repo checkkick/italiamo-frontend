@@ -10,14 +10,16 @@ export default createStore({
     mutations: {
         SET_CONTENT(state, content) {
             state.content = content.data;
+            console.log(state.content);
         },
     },
     actions: {
-        async GET_CONTENT({ commit }) {
+        async GET_CONTENT({ commit }, page) {
             try {
+                console.log(`https://bexram.pythonanywhere.com/getcontent/${page}/`)
                 commit('SET_CONTENT', await axios({
                     method: 'GET',
-                    url: 'https://bexram.pythonanywhere.com/getcontent/1/'
+                    url: `https://bexram.pythonanywhere.com/getcontent/${page}/`
                 }))
             }
             catch (error) {

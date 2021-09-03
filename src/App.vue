@@ -15,7 +15,7 @@ export default {
   },
 
   mounted() {
-    this.GET_CONTENT()
+    this.GET_CONTENT('1')
   },
 
   computed:{
