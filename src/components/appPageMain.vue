@@ -4,7 +4,7 @@
       <img src="../img/logo-1.png" alt="изображение Italiamo">
       <button class="btn">Попробовать бесплатно</button>
   </header>
-  <section class="main-section">
+  <main class="main-section">
       <div class="flex-row">
           <div class="flex-column">
               <h2>Italiamo - про любовь</h2>
@@ -17,7 +17,7 @@
           </div>
           <img src="../img/teacher.png" alt="изображение учителя">
       </div>
-  </section>
+  </main>
   <article class="main-article">
       <h2>Почему нужно выбрать нас?</h2>
       <div class="flex-row">
@@ -33,7 +33,7 @@
             <h2>Что пишут нашу ученики?</h2>
             <button class="btn">Заглянуть в виртуальный класс</button>
       </div>
-      <div class="main-comments-animation">Отзывы с наимацией</div>
+      <div class="main-comments-animation">Отзывы с анимацией</div>
   </section>
   <section class="flex-column main-program">
       <h2>Программы обучения</h2>
@@ -74,36 +74,50 @@
       <form action="">
           <div class="flex-column">
               <h3>Заполните форму и мы свяжемся с Вами в ближайшее время!</h3>
-              <input class="input" type="text">
-              <input class="input" type="text">
+              <label>
+                  <input class="input" type="text">
+              </label>
+              <label>
+                  <input class="input" type="text">
+              </label>
               <button class="btn">Отправить</button>
           </div>
       </form>
   </section>
+  <section class="flex-column friend-company">
+      <h2>Мы работаем с:</h2>
+      <div class="flex-row">
+          <div><img src="../img/logo-1.png" alt="logo-company"><h3>Название</h3><p>Описание</p></div>
+          <div><img src="../img/logo-1.png" alt="logo-company"><h3>Название</h3><p>Описание</p></div>
+          <div><img src="../img/logo-1.png" alt="logo-company"><h3>Название</h3><p>Описание</p></div>
+      </div>
+  </section>
+  <app-footer></app-footer>
 </template>
 
 <script>
-import appMainTeachers from "./appMainTeachers";
+import appMainTeachers from "./appCardsTeachers";
+import appFooter from "./appFooter";
 
 export default {
     components: {
-        appMainTeachers
+        appMainTeachers, appFooter
     }
 }
 </script>
 
 <style>
     .main-header {
-        margin-top: 2rem;
         line-height: 40px;
         text-align: center;
-        padding: 2rem;
+        padding: 4rem;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         background: linear-gradient(rgba(255, 255, 255, 0.712), rgba(255, 255, 255, 0.712)), 
             url('../img/Roma-10.jpg') no-repeat center / 100% 100%;
+        box-shadow: 0 1rem 2rem 0 rgba(0,0,0,0.2);
     }
 
     .main-header img {
@@ -139,6 +153,7 @@ export default {
         text-align: center;
         flex-direction: column;
         background-color: white;
+        box-shadow: 0 1rem 2rem 0 rgba(0,0,0,0.2);
     }
 
     .main-article h1 {
@@ -147,6 +162,10 @@ export default {
         margin: 1rem;
         font-weight: lighter;
         color: #000000;
+    }
+
+    .main-article .flex-row {
+        align-items: flex-start;
     }
 
     .main-article .flex-row div {
@@ -169,15 +188,25 @@ export default {
 
     .main-program {
         background-color: #FFFCE6;
+        box-shadow: 0 1rem 2rem 0 rgba(0,0,0,0.2);
     }
 
     .card-course {
         display: flex;
         margin: 1rem;
-        justify-content: center;
+        justify-content: flex-end;
         flex-direction: column;
         width: 20rem;
         height: 20rem;
+    }
+
+    .card-course:hover {
+        -webkit-transition: all 0.3s ease;;
+        -moz-transition: all 0.3s ease;;
+        -o-transition: all 0.3s ease;;
+        transition: all 0.3s ease;
+        transform: scale(1.03);
+        cursor: pointer;
     }
 
     .card-course p {
@@ -187,10 +216,12 @@ export default {
 
     .card-course.main {
         background: url('../img/main-course.png') no-repeat center / 100% 100%;
+        border-radius: 1rem;
     }
 
     .card-course.teenage {
         background: url('../img/teenage-course.png') no-repeat center / 100% 100%;
+        border-radius: 1rem;
     }
 
     .main-program .btn {
@@ -201,9 +232,15 @@ export default {
     }
     .main-form-call {
         background: url('../img/main-form-call.jpg') no-repeat center / 100% 100%;
+        box-shadow: 0 1rem 2rem 0 rgba(0,0,0,0.2);
     }
 
     .main-form-call .flex-column {
         width: 30rem;
+    }
+
+    .friend-company img {
+        width: 5rem;
+        height: 5rem;
     }
 </style>

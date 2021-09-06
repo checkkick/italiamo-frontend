@@ -1,8 +1,5 @@
-* {
-    box-sizing: border-box;
-}
-
 body {
+    box-sizing: border-box;
     margin: 0;
     font-family: 'Poiret One', serif, sans-serif;
     font-size: 24px;
@@ -14,6 +11,13 @@ body {
     letter-spacing: 0.08em;
     text-indent: 2px;
     background: #FFECE1;
+}
+
+a {
+    color: #614021;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: none;
 }
 
 .input {
@@ -29,9 +33,7 @@ body {
 }
 
 .input:focus {
-    outline-width: 0.2rem;
-    outline-color: rgb(233, 187, 145);
-    outline-style: solid;
+    outline: rgb(233, 187, 145) solid 0.2rem;
 }
 
 .btn {
@@ -50,7 +52,7 @@ body {
 
 .btn:hover {
     cursor: pointer;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 .btn:disabled {
@@ -110,7 +112,7 @@ p {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-bottom: 2rem;
+    margin: 2rem 0;
 }
 
 .flex-row {
@@ -119,5 +121,4 @@ p {
     align-items: center;
     justify-content: space-around;
     flex-direction: row;
-    margin-bottom: 2rem;
 }

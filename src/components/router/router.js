@@ -1,20 +1,25 @@
 import {createRouter, createWebHistory} from 'vue-router'
-import appMainHeader from '../appMainHeader'
-import appComments from '../appComments'
+import appPageMain from '../appPageMain'
+import appPageComments from '../appPageComments'
+import appPagePrograms from "../appPagePrograms";
 
 export default createRouter({
     history: createWebHistory(),
     routes: [
         {
-            path: '/main',
-            name: 'appMainHeader',
-            component: appMainHeader,
-            alias: '/'
+            path: '/',
+            name: 'appPageMain',
+            component: appPageMain,
         },
         {
             path: '/comments',
-            name: 'appComments',
-            component: appComments
+            name: 'appPageComments',
+            component: appPageComments
+        },
+        {
+            path: '/programs',
+            name: 'appPagePrograms',
+            component: appPagePrograms
         }
     ]
 })
