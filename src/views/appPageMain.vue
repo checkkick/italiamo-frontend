@@ -1,7 +1,7 @@
 <template>
-  <header class="main-header">
+  <header class="header main-header">
       <h1>Онлайн школа итальянского языка</h1>
-      <img src="../img/logo-1.png" alt="изображение Italiamo">
+      <img src="../assets/logo-1.png" alt="изображение Italiamo">
       <button class="btn">Попробовать бесплатно</button>
   </header>
   <main class="main-section">
@@ -15,7 +15,7 @@
                   архитектуры, кулинарии и искусства Италии.
               </p>
           </div>
-          <img src="../img/teacher.png" alt="изображение учителя">
+          <img src="../assets/teacher.png" alt="изображение учителя">
       </div>
   </main>
   <article class="main-article">
@@ -74,12 +74,8 @@
       <form action="">
           <div class="flex-column">
               <h3>Заполните форму и мы свяжемся с Вами в ближайшее время!</h3>
-              <label>
-                  <input class="input" type="text">
-              </label>
-              <label>
-                  <input class="input" type="text">
-              </label>
+              <input class="input" type="text" placeholder="Как к вам обращаться?">
+              <input class="input" type="text" placeholder="Номер телефона или почта">
               <button class="btn">Отправить</button>
           </div>
       </form>
@@ -87,21 +83,31 @@
   <section class="flex-column friend-company">
       <h2>Мы работаем с:</h2>
       <div class="flex-row">
-          <div><img src="../img/logo-1.png" alt="logo-company"><h3>Название</h3><p>Описание</p></div>
-          <div><img src="../img/logo-1.png" alt="logo-company"><h3>Название</h3><p>Описание</p></div>
-          <div><img src="../img/logo-1.png" alt="logo-company"><h3>Название</h3><p>Описание</p></div>
+          <div class="friend-company-item">
+              <img src="../assets/logo-pria.png" alt="logo-company">
+              <h3>P.R.I.A</h3>
+              <p>Наша школа присоедининена к программе P.R.I.A отдела образования при генеральном консульстве Италии в Москве</p>
+          </div>
+          <div class="friend-company-item">
+              <img src="../assets/logoALMA.png" alt="logo-company">
+              <h3>ALMA EDIZIONI</h3>
+              <p>Мы обучаем по самым передовым курсам известного итальянского издательства alma edizioni </p>
+          </div>
+          <div class="friend-company-item">
+              <img src="../assets/log-scudit.png" alt="logo-company">
+              <h3>SCUDIT</h3>
+              <p>Мы организуем ваше обучение в ведущей школе Итальянского языка в Риме по специальным ценам </p>
+          </div>
       </div>
   </section>
-  <app-footer></app-footer>
 </template>
 
 <script>
-import appMainTeachers from "./appCardsTeachers";
-import appFooter from "./appFooter";
+import appMainTeachers from "../components/appCardsTeachers";
 
 export default {
     components: {
-        appMainTeachers, appFooter
+        appMainTeachers
     }
 }
 </script>
@@ -116,7 +122,7 @@ export default {
         align-items: center;
         flex-direction: column;
         background: linear-gradient(rgba(255, 255, 255, 0.712), rgba(255, 255, 255, 0.712)), 
-            url('../img/Roma-10.jpg') no-repeat center / 100% 100%;
+            url('../assets/Roma-10.jpg') no-repeat center / 100% 100%;
         box-shadow: 0 1rem 2rem 0 rgba(0,0,0,0.2);
     }
 
@@ -139,6 +145,7 @@ export default {
     }
 
     .main-section img {
+        margin-left: 5rem;
         border-radius: 10px;
         width: 206px;
         height: 191px;
@@ -152,7 +159,7 @@ export default {
         flex-wrap: wrap;
         text-align: center;
         flex-direction: column;
-        background-color: white;
+        background-color: rgba(255, 255, 255, 0.9);
         box-shadow: 0 1rem 2rem 0 rgba(0,0,0,0.2);
     }
 
@@ -187,7 +194,7 @@ export default {
     }
 
     .main-program {
-        background-color: #FFFCE6;
+        background-color: rgba(255, 252, 230, 0.7);
         box-shadow: 0 1rem 2rem 0 rgba(0,0,0,0.2);
     }
 
@@ -215,12 +222,12 @@ export default {
     }
 
     .card-course.main {
-        background: url('../img/main-course.png') no-repeat center / 100% 100%;
+        background: url('../assets/main-course.png') no-repeat center / 100% 100%;
         border-radius: 1rem;
     }
 
     .card-course.teenage {
-        background: url('../img/teenage-course.png') no-repeat center / 100% 100%;
+        background: url('../assets/teenage-course.png') no-repeat center / 100% 100%;
         border-radius: 1rem;
     }
 
@@ -231,7 +238,7 @@ export default {
         background: rgba(233, 187, 145, 0.9);
     }
     .main-form-call {
-        background: url('../img/main-form-call.jpg') no-repeat center / 100% 100%;
+        background: url('../assets/main-form-call.jpg') no-repeat center / 100% 100%;
         box-shadow: 0 1rem 2rem 0 rgba(0,0,0,0.2);
     }
 
@@ -240,7 +247,11 @@ export default {
     }
 
     .friend-company img {
-        width: 5rem;
-        height: 5rem;
+        max-width: 10rem;
+        max-height: 5rem;
+    }
+
+    .friend-company-item {
+        width: 30rem;
     }
 </style>

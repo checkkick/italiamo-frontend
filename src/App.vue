@@ -1,11 +1,13 @@
 <template>
   <app-navbar></app-navbar>
   <router-view></router-view>
+  <app-footer></app-footer>
 </template>
 
 <script>
 import {mapActions, mapGetters} from 'vuex'
 import appNavbar from '../src/components/appNavbar'
+import appFooter from "./components/appFooter";
 
 export default {
   methods: {
@@ -30,7 +32,7 @@ export default {
   },
 
   components: {
-    appNavbar
+    appNavbar, appFooter
   }
 }
 </script>

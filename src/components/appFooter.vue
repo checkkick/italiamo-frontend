@@ -1,5 +1,5 @@
 <template>
-    <footer class="flex-row">
+    <footer class="footer flex-row">
         <div class="flex-column">
             <h2>Наши контакты</h2>
             <div class="telephones">
@@ -14,8 +14,8 @@
         <div class="flex-column center-column">
             <h2>Подписывайтесь на нас в соцсетях!</h2>
             <span>
-                <img src="../img/insta-logo.png" alt="instagram logo">
-                <img src="../img/vk-logo.png" alt="instagram logo">
+                <img src="../assets/insta-logo.png" alt="instagram logo">
+                <img src="../assets/vk-logo.png" alt="instagram logo">
             </span>
         </div>
         <div class="flex-column">
@@ -32,8 +32,8 @@
 </script>
 
 <style scoped>
-    footer {
-        background-color: #E9BB91;
+    .footer {
+        background-color: rgba(233,187,145,0.9);
         box-shadow: 0 1rem 2rem 1rem rgba(0,0,0,0.2);
     }
 
@@ -43,6 +43,7 @@
     }
 
     .flex-column {
+        margin: 0;
         padding: 1rem;
     }
 
@@ -80,6 +81,7 @@
     h2 {
         font-size: 28px;
         margin: 0 0 1rem 0;
+        line-height: 2rem;
     }
 
     h4 {
@@ -87,14 +89,14 @@
         line-height: 24px;
         text-align: center;
         letter-spacing: 0.05em;
-        margin: 0.5rem 0;
+        margin: 0.1rem 0;
     }
 
     h5 {
-        margin: 0.1rem;
+        margin: 0;
         font-size: 18px;
-        line-height: 23px;
         text-align: center;
         letter-spacing: 0.05em;
+        line-height: 1.5rem;
     }
 </style>

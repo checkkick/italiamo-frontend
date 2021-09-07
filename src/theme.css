@@ -10,7 +10,12 @@ body {
     color: #614021;
     letter-spacing: 0.08em;
     text-indent: 2px;
-    background: #FFECE1;
+    background: rgba(255, 236, 225, 0.6);
+}
+
+.header ,.header.flex-column {
+    padding-top: 2rem;
+    margin-top: 5rem;
 }
 
 a {
@@ -29,7 +34,7 @@ a {
     border-radius: 99px;
     letter-spacing: 0.08em;
     border: none;
-    padding: 1.5rem 2rem;
+    padding: 1rem 1.5rem;
 }
 
 .input:focus {
@@ -46,13 +51,13 @@ a {
     letter-spacing: 0.08em;
     border: none;
     padding: 1.5rem 2rem;
-    background: rgba(233, 187, 145, 0.8);
+    background: rgba(233, 187, 145, 0.95);
     transition: all 0.22s;
 }
 
 .btn:hover {
     cursor: pointer;
-    opacity: 0.9;
+    opacity: 0.8;
 }
 
 .btn:disabled {
@@ -65,23 +70,6 @@ a {
 
 .btn:active {
     box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.3);
-}
-
-.btn.primary {
-    background: #42b983;
-    color: #fff;
-}
-
-.btn.danger {
-    background: #e53935;
-    color: #fff;
-    border-color: #e53935;
-}
-
-.btn.warning {
-    background: #c25205;
-    color: #fff;
-    border-color: #c25205;
 }
 
 /* h1 и h3 наследуются */

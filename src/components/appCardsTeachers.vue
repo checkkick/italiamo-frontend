@@ -19,7 +19,7 @@
                     return
                 }
                 const fileName = this.image.toLowerCase();
-                return require(`../img/${fileName}.png`);
+                return require(`../assets/${fileName}.png`);
             }
         }
     }

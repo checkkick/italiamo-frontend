@@ -5,7 +5,7 @@
             >
                 <p>{{ titleText }}</p>
             </div>
-            <div class="back"><span>{{ aboutText }}</span></div>
+            <div class="back"><p>{{ aboutText }}</p></div>
         </section>
 
 
@@ -25,7 +25,7 @@
                     return
                 }
                 const fileName = this.image.toLowerCase();
-                return require(`../img/${fileName}.png`);
+                return require(`../assets/${fileName}.png`);
             }
         }
     }
@@ -50,7 +50,7 @@
         align-items: center;
         transition: 1s;
         backface-visibility: hidden;
-        background-color: rgba(255,255,255,0.8);
+        background-color: rgba(255,255,255,0.9);
         border-radius: 15px;
     }
     .front {
@@ -65,6 +65,12 @@
     }
     .back {
         transform: rotateY(180deg);
+    }
+    .back p {
+        font-size: 18px;
+        line-height: 20px;
+        padding: 1rem;
+        width: 100%;
     }
     .card:hover .front {
         transform: rotateY(180deg);}
