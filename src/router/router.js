@@ -6,8 +6,8 @@ import appPageTeachers from "../views/appPageTeachers";
 import appPageContacts from "../views/appPageContacts";
 
 export default createRouter({
-    base: '/italiamo-frontend-vue-master/',
-    history: createWebHistory(),
+    base: '/italiamo-frontend-vue-master',
+    history: createWebHistory(process.env.BASE_URL),
     routes: [
         {
             path: '/',
