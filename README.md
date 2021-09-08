@@ -1,4 +1,4 @@
-# second-vue-project
+# italiamo-frontend-vue-master
 
 ## Project setup
 ```
