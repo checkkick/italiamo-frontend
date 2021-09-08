@@ -1,3 +1,5 @@
 module.exports = {
-    publicPath: '/italiamo-frontend-vue-master/'
+    publicPath: process.env.NODE_ENV === 'production'
+        ? '/italiamo-frontend-vue-master/'
+        : '/'
 }
