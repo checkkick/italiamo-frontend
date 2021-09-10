@@ -1,32 +1,45 @@
 <template>
   <nav class="navbar-menu">
-      <router-link to="/"><img src="../assets/logo-1.png" alt="logo"></router-link>
+      <router-link to="/">
+          <img class="img-logo" src="../assets/logo-1.png" alt="logo">
+      </router-link>
       <router-link
-              :class="routeQuery === '/' ? 'hover-item ' : ''"
+              :class="this.$route.path === '/' ? 'hover-item ' : ''"
               class="navbar-menu-item"
               to="/"
       >Главная</router-link>
       <router-link
-              :class="routeQuery === '/teachers' ? 'hover-item ' : ''"
+              :class="this.$route.path === '/programs' ? 'hover-item ' : ''"
+              class="navbar-menu-item"
+              to="/programs"
+      >Программы</router-link>
+      <router-link
+              :class="this.$route.path === '/teachers' ? 'hover-item ' : ''"
+              class="navbar-menu-item"
+              to="/teachers"
+      >Цены</router-link>
+      <router-link
+              :class="this.$route.path === '/teachers' ? 'hover-item ' : ''"
+              class="navbar-menu-item"
+              to="/teachers"
+      >Оплата</router-link>
+      <router-link
+              :class="this.$route.path === '/teachers' ? 'hover-item ' : ''"
               class="navbar-menu-item"
               to="/teachers"
       >Преподаватели</router-link>
       <router-link
-              :class="routeQuery === '/programs' ? 'hover-item ' : ''"
-              class="navbar-menu-item"
-              to="/programs"
-      >Программы обучения</router-link>
-      <router-link
-              :class="routeQuery === '/comments' ? 'hover-item ' : ''"
+              :class="this.$route.path === '/comments' ? 'hover-item ' : ''"
               class="navbar-menu-item"
               to="/comments"
       >Отзывы</router-link>
       <router-link
-              :class="routeQuery === '/contacts' ? 'hover-item ' : ''"
+              :class="this.$route.path === '/contacts' ? 'hover-item ' : ''"
               class="navbar-menu-item"
               to="/contacts"
       >Контакты</router-link>
       <img
+              class="img-menu"
               v-on:click="showDropdownMenu = !showDropdownMenu"
               src="../assets/menu.png"
               alt="dropdown-menu-logo"
@@ -34,7 +47,7 @@
       <transition name="fade">
           <section class="dropdown-menu flex-column" v-if="showDropdownMenu">
               <router-link v-on:click="showDropdownMenu = !showDropdownMenu"
-                           :class="routeQuery === '/' ? 'hover-item ' : ''"
+                           :class="this.$route.path === '/' ? 'hover-item ' : ''"
                            class="dropdown-menu-item"
                            to="/"
               >Главная</router-link>
@@ -43,24 +56,24 @@
                            to="/"
               >О нас</router-link>
               <router-link v-on:click="showDropdownMenu = !showDropdownMenu"
-                           :class="routeQuery === '/comments' ? 'hover-item ' : ''"
+                           :class="this.$route.path === '/comments' ? 'hover-item ' : ''"
                            class="dropdown-menu-item"
                            to="/comments"
               >Отзывы учеников</router-link>
               <router-link v-on:click="showDropdownMenu = !showDropdownMenu"
-                           :class="routeQuery === '/programs' ? 'hover-item ' : ''"
+                           :class="this.$route.path === '/programs' ? 'hover-item ' : ''"
                            class="dropdown-menu-item"
                            to="/programs"
               >Программы обучения</router-link>
               <router-link
                       v-on:click="showDropdownMenu = !showDropdownMenu"
-                      :class="routeQuery === '/teachers' ? 'hover-item ' : ''"
+                      :class="this.$route.path === '/teachers' ? 'hover-item ' : ''"
                       class="dropdown-menu-item"
                       to="/teachers"
               >Преподаватели</router-link>
               <router-link
                       v-on:click="showDropdownMenu = !showDropdownMenu"
-                      :class="routeQuery === '/contacts' ? 'hover-item ' : ''"
+                      :class="this.$route.path === '/contacts' ? 'hover-item ' : ''"
                       class="dropdown-menu-item"
                       to="/contacts"
               >Контакты</router-link>
@@ -75,11 +88,6 @@ export default {
         return {
             showDropdownMenu: false
         }
-    },
-    computed: {
-        routeQuery() {
-            return this.$route.path
-        }
     }
 }
 </script>
@@ -87,9 +95,7 @@ export default {
 <style>
     .navbar-menu {
         padding: 0.5rem 3rem;
-        font-family: 'Poiret One', serif, sans-serif;
         font-size: 28px;
-        list-style: none;
         display: flex;
         justify-content: space-around;
         align-items: center;
@@ -103,17 +109,21 @@ export default {
         box-shadow: 0 0 1rem 0 rgba(0,0,0,0.1);
     }
 
-    .navbar-menu img {
+    .img-logo {
+        margin-right: 1.5rem;
         cursor: pointer;
-        width: 2rem;
-        height: 2rem;
-        padding: 1rem;
+        width: 80px;
+        height: 80px;
+    }
+
+    .img-menu {
+        margin-left: 1.5rem;
+        cursor: pointer;
     }
 
     .navbar-menu-item {
         margin: 0 0.5rem;
         padding: 1rem;
-        border-bottom: 0;
         text-decoration: none;
         background: linear-gradient(currentColor, currentColor) no-repeat 0 100%;
         background-size: 0 2px;

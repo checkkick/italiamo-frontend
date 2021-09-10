@@ -83,21 +83,21 @@
   <section class="flex-column friend-company">
       <h2>Мы работаем с:</h2>
       <div class="flex-row">
-          <div class="friend-company-item">
+          <a href="https://programmapria.ru/index.php/ru/home-ru/about-ru" class="friend-company-item">
               <img src="../assets/logo-pria.png" alt="logo-company">
-              <h3>P.R.I.A</h3>
-              <p>Наша школа присоедининена к программе P.R.I.A отдела образования при генеральном консульстве Италии в Москве</p>
-          </div>
-          <div class="friend-company-item">
+              <h3>P.R.I.A.</h3>
+              <p>Наша школа присоедининена к программе P.R.I.A отдела образования при генеральном консульстве Италии в Москве.</p>
+          </a>
+          <a href="https://www.almaedizioni.it/it/" class="friend-company-item">
               <img src="../assets/logoALMA.png" alt="logo-company">
               <h3>ALMA EDIZIONI</h3>
-              <p>Мы обучаем по самым передовым курсам известного итальянского издательства alma edizioni </p>
-          </div>
-          <div class="friend-company-item">
+              <p>Мы обучаем по самым передовым курсам известного итальянского издательства alma edizioni.</p>
+          </a>
+          <a href="http://www.scudit.net/infoitaliano.htm" class="friend-company-item">
               <img src="../assets/log-scudit.png" alt="logo-company">
               <h3>SCUDIT</h3>
-              <p>Мы организуем ваше обучение в ведущей школе Итальянского языка в Риме по специальным ценам </p>
-          </div>
+              <p>Мы организуем ваше обучение в ведущей школе Итальянского языка в Риме по специальным ценам.</p>
+          </a>
       </div>
   </section>
 </template>
@@ -252,6 +252,22 @@ export default {
     }
 
     .friend-company-item {
-        width: 30rem;
+        margin: 1rem;
+        max-width: 25rem;
+        height: 15rem;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 20px;
+        box-shadow: 1px 10px 20px 0 rgba(0,0,0,0.3);
+    }
+
+    .friend-company-item:hover {
+        -webkit-transition: all 0.3s ease;;
+        -moz-transition: all 0.3s ease;;
+        -o-transition: all 0.3s ease;;
+        transition: all 0.3s ease;
+        transform: scale(1.03);
+        background-color: #FFFCE5;
+        cursor: pointer;
     }
 </style>

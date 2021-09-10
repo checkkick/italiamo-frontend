@@ -60,7 +60,7 @@
 
 <style scoped>
     .card {
-        margin: 1.5rem;
+        margin: 1rem;
         padding: 0;
     }
 </style>
