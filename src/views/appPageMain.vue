@@ -114,7 +114,6 @@ export default {
 
 <style>
     .main-header {
-        line-height: 40px;
         text-align: center;
         padding: 4rem;
         display: flex;
@@ -140,12 +139,7 @@ export default {
         flex-direction: column;
     }
 
-    .main-section .flex-row {
-        align-items: center;
-    }
-
     .main-section img {
-        margin-left: 5rem;
         border-radius: 10px;
         width: 206px;
         height: 191px;
@@ -243,7 +237,7 @@ export default {
     }
 
     .main-form-call .flex-column {
-        width: 30rem;
+        max-width: 30rem;
     }
 
     .friend-company img {
@@ -254,7 +248,6 @@ export default {
     .friend-company-item {
         margin: 1rem;
         max-width: 25rem;
-        height: 15rem;
         padding: 1rem;
         background: rgba(255, 255, 255, 0.9);
         border-radius: 20px;
@@ -269,5 +262,11 @@ export default {
         transform: scale(1.03);
         background-color: #FFFCE5;
         cursor: pointer;
+    }
+
+    @media (max-width : 1250px) {
+        .main-header img {
+            display: none;
+        }
     }
 </style>

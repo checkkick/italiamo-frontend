@@ -94,10 +94,10 @@ export default {
 
 <style>
     .navbar-menu {
-        padding: 0.5rem 3rem;
+        padding: 0.5rem 1rem;
         font-size: 28px;
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
         position: fixed;
         top: 0;
@@ -110,20 +110,19 @@ export default {
     }
 
     .img-logo {
-        margin-right: 1.5rem;
         cursor: pointer;
         width: 80px;
         height: 80px;
     }
 
     .img-menu {
-        margin-left: 1.5rem;
+        display: none;
         cursor: pointer;
     }
 
     .navbar-menu-item {
         margin: 0 0.5rem;
-        padding: 1rem;
+        padding: 1rem 0.5rem;
         text-decoration: none;
         background: linear-gradient(currentColor, currentColor) no-repeat 0 100%;
         background-size: 0 2px;
@@ -146,13 +145,13 @@ export default {
         align-items: center;
         background: rgba(255, 255, 255, 0.98);
         position: fixed;
-        top: 5.28rem;
+        top: 6rem;
         right: 0;
         left: 0;
     }
 
     .dropdown-menu-item {
-        margin: 1rem;
+        margin: 2%;
         padding: 0.5rem;
         text-decoration: none;
         background: linear-gradient(currentColor, currentColor) no-repeat 0 100%;
@@ -167,5 +166,14 @@ export default {
     .fade-enter,
     .fade-leave-to {
         opacity: 0;
+    }
+
+    @media (max-width : 1250px) {
+        .img-menu{
+            display: inline-block;
+        }
+        .navbar-menu-item {
+            display: none;
+        }
     }
 </style>
