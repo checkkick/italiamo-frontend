@@ -264,7 +264,7 @@ export default {
         cursor: pointer;
     }
 
-    @media (max-width : 1250px) {
+    @media (max-width : 650px) {
         .main-header img {
             display: none;
         }

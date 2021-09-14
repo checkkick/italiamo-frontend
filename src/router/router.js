@@ -4,6 +4,8 @@ import appPageComments from '../views/appPageComments'
 import appPagePrograms from "../views/appPagePrograms";
 import appPageTeachers from "../views/appPageTeachers";
 import appPageContacts from "../views/appPageContacts";
+import appPageNews from "../views/appPageNews";
+import appPagePrices from "../views/appPagePrices";
 
 export default createRouter({
     base: '/italiamo-frontend-vue-master',
@@ -15,9 +17,9 @@ export default createRouter({
             component: appPageMain,
         },
         {
-            path: '/comments',
-            name: 'appPageComments',
-            component: appPageComments
+            path: '/news',
+            name: 'appPageNews',
+            component: appPageNews,
         },
         {
             path: '/programs',
@@ -25,9 +27,19 @@ export default createRouter({
             component: appPagePrograms
         },
         {
+            path: '/prices',
+            name: 'appPagePrices',
+            component: appPagePrices
+        },
+        {
             path: '/teachers',
             name: 'appPageTeachers',
             component: appPageTeachers
+        },
+        {
+            path: '/comments',
+            name: 'appPageComments',
+            component: appPageComments
         },
         {
             path: '/contacts',

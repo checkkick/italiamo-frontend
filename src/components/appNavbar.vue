@@ -4,75 +4,93 @@
           <img class="img-logo" src="../assets/logo-1.png" alt="logo">
       </router-link>
       <router-link
+              @click="scrollToTop"
               :class="this.$route.path === '/' ? 'hover-item ' : ''"
               class="navbar-menu-item"
               to="/"
       >Главная</router-link>
       <router-link
+              @click="scrollToTop"
+              :class="this.$route.path === '/news' ? 'hover-item ' : ''"
+              class="navbar-menu-item"
+              to="/news"
+      >Новости</router-link>
+      <router-link
+              @click="scrollToTop"
               :class="this.$route.path === '/programs' ? 'hover-item ' : ''"
               class="navbar-menu-item"
               to="/programs"
       >Программы</router-link>
       <router-link
-              :class="this.$route.path === '/teachers' ? 'hover-item ' : ''"
+              @click="scrollToTop"
+              :class="this.$route.path === '/prices' ? 'hover-item ' : ''"
               class="navbar-menu-item"
-              to="/teachers"
+              to="/prices"
       >Цены</router-link>
       <router-link
-              :class="this.$route.path === '/teachers' ? 'hover-item ' : ''"
-              class="navbar-menu-item"
-              to="/teachers"
-      >Оплата</router-link>
-      <router-link
+              @click="scrollToTop"
               :class="this.$route.path === '/teachers' ? 'hover-item ' : ''"
               class="navbar-menu-item"
               to="/teachers"
       >Преподаватели</router-link>
       <router-link
+              @click="scrollToTop"
               :class="this.$route.path === '/comments' ? 'hover-item ' : ''"
               class="navbar-menu-item"
               to="/comments"
       >Отзывы</router-link>
       <router-link
+              @click="scrollToTop"
               :class="this.$route.path === '/contacts' ? 'hover-item ' : ''"
               class="navbar-menu-item"
               to="/contacts"
       >Контакты</router-link>
       <img
               class="img-menu"
-              v-on:click="showDropdownMenu = !showDropdownMenu"
+              @click="showDropdownMenu = !showDropdownMenu"
               src="../assets/menu.png"
               alt="dropdown-menu-logo"
       >
       <transition name="fade">
           <section class="dropdown-menu flex-column" v-if="showDropdownMenu">
-              <router-link v-on:click="showDropdownMenu = !showDropdownMenu"
-                           :class="this.$route.path === '/' ? 'hover-item ' : ''"
-                           class="dropdown-menu-item"
-                           to="/"
+              <router-link
+                      @click="dropdownMenu"
+                      :class="this.$route.path === '/' ? 'hover-item ' : ''"
+                      class="dropdown-menu-item"
+                      to="/"
               >Главная</router-link>
-              <router-link v-on:click="showDropdownMenu = !showDropdownMenu"
-                           class="dropdown-menu-item"
-                           to="/"
-              >О нас</router-link>
-              <router-link v-on:click="showDropdownMenu = !showDropdownMenu"
-                           :class="this.$route.path === '/comments' ? 'hover-item ' : ''"
-                           class="dropdown-menu-item"
-                           to="/comments"
-              >Отзывы учеников</router-link>
-              <router-link v-on:click="showDropdownMenu = !showDropdownMenu"
-                           :class="this.$route.path === '/programs' ? 'hover-item ' : ''"
-                           class="dropdown-menu-item"
-                           to="/programs"
+              <router-link
+                      @click="dropdownMenu"
+                      :class="this.$route.path === '/news' ? 'hover-item ' : ''"
+                      class="dropdown-menu-item"
+                      to="/news"
+              >Новости</router-link>
+              <router-link
+                      @click="dropdownMenu"
+                      :class="this.$route.path === '/programs' ? 'hover-item ' : ''"
+                      class="dropdown-menu-item"
+                      to="/programs"
               >Программы обучения</router-link>
               <router-link
-                      v-on:click="showDropdownMenu = !showDropdownMenu"
+                      @click="dropdownMenu"
+                      :class="this.$route.path === '/prices' ? 'hover-item ' : ''"
+                      class="dropdown-menu-item"
+                      to="/prices"
+              >Цены и оплата</router-link>
+              <router-link
+                      @click="dropdownMenu"
                       :class="this.$route.path === '/teachers' ? 'hover-item ' : ''"
                       class="dropdown-menu-item"
                       to="/teachers"
               >Преподаватели</router-link>
               <router-link
-                      v-on:click="showDropdownMenu = !showDropdownMenu"
+                      @click="dropdownMenu"
+                      :class="this.$route.path === '/comments' ? 'hover-item ' : ''"
+                      class="dropdown-menu-item"
+                      to="/comments"
+              >Отзывы</router-link>
+              <router-link
+                      @click="dropdownMenu"
                       :class="this.$route.path === '/contacts' ? 'hover-item ' : ''"
                       class="dropdown-menu-item"
                       to="/contacts"
@@ -87,6 +105,15 @@ export default {
     data() {
         return {
             showDropdownMenu: false
+        }
+    },
+    methods: {
+        scrollToTop() {
+            window.scrollTo(0,0);
+        },
+        dropdownMenu() {
+            this.showDropdownMenu = !this.showDropdownMenu
+            window.scrollTo(0,0);
         }
     }
 }
@@ -103,7 +130,7 @@ export default {
         top: 0;
         left: 0;
         right: 0;
-        z-index: 999;
+        z-index: 3;
         background: rgba(255, 255, 255, 0.98);
         text-shadow: 0 3px 3px rgba(0, 0, 0, 0.25);
         box-shadow: 0 0 1rem 0 rgba(0,0,0,0.1);

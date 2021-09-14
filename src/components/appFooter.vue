@@ -99,4 +99,15 @@
         letter-spacing: 0.05em;
         line-height: 1.5rem;
     }
+
+    @media (max-width : 750px) {
+        .footer {
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer .flex-column {
+            align-items: center;
+        }
+    }
 </style>

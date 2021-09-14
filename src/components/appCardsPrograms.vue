@@ -5,7 +5,9 @@
             >
                 <p>{{ titleText }}</p>
             </div>
-            <div class="back"><p>{{ aboutText }}</p></div>
+            <div class="back">
+                <p>{{ aboutText }}</p>
+            </div>
         </section>
 
 
@@ -72,8 +74,23 @@
         padding: 1rem;
         width: 100%;
     }
+
     .card:hover .front {
-        transform: rotateY(180deg);}
+        transform: rotateY(180deg);
+    }
     .card:hover .back {
-        transform: rotateY(360deg);}
+        transform: rotateY(360deg);
+    }
+
+    @media (max-width : 1250px) {
+        .card {
+            width: 21rem;
+            height: 21rem;
+            perspective: 30rem;
+        }
+        .front, .back {
+            width: 21rem;
+            height: 21rem;
+        }
+    }
 </style>
