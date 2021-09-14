@@ -100,13 +100,14 @@
         line-height: 1.5rem;
     }
 
-    @media (max-width : 750px) {
+    @media (max-width : 1050px) {
         .footer {
             justify-content: center;
             align-items: center;
         }
 
         .footer .flex-column {
+            margin: 0 8rem;
             align-items: center;
         }
     }
