@@ -82,7 +82,7 @@
         transform: rotateY(360deg);
     }
 
-    @media (max-width : 1250px) {
+    @media (max-width : 650px) {
         .card {
             width: 21rem;
             height: 21rem;
@@ -92,7 +92,9 @@
             width: 21rem;
             height: 21rem;
         }
-
+        .back {
+            display: none;
+        }
         .card:hover .front {
             transform: none;
         }

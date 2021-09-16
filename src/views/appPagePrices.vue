@@ -84,7 +84,6 @@
 
 <style scoped>
     .flex-column {
-        width: 100%;
         align-items: center;
     }
     .price-card {

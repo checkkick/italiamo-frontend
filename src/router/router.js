@@ -8,7 +8,6 @@ import appPageNews from "../views/appPageNews";
 import appPagePrices from "../views/appPagePrices";
 
 export default createRouter({
-    base: '/italiamo-frontend-vue-master',
     history: createWebHistory(process.env.BASE_URL),
     routes: [
         {
