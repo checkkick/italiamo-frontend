@@ -92,5 +92,12 @@
             width: 21rem;
             height: 21rem;
         }
+
+        .card:hover .front {
+            transform: none;
+        }
+        .card:hover .back {
+            transform: none;
+        }
     }
 </style>
