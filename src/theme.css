@@ -88,8 +88,8 @@ a {
     }
     .table-row-2 {
         background-color: rgba(255,255,255,0.8);
-        border-bottom: 1px solid rgba(128, 128, 128, 0.4);
-        border-top: 1px solid rgba(128, 128, 128, 0.4);
+        border-bottom: 2px solid rgba(128, 128, 128, 0.4);
+        border-top: 2px solid rgba(128, 128, 128, 0.4);
     }
     .table-row-item {
         margin-right: 0;
@@ -169,8 +169,8 @@ p {
         display: block;
     }
     .table-row-item {
-        display: block;
-        text-align: right;
+        display: flex;
+        flex-direction: column;
         border-bottom: 1px dotted #ccc;
     }
     .table-row-item:last-child {
@@ -178,7 +178,6 @@ p {
     }
     .table-row-item:before {
         content: attr(aria-label);
-        float: left;
         font-size: 17px;
         text-transform: uppercase;
         font-weight: bold;
