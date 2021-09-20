@@ -94,10 +94,6 @@
         background-color: rgba(255,255,255,0.8);
         box-shadow: 1px 10px 20px 0 rgba(0,0,0,0.1);
     }
-    .price-card:hover {
-        transition: all 0.3s ease;
-        transform: scale(1.03);
-    }
         .price-card-title {
             padding: 1rem 2rem;
             border-radius: 15px;

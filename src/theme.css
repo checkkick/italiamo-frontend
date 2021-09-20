@@ -29,23 +29,41 @@ a {
 }
 
 .input {
-    margin: 0.5rem;
+    margin: 0.5rem 1rem;
     font-family: 'Poiret One', serif, sans-serif;
-    font-weight: normal;
     font-size: 20px;
     position: relative;
     border-radius: 99px;
     letter-spacing: 0.08em;
     border: none;
     padding: 1rem 1.5rem;
+    transition: all 0.05s;
 }
 
 .input:focus {
     outline: rgb(233, 187, 145) solid 0.2rem;
 }
 
+.textarea {
+    margin: 0.5rem 1rem;
+    font-family: 'Poiret One', serif, sans-serif;
+    font-size: 20px;
+    resize: none;
+    height: 20rem;
+    width: 30rem;
+    border-radius: 15px;
+    letter-spacing: 0.08em;
+    border: none;
+    padding: 1rem 1.5rem;
+    transition: all 0.05s;
+}
+
+.textarea:focus {
+    outline: rgb(233, 187, 145) solid 0.2rem;
+}
+
 .btn {
-    margin: 2rem;
+    margin: 0.5rem 1rem 2rem 1rem;
     font-family: 'Poiret One', serif, sans-serif;
     font-weight: normal;
     font-size: 20px;
@@ -63,21 +81,13 @@ a {
     background: rgba(215, 177, 136, 0.85);
 }
 
-.btn:disabled {
-    cursor: not-allowed;
-    opacity: 1!important;
-    background: #eee!important;
-    border-color: #ddd!important;
-    color: #999!important;
-}
-
 .btn:active {
     box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
 
 .table {
     min-width: 15rem;
-    margin: 0 2rem;
+    margin: 0 2rem 1rem 2rem;
     width: 85%;
     border-collapse: collapse;
 }
@@ -164,6 +174,15 @@ p {
 }
 
 @media (max-width: 950px) {
+    .form {
+        width: 100%;
+    }
+    .textarea {
+        width: auto;
+    }
+    .input {
+        width: auto;
+    }
     .table thead {
         display: none;
     }

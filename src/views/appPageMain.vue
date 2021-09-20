@@ -66,7 +66,7 @@
       </div>
   </section>
   <section class="flex-row main-form-call">
-      <div class="flex-column">
+      <div class="flex-column main-form-call-buttons">
           <button class="btn">Как проходят уроки в Italiamo?</button>
           <button class="btn">Как быстро можно выучить итальянский?</button>
           <button class="btn">Посмотреть видео о школе</button>
@@ -236,10 +236,13 @@ export default {
     .main-form-call {
         background: url('../assets/main-form-call.jpg') no-repeat center / 100% 100%;
         box-shadow: 0 1rem 2rem 0 rgba(0,0,0,0.2);
+        align-items: normal;
     }
 
     .main-form-call .flex-column {
         max-width: 30rem;
+        align-items: stretch;
+        justify-content: space-between;
     }
 
     .friend-company img {
@@ -258,6 +261,7 @@ export default {
         background: rgba(255, 255, 255, 0.9);
         border-radius: 20px;
         box-shadow: 1px 10px 20px 0 rgba(0,0,0,0.3);
+        align-self: normal;
     }
 
     .friend-company-item:hover {
@@ -272,6 +276,9 @@ export default {
 
     @media (max-width : 650px) {
         .main-header img {
+            display: none;
+        }
+        .main-form-call-buttons {
             display: none;
         }
     }
