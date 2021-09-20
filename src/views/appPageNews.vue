@@ -6,6 +6,7 @@
         <app-cards-news
                 v-for="news in NEWS"
                 :key="news.id"
+                :news-img="news.newsImg"
                 :dateNews="news.dateNews"
                 :titleNews="news.titleNews"
                 :summary="news.summary"

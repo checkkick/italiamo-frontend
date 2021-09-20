@@ -90,6 +90,7 @@
         max-width: 35rem;
         margin: 1rem;
         border-radius: 15px;
+        cursor: pointer;
         background-color: rgba(255,255,255,0.8);
         box-shadow: 1px 10px 20px 0 rgba(0,0,0,0.1);
     }

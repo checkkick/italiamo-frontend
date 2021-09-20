@@ -15,6 +15,7 @@ body {
 }
 
 .header ,.header.flex-column {
+    align-items: center;
     line-height: 50px;
     padding-top: 2rem;
     margin-top: 6rem;
@@ -53,13 +54,13 @@ a {
     letter-spacing: 0.08em;
     border: none;
     padding: 1.5rem 2rem;
-    background: rgba(233, 187, 145, 0.95);
+    background: rgba(233, 187, 145, 0.98);
     transition: all 0.22s;
 }
 
 .btn:hover {
     cursor: pointer;
-    opacity: 0.8;
+    background: rgba(215, 177, 136, 0.85);
 }
 
 .btn:disabled {
@@ -117,8 +118,8 @@ a {
     }
 
 h2 {
-    margin-bottom: 4rem;
     max-width: 90%;
+    margin: 0 0 2rem 0;
     padding: 0 1rem;
     font-family: 'Poiret One', serif, sans-serif;
     font-weight: bold;
@@ -130,6 +131,7 @@ h2 {
 }
 
 h3 {
+    line-height: 35px;
     max-width: 90%;
     padding: 0 1rem;
 }

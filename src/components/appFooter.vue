@@ -57,6 +57,7 @@
 
     .center-column {
         align-self: flex-start;
+        align-items: center;
         width: 25rem;
     }
 
@@ -81,6 +82,7 @@
     h2 {
         font-size: 28px;
         margin: 0 0 1rem 0;
+        padding: 0;
         line-height: 2rem;
     }
 
