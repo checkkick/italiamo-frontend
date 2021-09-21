@@ -6,27 +6,28 @@
   </header>
   <main class="main-section">
       <div class="flex-row">
-          <div class="flex-column">
-              <h2>Italiamo - про любовь</h2>
-              <p>Наша миссия - разделить с Вами любовь к Италии.</p>
-              <p>
-                  Здесь Вы сможете найти единомышленников, поверите в себя
-                  и откроете чудесный новый мир языка, истории, культуры,
-                  архитектуры, кулинарии и искусства Италии.
-              </p>
+          <template v-for="el in header" v-bind:key="el.id">
+          <div class="flex-column" v-if="el.name=='slogan'"
+               v-html="el.text">
           </div>
-          <img src="../assets/teacher.png" alt="изображение учителя">
+          <img
+           v-bind:src="el.file[0].file"  v-bind:alt="el.file[0].alt"
+           v-if="el.name=='slogan'"
+           >
+          </template>
+
       </div>
   </main>
   <article class="main-article">
       <h2>Почему нужно выбрать нас?</h2>
       <div class="flex-row">
-          <div><h1>1</h1><h3>Профессиональные педагоги</h3><p>Наши преподаватели - лучшие в своем деле. Это выпускники, а в настоящее время педагоги ведущих ВУЗов России, многие из которых долгое время проживали в Италии.
-</p></div>
-          <div><h1>2</h1><h3>Доступное обучение</h3><p>От 670 рублей за 1 занятие (60 минут) в мини-группе до 4-х человек</p></div>
-          <div><h1>3</h1><h3>Наша школа присоединена к P.R.I.A</h3><p>P.R.I.A - программа отдела образования при генеральном консульстве Италии в Москве</p></div>
-          <div><h1>4</h1><h3>Индивидуальный подход</h3><p>На наших уроках Вы не будете получать “сухие” знания. Вас ждёт увлекательное путешествие в мир Италии, которое мы организуем в соответствии с Вашими целями.</p></div>
-      </div>
+          <div v-for="adv in advantages"
+          :key="adv.id">
+              <h1>{{adv.id}}</h1>
+              <h3>{{adv.name}}</h3>
+              <p>{{adv.text}}</p>
+          </div>
+        </div>
   </article>
   <section class="flex-row">
       <div class="flex-column main-comments">
@@ -57,11 +58,11 @@
       <h2>Наши преподаватели</h2>
       <div class="flex-row">
           <app-main-teachers
-                  v-for="content in this.$store.state.content"
-                  :key="content.id"
-                  :page-id="content.pageId"
-                  :name="content.name"
-                  :image="content.image"
+                  v-for="teacher in teachers"
+                  :key="teacher.id"
+                  :page-id="teacher.alt"
+                  :name="teacher.name"
+                  :image="teacher.logo"
           ></app-main-teachers>
       </div>
   </section>
@@ -104,10 +105,22 @@
 
 <script>
 import appMainTeachers from "../components/appCardsTeachers";
-
+import {mapGetters} from 'vuex'
 export default {
     components: {
         appMainTeachers
+    },
+    computed: {
+        ...mapGetters('Backend', {
+            advantages: 'ADVANTAGES',
+            clients: 'CLIENTS',
+            teachers: 'TEACHERS',
+        })
+    },
+    mounted() {
+        this.$store.dispatch('Backend/GET_CONTENT',1)
+        this.$store.dispatch('Backend/GET_CLIENTS')
+        this.$store.dispatch('Backend/GET_TEACHERS')
     }
 }
 </script>
