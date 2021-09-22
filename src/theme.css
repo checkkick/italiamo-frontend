@@ -15,6 +15,7 @@ body {
 }
 
 .header ,.header.flex-column {
+    align-items: center;
     line-height: 50px;
     padding-top: 2rem;
     margin-top: 6rem;
@@ -28,23 +29,41 @@ a {
 }
 
 .input {
-    margin: 0.5rem;
+    margin: 0.5rem 1rem;
     font-family: 'Poiret One', serif, sans-serif;
-    font-weight: normal;
     font-size: 20px;
     position: relative;
     border-radius: 99px;
     letter-spacing: 0.08em;
     border: none;
     padding: 1rem 1.5rem;
+    transition: all 0.05s;
 }
 
 .input:focus {
     outline: rgb(233, 187, 145) solid 0.2rem;
 }
 
+.textarea {
+    margin: 0.5rem 1rem;
+    font-family: 'Poiret One', serif, sans-serif;
+    font-size: 20px;
+    resize: none;
+    height: 20rem;
+    width: 30rem;
+    border-radius: 15px;
+    letter-spacing: 0.08em;
+    border: none;
+    padding: 1rem 1.5rem;
+    transition: all 0.05s;
+}
+
+.textarea:focus {
+    outline: rgb(233, 187, 145) solid 0.2rem;
+}
+
 .btn {
-    margin: 2rem;
+    margin: 0.5rem 1rem 2rem 1rem;
     font-family: 'Poiret One', serif, sans-serif;
     font-weight: normal;
     font-size: 20px;
@@ -53,29 +72,65 @@ a {
     letter-spacing: 0.08em;
     border: none;
     padding: 1.5rem 2rem;
-    background: rgba(233, 187, 145, 0.95);
+    background: rgba(233, 187, 145, 0.98);
     transition: all 0.22s;
 }
 
 .btn:hover {
     cursor: pointer;
-    opacity: 0.8;
-}
-
-.btn:disabled {
-    cursor: not-allowed;
-    opacity: 1!important;
-    background: #eee!important;
-    border-color: #ddd!important;
-    color: #999!important;
+    background: rgba(215, 177, 136, 0.85);
 }
 
 .btn:active {
     box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
 
+.table {
+    min-width: 15rem;
+    margin: 0 2rem 1rem 2rem;
+    width: 85%;
+    border-collapse: collapse;
+}
+    .table-title-item {
+        padding: 1rem;
+    }
+    .table-row-1 {
+        background-color: rgba(255,255,255,0.95);
+    }
+    .table-row-2 {
+        background-color: rgba(255,255,255,0.8);
+        border-bottom: 2px solid rgba(128, 128, 128, 0.4);
+        border-top: 2px solid rgba(128, 128, 128, 0.4);
+    }
+    .table-row-item {
+        margin-right: 0;
+        font-size: 20px;
+        padding: 1rem;
+    }
+
+.information-message {
+    margin: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 20px;
+    line-height: normal;
+    text-align: left;
+    border-radius: 15px;
+    padding: 1rem;
+    box-shadow: 1px 10px 20px 0 rgba(0,0,0,0.1);
+    background-color: rgba(255,255,255,0.85);
+}
+    .info-logo-img {
+        width: 2.5rem;
+        position: absolute;
+        align-self: flex-end;
+    }
+
 h2 {
-    margin-bottom: 4rem;
+    max-width: 90%;
+    margin: 0 0 2rem 0;
+    padding: 0 1rem;
     font-family: 'Poiret One', serif, sans-serif;
     font-weight: bold;
     font-size: 45px;
@@ -83,6 +138,12 @@ h2 {
     text-align: center;
     letter-spacing: 0.08em;
     color: #70573B;
+}
+
+h3 {
+    line-height: 35px;
+    max-width: 90%;
+    padding: 0 1rem;
 }
 
 p {
@@ -110,4 +171,36 @@ p {
     align-items: center;
     justify-content: space-around;
     flex-direction: row;
+}
+
+@media (max-width: 950px) {
+    .form {
+        width: 100%;
+    }
+    .textarea {
+        width: auto;
+    }
+    .input {
+        width: auto;
+    }
+    .table thead {
+        display: none;
+    }
+    .table-row-1, .table-row-2{
+        display: block;
+    }
+    .table-row-item {
+        display: flex;
+        flex-direction: column;
+        border-bottom: 1px dotted #ccc;
+    }
+    .table-row-item:last-child {
+        border-bottom: 0;
+    }
+    .table-row-item:before {
+        content: attr(aria-label);
+        font-size: 17px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
 }

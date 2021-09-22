@@ -3,7 +3,7 @@
     <section
             @click="showNews = !showNews"
             class="news-card flex-row">
-        <img src="../assets/main-course.png" :alt="titleNews">
+        <img :src="newsPathImage" :alt="titleNews">
         <div class="news-title flex-column">
             <h3>{{ titleNews }}</h3>
             <p>{{ summary }}</p>
@@ -13,7 +13,7 @@
     </section>
     <section v-if="showNews" class="hidden-news-card flex-row">
         <button @click="showNews = !showNews" class="btn">X</button>
-        <img src="../assets/main-course.png" :alt="titleNews">
+        <img :src="newsPathImage" :alt="titleNews">
         <div class="news-title flex-column">
             <h3>{{ titleNews }}</h3>
             <p class="news-text">{{ textNews }}</p>
@@ -31,11 +31,21 @@
             }
         },
         props: {
+            newsImg: String,
             dateNews: String,
             titleNews: String,
             summary: String,
             textNews: String,
             author: String
+        },
+        computed: {
+            newsPathImage() {
+                if (!this.newsImg) {
+                    return
+                }
+                const fileName = this.newsImg.toLowerCase();
+                return require(`../assets/${fileName}.png`);
+            }
         },
         name: "appCardsNews"
     }

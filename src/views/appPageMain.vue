@@ -67,7 +67,7 @@
       </div>
   </section>
   <section class="flex-row main-form-call">
-      <div class="flex-column">
+      <div class="flex-column main-form-call-buttons">
           <button class="btn">Как проходят уроки в Italiamo?</button>
           <button class="btn">Как быстро можно выучить итальянский?</button>
           <button class="btn">Посмотреть видео о школе</button>
@@ -144,7 +144,7 @@ export default {
 
     .main-section {
         margin: 0;
-        padding: 1rem;
+        padding: 2rem 0;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -154,14 +154,15 @@ export default {
 
     .main-section img {
         border-radius: 10px;
+        margin-bottom: 2rem;
         width: 206px;
         height: 191px;
     }
 
     .main-article {
         margin: 0;
+        padding: 2rem 0;
         color: rgb(146, 89, 35);
-        padding: 1rem;
         display: flex;
         flex-wrap: wrap;
         text-align: center;
@@ -188,6 +189,7 @@ export default {
     }
 
     .main-comments {
+        padding: 2rem 0;
         max-width: 30rem;
     }
 
@@ -201,6 +203,8 @@ export default {
     }
 
     .main-program {
+        margin-top: 0;
+        padding: 2rem 0;
         background-color: rgba(255, 252, 230, 0.7);
         box-shadow: 0 1rem 2rem 0 rgba(0,0,0,0.2);
     }
@@ -241,21 +245,26 @@ export default {
     .main-program .btn {
         margin: 2rem;
         padding: 1rem;
-        color: #614021;
-        background: rgba(233, 187, 145, 0.9);
     }
     .main-form-call {
         background: url('../assets/main-form-call.jpg') no-repeat center / 100% 100%;
         box-shadow: 0 1rem 2rem 0 rgba(0,0,0,0.2);
+        align-items: normal;
     }
 
     .main-form-call .flex-column {
         max-width: 30rem;
+        align-items: stretch;
+        justify-content: space-between;
     }
 
     .friend-company img {
         max-width: 10rem;
         max-height: 5rem;
+    }
+
+    .friend-company h2 {
+        align-self: center;
     }
 
     .friend-company-item {
@@ -265,6 +274,7 @@ export default {
         background: rgba(255, 255, 255, 0.9);
         border-radius: 20px;
         box-shadow: 1px 10px 20px 0 rgba(0,0,0,0.3);
+        align-self: normal;
     }
 
     .friend-company-item:hover {
@@ -279,6 +289,9 @@ export default {
 
     @media (max-width : 650px) {
         .main-header img {
+            display: none;
+        }
+        .main-form-call-buttons {
             display: none;
         }
     }
