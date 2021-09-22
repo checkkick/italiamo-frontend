@@ -1,131 +1,154 @@
 <template>
-  <header class="header main-header">
-      <h1>Онлайн школа итальянского языка</h1>
-      <img src="../assets/logo-1.png" alt="изображение Italiamo">
-      <button class="btn">Попробовать бесплатно</button>
-  </header>
-  <main class="main-section">
-      <div class="flex-row">
-          <template v-for="el in header" v-bind:key="el.id">
-          <div class="flex-column" v-if="el.name=='slogan'"
-               v-html="el.text">
-          </div>
-          <img
-           v-bind:src="el.file[0].file"  v-bind:alt="el.file[0].alt"
-           v-if="el.name=='slogan'"
-           >
-          </template>
+    <header class="header main-header">
+        <h1>Онлайн школа итальянского языка</h1>
+        <img src="../assets/logo-1.png" alt="изображение Italiamo">
+        <button class="btn">Попробовать бесплатно</button>
+    </header>
+    <main class="main-section">
+        <div class="flex-row">
+            <template v-for="el in header" v-bind:key="el.id">
+                <div class="flex-column" v-if="el.name=='slogan'"
+                     v-html="el.text">
+                </div>
+                <img
+                        v-bind:src="el.file[0].file" v-bind:alt="el.file[0].alt"
+                        v-if="el.name=='slogan'"
+                >
+            </template>
 
-      </div>
-  </main>
-  <article class="main-article">
-      <h2>Почему нужно выбрать нас?</h2>
-      <div class="flex-row">
-          <div v-for="adv in advantages"
-          :key="adv.id">
-              <h1>{{adv.id}}</h1>
-              <h3>{{adv.name}}</h3>
-              <p>{{adv.text}}</p>
-          </div>
         </div>
-  </article>
-  <section class="flex-row">
-      <div class="flex-column main-comments">
+    </main>
+    <article class="main-article">
+        <h2>Почему нужно выбрать нас?</h2>
+        <div class="flex-row">
+            <div v-for="adv in advantages"
+                 :key="adv.id">
+                <img :src="adv.file[0].file" :alt="adv.file[0].alt" class="reasons-img">
+                <h3>{{adv.name}}</h3>
+                <p>{{adv.text}}</p>
+            </div>
+        </div>
+    </article>
+    <section class="flex-row">
+        <div class="flex-column main-comments">
             <h2>Что пишут нашу ученики?</h2>
             <button class="btn">Заглянуть в виртуальный класс</button>
-      </div>
-      <div class="main-comments-animation">Отзывы с анимацией</div>
-  </section>
-  <section class="flex-column main-program">
-      <h2>Программы обучения</h2>
-      <div class="flex-row cards">
-          <div class="card-course main">
-              <p>Основной курс итальянского</p>
-              <button class="btn">Подробнее</button>
-          </div>
-          <div class="card-course teenage">
-              <p>Курс итальнянского для детей и подростков</p>
-              <button class="btn">Подробнее</button>
-          </div>
-          <div class="flex-column">
-              <button class="btn">Все программы и цены</button>
-              <button class="btn">Записаться на открытый урок</button>
-              <button class="btn">Пройти тестирование</button>
-          </div>
-      </div>
-  </section>
-  <section class="flex-column main-teachers">
-      <h2>Наши преподаватели</h2>
-      <div class="flex-row">
-          <app-main-teachers
-                  v-for="teacher in teachers"
-                  :key="teacher.id"
-                  :page-id="teacher.alt"
-                  :name="teacher.name"
-                  :image="teacher.logo"
-          ></app-main-teachers>
-      </div>
-  </section>
-  <section class="flex-row main-form-call">
-      <div class="flex-column main-form-call-buttons">
-          <button class="btn">Как проходят уроки в Italiamo?</button>
-          <button class="btn">Как быстро можно выучить итальянский?</button>
-          <button class="btn">Посмотреть видео о школе</button>
-      </div>
-      <form action="">
-          <div class="flex-column">
-              <h3>Заполните форму и мы свяжемся с Вами в ближайшее время!</h3>
-              <input class="input" type="text" placeholder="Как к вам обращаться?">
-              <input class="input" type="text" placeholder="Номер телефона или почта">
-              <button class="btn">Отправить</button>
-          </div>
-      </form>
-  </section>
-  <section class="flex-column friend-company">
-      <h2>Мы работаем с:</h2>
-      <div class="flex-row">
-          <a href="https://programmapria.ru/index.php/ru/home-ru/about-ru" class="friend-company-item">
-              <img src="../assets/logo-pria.png" alt="logo-company">
-              <h3>P.R.I.A.</h3>
-              <p>Наша школа присоедининена к программе P.R.I.A отдела образования при генеральном консульстве Италии в Москве.</p>
-          </a>
-          <a href="https://www.almaedizioni.it/it/" class="friend-company-item">
-              <img src="../assets/logoALMA.png" alt="logo-company">
-              <h3>ALMA EDIZIONI</h3>
-              <p>Мы обучаем по самым передовым курсам известного итальянского издательства alma edizioni.</p>
-          </a>
-          <a href="http://www.scudit.net/infoitaliano.htm" class="friend-company-item">
-              <img src="../assets/log-scudit.png" alt="logo-company">
-              <h3>SCUDIT</h3>
-              <p>Мы организуем ваше обучение в ведущей школе Итальянского языка в Риме по специальным ценам.</p>
-          </a>
-      </div>
-  </section>
+        </div>
+        <div class="main-comments-animation">Отзывы с анимацией</div>
+    </section>
+    <section class="flex-column main-program">
+        <h2>Программы обучения</h2>
+
+
+        <div class="flex-row cards">
+            <div class="card-course main">
+                <p>Основной курс итальянского</p>
+                <button class="btn">Подробнее</button>
+            </div>
+            <div class="card-course teenage">
+                <p>Курс итальнянского для детей и подростков</p>
+                <button class="btn">Подробнее</button>
+            </div>
+            <div class="flex-column">
+                <button class="btn">Все программы и цены</button>
+                <button class="btn">Записаться на открытый урок</button>
+                <button class="btn">Пройти тестирование</button>
+            </div>
+        </div>
+
+
+    </section>
+    <section class="flex-column main-teachers">
+        <h2>Наши преподаватели</h2>
+        <div class="flex-row">
+            <app-main-teachers
+                    v-for="teacher in teachers"
+                    :key="teacher.id"
+                    :page-id="teacher.alt"
+                    :name="teacher.name"
+                    :image="teacher.logo"
+            ></app-main-teachers>
+        </div>
+    </section>
+    <section class="flex-row main-form-call">
+        <div class="flex-column main-form-call-buttons">
+            <button class="btn">Как проходят уроки в Italiamo?</button>
+            <button class="btn">Как быстро можно выучить итальянский?</button>
+            <button class="btn">Посмотреть видео о школе</button>
+        </div>
+        <form action="">
+            <div class="flex-column">
+                <h3>Заполните форму и мы свяжемся с Вами в ближайшее время!</h3>
+                <input class="input" type="text" placeholder="Как к вам обращаться?">
+                <input class="input" type="text" placeholder="Номер телефона или почта">
+                <button class="btn">Отправить</button>
+            </div>
+        </form>
+    </section>
+    <section class="flex-column friend-company">
+        <h2>Мы работаем с:</h2>
+        <div class="flex-row">
+            <div v-for="cowork in coworks"
+                 class="friend-company-item"
+                 :key="cowork.id">
+                <img :src="cowork.file[0].file" :alt="cowork.file[0].alt">
+                <h3>{{cowork.name}}</h3>
+                <p>{{cowork.text}}</p>
+            </div>
+        </div>
+    </section>
 </template>
 
 <script>
-import appMainTeachers from "../components/appCardsTeachers";
-import {mapGetters} from 'vuex'
-export default {
-    components: {
-        appMainTeachers
-    },
-    computed: {
-        ...mapGetters('Backend', {
-            advantages: 'ADVANTAGES',
-            clients: 'CLIENTS',
-            teachers: 'TEACHERS',
-        })
-    },
-    mounted() {
-        this.$store.dispatch('Backend/GET_CONTENT',1)
-        this.$store.dispatch('Backend/GET_CLIENTS')
-        this.$store.dispatch('Backend/GET_TEACHERS')
+    import {Swiper, SwiperSlide, directive} from 'vue-awesome-swiper'
+    import appMainTeachers from "../components/appCardsTeachers";
+    import {mapGetters} from 'vuex'
+
+    export default {
+        data() {
+            return {
+                swiperOptions: {
+                    loop: true,
+                    slidesPerView: 3,
+                    pagination: {
+                        el: '.swiper-pagination'
+                    },
+                }
+            }
+        },
+        components: {
+            appMainTeachers,
+            Swiper,
+            SwiperSlide
+        },
+        directives: {
+            swiper: directive
+        },
+        computed: {
+
+            ...mapGetters('Backend', {
+                header: 'HEADER',
+                advantages: 'ADVANTAGES',
+                clients: 'CLIENTS',
+                teachers: 'TEACHERS',
+                coworks: 'COWORKS',
+            })
+        },
+        mounted() {
+            this.$store.dispatch('Backend/GET_CONTENT', 1)
+            this.$store.dispatch('Backend/GET_CLIENTS')
+            this.$store.dispatch('Backend/GET_TEACHERS')
+
+        }
     }
-}
 </script>
 
 <style>
+
+    .reasons-img {
+        max-width: 40%;
+    }
+
     .main-header {
         text-align: center;
         padding: 4rem;
@@ -133,9 +156,9 @@ export default {
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        background: linear-gradient(rgba(255, 255, 255, 0.712), rgba(255, 255, 255, 0.712)), 
-            url('../assets/Roma-10.jpg') no-repeat center / 100% 100%;
-        box-shadow: 0 1rem 2rem 0 rgba(0,0,0,0.2);
+        background: linear-gradient(rgba(255, 255, 255, 0.712), rgba(255, 255, 255, 0.712)),
+        url('../assets/Roma-10.jpg') no-repeat center / 100% 100%;
+        box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.2);
     }
 
     .main-header img {
@@ -155,8 +178,7 @@ export default {
     .main-section img {
         border-radius: 10px;
         margin-bottom: 2rem;
-        width: 206px;
-        height: 191px;
+        width: 300px;
     }
 
     .main-article {
@@ -168,7 +190,7 @@ export default {
         text-align: center;
         flex-direction: column;
         background-color: rgba(255, 255, 255, 0.9);
-        box-shadow: 0 1rem 2rem 0 rgba(0,0,0,0.2);
+        box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.2);
     }
 
     .main-article h1 {
@@ -206,7 +228,7 @@ export default {
         margin-top: 0;
         padding: 2rem 0;
         background-color: rgba(255, 252, 230, 0.7);
-        box-shadow: 0 1rem 2rem 0 rgba(0,0,0,0.2);
+        box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.2);
     }
 
     .card-course {
@@ -246,9 +268,10 @@ export default {
         margin: 2rem;
         padding: 1rem;
     }
+
     .main-form-call {
         background: url('../assets/main-form-call.jpg') no-repeat center / 100% 100%;
-        box-shadow: 0 1rem 2rem 0 rgba(0,0,0,0.2);
+        box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.2);
         align-items: normal;
     }
 
@@ -273,7 +296,7 @@ export default {
         padding: 1rem;
         background: rgba(255, 255, 255, 0.9);
         border-radius: 20px;
-        box-shadow: 1px 10px 20px 0 rgba(0,0,0,0.3);
+        box-shadow: 1px 10px 20px 0 rgba(0, 0, 0, 0.3);
         align-self: normal;
     }
 
@@ -287,10 +310,11 @@ export default {
         cursor: pointer;
     }
 
-    @media (max-width : 650px) {
+    @media (max-width: 650px) {
         .main-header img {
             display: none;
         }
+
         .main-form-call-buttons {
             display: none;
         }

@@ -5,6 +5,7 @@ const state = () => ({
     advantages: [],
     client: [],
     teachers: [],
+    coworks: [],
 })
 
 const getters = {
@@ -20,6 +21,9 @@ const getters = {
     TEACHERS(state) {
         return state.teachers;
     },
+    COWORKS(state) {
+        return state.coworks;
+    },
 }
 
 const mutations = {
@@ -31,6 +35,9 @@ const mutations = {
             }
             if (content[0].blocks[i].name == 'advantages') {
                 state.advantages = content[0].blocks[i].contents
+            }
+            if (content[0].blocks[i].name == 'coworks') {
+                state.coworks = content[0].blocks[i].contents
             }
         }
     },
@@ -80,7 +87,7 @@ const actions = {
             url: `https://bexram.pythonanywhere.com/teacher/`
         })
             .then((response) => {
-                commit("SET_CLIENTS", response.data);
+                commit("SET_TEACHERS", response.data);
                 return response;
             })
             .catch((error) => {

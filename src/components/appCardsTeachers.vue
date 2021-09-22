@@ -1,6 +1,6 @@
 <template>
     <div class="flex-column teacher-card">
-        <img :src="teacherImage" :alt="pageId">
+        <img :src="image" :alt="pageId">
         <p>{{ name }}</p>
         <button class="btn">Познакомиться</button>
     </div>
@@ -13,15 +13,6 @@
             pageId: String,
             image: String
         },
-        computed: {
-            teacherImage() {
-                if (!this.image) {
-                    return
-                }
-                const fileName = this.image.toLowerCase();
-                return require(`../assets/${fileName}.png`);
-            }
-        }
     }
 </script>
 
