@@ -6,6 +6,7 @@ const state = () => ({
     client: [],
     teachers: [],
     coworks: [],
+    news: [],
 })
 
 const getters = {
@@ -23,6 +24,9 @@ const getters = {
     },
     COWORKS(state) {
         return state.coworks;
+    },
+    NEWS(state) {
+        return state.news;
     },
 }
 
@@ -48,6 +52,9 @@ const mutations = {
 
     SET_TEACHERS: (state, content) => {
         state.teachers = content
+    },
+    SET_NEWS: (state, content) => {
+        state.news = content
     }
 
 }
@@ -88,6 +95,20 @@ const actions = {
         })
             .then((response) => {
                 commit("SET_TEACHERS", response.data);
+                return response;
+            })
+            .catch((error) => {
+                console.log(error);
+                return error;
+            });
+    },
+    GET_NEWS({commit}) {
+        return axios({
+            method: "GET",
+            url: `https://bexram.pythonanywhere.com/news/`
+        })
+            .then((response) => {
+                commit("SET_NEWS", response.data);
                 return response;
             })
             .catch((error) => {

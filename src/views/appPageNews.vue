@@ -6,11 +6,11 @@
         <app-cards-news
                 v-for="news in NEWS"
                 :key="news.id"
-                :news-img="news.newsImg"
-                :dateNews="news.dateNews"
-                :titleNews="news.titleNews"
-                :summary="news.summary"
-                :textNews="news.textNews"
+                :news-img="news.img"
+                :dateNews="news.published"
+                :titleNews="news.name"
+                :summary="news.mini_description"
+                :textNews="news.description"
                 :author="news.author"
         ></app-cards-news>
     </main>
@@ -21,13 +21,16 @@
     import {mapGetters} from "vuex";
     export default {
         computed:{
-            ...mapGetters([
-                'NEWS'
-            ])
+            ...mapGetters('Backend', {
+                NEWS: 'NEWS',
+            })
         },
         name: "appPageNews",
         components: {
             appCardsNews
+        },
+        mounted() {
+            this.$store.dispatch('Backend/GET_NEWS')
         }
     }
 </script>

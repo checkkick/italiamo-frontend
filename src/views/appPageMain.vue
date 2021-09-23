@@ -100,30 +100,16 @@
 </template>
 
 <script>
-    import {Swiper, SwiperSlide, directive} from 'vue-awesome-swiper'
+
     import appMainTeachers from "../components/appCardsTeachers";
     import {mapGetters} from 'vuex'
 
     export default {
-        data() {
-            return {
-                swiperOptions: {
-                    loop: true,
-                    slidesPerView: 3,
-                    pagination: {
-                        el: '.swiper-pagination'
-                    },
-                }
-            }
-        },
         components: {
             appMainTeachers,
-            Swiper,
-            SwiperSlide
+
         },
-        directives: {
-            swiper: directive
-        },
+
         computed: {
 
             ...mapGetters('Backend', {

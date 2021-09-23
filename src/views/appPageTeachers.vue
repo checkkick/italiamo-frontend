@@ -5,11 +5,11 @@
     <section class="flex-column">
         <div class="flex-row">
             <app-main-teachers
-                    v-for="content in CONTENT"
+                    v-for="content in teachers"
                     :key="content.id"
-                    :page-id="content.pageId"
+                    :page-id="content.alt"
                     :name="content.name"
-                    :image="content.image"
+                    :image="content.logo"
             ></app-main-teachers>
         </div>
     </section>
@@ -20,13 +20,17 @@
     import {mapGetters} from "vuex";
     export default {
         name: "appPageTeachers",
-        computed:{
-            ...mapGetters([
-                'CONTENT'
-            ])
+        computed: {
+            ...mapGetters('Backend', {
+                teachers: 'TEACHERS',
+            }),
         },
+
         components: {
             appMainTeachers
+        },
+        mounted() {
+            this.$store.dispatch('Backend/GET_TEACHERS')
         }
     }
 </script>
