@@ -34,7 +34,16 @@
             <h2>Что пишут нашу ученики?</h2>
             <button class="btn">Заглянуть в виртуальный класс</button>
         </div>
-        <div class="main-comments-animation">Отзывы с анимацией</div>
+        <div class="flex-row">
+            <app-main-clients
+                    v-for="client in clients"
+                    :key="client.id"
+                    :page-id="client.alt"
+                    :name="client.name"
+                    :image="client.logo"
+                    :text="client.description">
+            </app-main-clients>
+        </div>
     </section>
     <section class="flex-column main-program">
         <h2>Программы обучения</h2>
@@ -100,16 +109,26 @@
 </template>
 
 <script>
-
     import appMainTeachers from "../components/appCardsTeachers";
+    import appMainClients from "../components/appCardsClients";
     import {mapGetters} from 'vuex'
 
     export default {
+
         components: {
             appMainTeachers,
-
+            appMainClients,
         },
-
+        data() {
+            return {
+                options: {
+                    perPage: 2,
+                    rewind : true,
+                    width  : 800,
+                    gap    : '1rem',
+                },
+            };
+        },
         computed: {
 
             ...mapGetters('Backend', {
