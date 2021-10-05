@@ -32,17 +32,17 @@
     <section class="flex-row">
         <div class="flex-column main-comments">
             <h2>Что пишут нашу ученики?</h2>
-            <button class="btn">Заглянуть в виртуальный класс</button>
         </div>
         <div class="flex-row">
             <app-main-clients
-                    v-for="client in clients"
+                    v-for="client in comments.slice(0,3)"
                     :key="client.id"
                     :page-id="client.alt"
                     :name="client.name"
                     :image="client.logo"
                     :text="client.description">
             </app-main-clients>
+            <button class="btn" v-on:click="goClients">Посмотреть отзывы</button>
         </div>
     </section>
     <section class="flex-column main-program">
@@ -121,12 +121,7 @@
         },
         data() {
             return {
-                options: {
-                    perPage: 2,
-                    rewind : true,
-                    width  : 800,
-                    gap    : '1rem',
-                },
+                   comments: [1]
             };
         },
         computed: {
@@ -141,9 +136,18 @@
         },
         mounted() {
             this.$store.dispatch('Backend/GET_CONTENT', 1)
-            this.$store.dispatch('Backend/GET_CLIENTS')
+            this.$store.dispatch('Backend/GET_CLIENTS').then(()=>{
+                this.comments=this.clients
+            })
             this.$store.dispatch('Backend/GET_TEACHERS')
-
+        },
+        methods: {
+            goClients(){
+                this.$router.push('/comments')
+            },
+            goTeacher(){
+                this.$router.push('/comments')
+            }
         }
     }
 </script>

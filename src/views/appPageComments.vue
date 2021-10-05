@@ -4,7 +4,7 @@
         <h3>Все отзывы получены от реально обучающихся людей. Ссылки на профили некоторых из них, вы можете найти под отзывами!</h3>
     </header>
     <app-cards-comments
-            v-for="comment in COMMENTS"
+            v-for="comment in clients"
             :key="comment.id"
             :comment-img="comment.commentImg"
             :author-name="comment.authorName"
@@ -19,9 +19,9 @@ import {mapGetters} from "vuex";
 
 export default {
     computed:{
-        ...mapGetters([
-            'COMMENTS'
-        ])
+        ...mapGetters('Backend', {
+            clients: 'CLIENTS',
+        })
     },
     name: "appPageComments",
     components: {

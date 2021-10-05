@@ -3,7 +3,6 @@ import appPageMain from '../views/appPageMain'
 import appPageComments from '../views/appPageComments'
 import appPagePrograms from "../views/appPagePrograms";
 import appPageTeachers from "../views/appPageTeachers";
-import appPageContacts from "../views/appPageContacts";
 import appPageNews from "../views/appPageNews";
 import appPagePrices from "../views/appPagePrices";
 
@@ -40,10 +39,6 @@ export default createRouter({
             name: 'appPageComments',
             component: appPageComments
         },
-        {
-            path: '/contacts',
-            name: 'appPageContacts',
-            component: appPageContacts
-        }
+
     ]
 })

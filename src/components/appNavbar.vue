@@ -39,12 +39,6 @@
               class="navbar-menu-item"
               to="/comments"
       >Отзывы</router-link>
-      <router-link
-              @click="scrollToTop"
-              :class="this.$route.path === '/contacts' ? 'hover-item ' : ''"
-              class="navbar-menu-item"
-              to="/contacts"
-      >Контакты</router-link>
       <img
               class="img-menu"
               @click="showDropdownMenu = !showDropdownMenu"

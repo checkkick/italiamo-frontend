@@ -1,28 +1,39 @@
 <template>
-    <footer class="footer flex-row">
-        <div class="flex-column">
-            <h2>Наши контакты</h2>
+    <header class="header flex-column">
+        <h1>Наши контакты</h1>
+        <h3>Заполните форму и мы свяжемся с Вами!</h3>
+    </header>
+    <section class="flex-row">
+        <div class="flex-column contacts-text">
             <div class="telephones">
-                <a href="tel:+78007001355">+7 (800) 700-13-55</a>
-                <br>
-                <a href="tel:+79157753050">+7 (915) 775-30-50</a>
+                <h4><a href="tel:+78007001355">+7 (800) 700-13-55</a></h4>
+                <h4><a href="tel:+79157753050">+7 (915) 775-30-50</a></h4>
+                <h4><a href="mailto:info@italiamo.online">info@italiamo.online</a></h4>
+                <h4>Разработка: <a href="mailto:bexram33@mail.ru">bexram33@mail.ru</a></h4>
             </div>
-            <h4><a href="mailto:info@italiamo.online">info@italiamo.online</a></h4>
-            <h4>Дизайн: <a href="mailto:adelina.sinitsyna@mail.ru">adelina.sinitsyna@mail.ru</a></h4>
-            <h4>Вёрстка: <a href="mailto:bexram33@mail.ru">bexram33@mail.ru</a></h4>
+            <div class="about-us">
+                <h4>ОГРНИП 320332800003572</h4>
+                <h4>Italiamo, ©2020—2021</h4>
+                <span class="flex-row">
+                    <img src="../assets/insta-logo.png" alt="instagram logo">
+                    <img src="../assets/vk-logo.png" alt="instagram logo">
+                </span>
+            </div>
         </div>
-        <div class="flex-column center-column">
-            <h2>Подписывайтесь на нас в соцсетях!</h2>
-            <span>
-                <img src="../assets/insta-logo.png" alt="instagram logo">
-                <img src="../assets/vk-logo.png" alt="instagram logo">
-            </span>
-        </div>
-        <div class="flex-column">
-            <h5>ОГРНИП</h5>
-            <h5>320332800003572</h5>
-        </div>
-    </footer>
+        <form class="form" action="">
+            <div class="flex-column contacts-form">
+                <input class="input" type="text" placeholder="Номер телефона или почта">
+                <input class="input" type="text" placeholder="Как к вам обращаться?">
+                <textarea
+                        class="textarea"
+                        name="contact-area"
+                        id="contact-comment"
+                        placeholder="Комментарий"
+                ></textarea>
+                <button class="btn">Отправить</button>
+            </div>
+        </form>
+    </section>
 </template>
 
 <script>
@@ -32,85 +43,25 @@
 </script>
 
 <style scoped>
-    .footer {
-        background-color: rgba(233,187,145,0.9);
-        box-shadow: 0 1rem 2rem 1rem rgba(0,0,0,0.2);
-    }
-
     .flex-row {
+        align-items: stretch;
+    }
+    .contacts-text {
         justify-content: space-between;
-        align-items: flex-start;
     }
-
-    .flex-column {
-        margin: 0;
-        padding: 1rem;
-    }
-
-    .flex-column:first-child {
-        align-items: flex-start;
-    }
-
-    .flex-row:last-child {
-        align-items: flex-end;
-    }
-
-    .center-column {
-        align-self: flex-start;
-        align-items: center;
-        width: 25rem;
-    }
-
-    .telephones {
-        font-size: 20px;
-        line-height: 24px;
-        text-align: center;
-        letter-spacing: 0.05em;
+    .telephones h4 {
         margin: 1rem 0;
     }
-
-    img {
-        width: 2rem;
-        height: 2rem;
-        margin: 0 2rem;
+    .about-us h4 {
+        font-size: 1.2rem;
+        margin: 0.5rem;
     }
-
-    img:hover {
+    .about-us img {
         cursor: pointer;
+        width: 3rem;
+        margin: 2rem;
     }
-
-    h2 {
-        font-size: 28px;
-        margin: 0 0 1rem 0;
-        padding: 0;
-        line-height: 2rem;
-    }
-
-    h4 {
-        font-size: 20px;
-        line-height: 24px;
-        text-align: center;
-        letter-spacing: 0.05em;
-        margin: 0.1rem 0;
-    }
-
-    h5 {
-        margin: 0;
-        font-size: 18px;
-        text-align: center;
-        letter-spacing: 0.05em;
-        line-height: 1.5rem;
-    }
-
-    @media (max-width : 1050px) {
-        .footer {
-            justify-content: center;
-            align-items: center;
-        }
-
-        .footer .flex-column {
-            margin: 0 8rem;
-            align-items: center;
-        }
+    .about-us .flex-row {
+        justify-content: center;
     }
 </style>

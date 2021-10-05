@@ -3,7 +3,6 @@
         <img :src="image" :alt="pageId">
         <p>{{ name }}</p>
         <div><p class="text">{{text}}</p></div>
-        <button class="btn">Посмотреть отзывы</button>
     </div>
 </template>
 
