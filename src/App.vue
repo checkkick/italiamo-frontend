@@ -11,6 +11,9 @@ import appFooter from "./components/appFooter";
 export default {
   components: {
     appNavbar, appFooter
+  },
+  props: {
+    footercomment:String,
   }
 }
 </script>

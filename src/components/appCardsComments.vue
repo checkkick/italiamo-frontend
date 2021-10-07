@@ -1,9 +1,8 @@
 <template>
     <div class="card-comment flex-row">
-        <img :src="commentPathImage" :alt="authorName + ' image'">
+        <img :src="commentImg" :alt="authorName + ' image'">
         <div class="comment-body">
             <p class="author-name">{{ authorName }}</p>
-            <p class="author-city">{{ authorCity }}</p>
             <p class="comment-text">{{ commentText }}</p>
         </div>
     </div>
@@ -16,15 +15,6 @@
             authorName: String,
             authorCity: String,
             commentText: String
-        },
-        computed: {
-            commentPathImage() {
-                if (!this.commentImg) {
-                    return
-                }
-                const fileName = this.commentImg.toLowerCase();
-                return require(`../assets/${fileName}.png`);
-            }
         },
         name: "appCardsComments"
     }
@@ -42,6 +32,8 @@
     }
 
     .card-comment img {
+        object-fit: cover;
+        object-position: 50% 50%;
         align-self: flex-start;
         margin: 1rem;
         width: 200px;

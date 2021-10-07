@@ -1,6 +1,6 @@
 <template>
-    <header class="header flex-column">
-        <h1>Наши контакты</h1>
+    <header class="header flex-column" >
+        <h2 :id="'#Contacts'">Наши контакты</h2>
         <h3>Заполните форму и мы свяжемся с Вами!</h3>
     </header>
     <section class="flex-row">
@@ -24,7 +24,7 @@
             <div class="flex-column contacts-form">
                 <input class="input" type="text" placeholder="Номер телефона или почта">
                 <input class="input" type="text" placeholder="Как к вам обращаться?">
-                <textarea
+                <textarea v-model="footercomment"
                         class="textarea"
                         name="contact-area"
                         id="contact-comment"
@@ -38,6 +38,14 @@
 
 <script>
     export default {
+        data() {
+            return {
+                footercomment: this.comment
+            };
+        },
+        props: {
+            comment: String,
+        },
         name: "appFooter"
     }
 </script>

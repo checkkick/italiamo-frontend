@@ -1,17 +1,18 @@
 <template>
     <header class="header main-header">
         <h1>Онлайн школа итальянского языка</h1>
-        <img src="../assets/logo-1.png" alt="изображение Italiamo">
-        <button class="btn">Попробовать бесплатно</button>
+        <img alt="изображение Italiamo" src="../assets/logo-1.png">
+            <button v-on:click="freeLesson()" class="btn">Попробовать бесплатно</button>
+
     </header>
     <main class="main-section">
         <div class="flex-row">
-            <template v-for="el in header" v-bind:key="el.id">
-                <div class="flex-column" v-if="el.name=='slogan'"
-                     v-html="el.text">
+            <template v-bind:key="el.id" v-for="el in header">
+                <div class="flex-column" v-html="el.text"
+                     v-if="el.name=='slogan'">
                 </div>
                 <img
-                        v-bind:src="el.file[0].file" v-bind:alt="el.file[0].alt"
+                        v-bind:alt="el.file[0].alt" v-bind:src="el.file[0].file"
                         v-if="el.name=='slogan'"
                 >
             </template>
@@ -21,9 +22,9 @@
     <article class="main-article">
         <h2>Почему нужно выбрать нас?</h2>
         <div class="flex-row">
-            <div v-for="adv in advantages"
-                 :key="adv.id">
-                <img :src="adv.file[0].file" :alt="adv.file[0].alt" class="reasons-img">
+            <div :key="adv.id"
+                 v-for="adv in advantages">
+                <img :alt="adv.file[0].alt" :src="adv.file[0].file" class="reasons-img">
                 <h3>{{adv.name}}</h3>
                 <p>{{adv.text}}</p>
             </div>
@@ -34,14 +35,24 @@
             <h2>Что пишут нашу ученики?</h2>
         </div>
         <div class="flex-row">
-            <app-main-clients
-                    v-for="client in comments.slice(0,3)"
-                    :key="client.id"
-                    :page-id="client.alt"
-                    :name="client.name"
-                    :image="client.logo"
-                    :text="client.description">
-            </app-main-clients>
+            <carousel :items-to-show="3">
+                <slide :key="client.id"
+                       v-for="client in comments">
+                    <app-main-clients
+
+                            :image="client.logo"
+                            :name="client.name"
+                            :page-id="client.alt"
+                            :text="client.description">
+                    </app-main-clients>
+                </slide>
+
+                <template #addons>
+                    <navigation/>
+                    <pagination/>
+                </template>
+            </carousel>
+
             <button class="btn" v-on:click="goClients">Посмотреть отзывы</button>
         </div>
     </section>
@@ -71,11 +82,11 @@
         <h2>Наши преподаватели</h2>
         <div class="flex-row">
             <app-main-teachers
-                    v-for="teacher in teachers"
-                    :key="teacher.id"
-                    :page-id="teacher.alt"
-                    :name="teacher.name"
                     :image="teacher.logo"
+                    :key="teacher.id"
+                    :name="teacher.name"
+                    :page-id="teacher.alt"
+                    v-for="teacher in teachers"
             ></app-main-teachers>
         </div>
     </section>
@@ -88,8 +99,8 @@
         <form action="">
             <div class="flex-column">
                 <h3>Заполните форму и мы свяжемся с Вами в ближайшее время!</h3>
-                <input class="input" type="text" placeholder="Как к вам обращаться?">
-                <input class="input" type="text" placeholder="Номер телефона или почта">
+                <input class="input" placeholder="Как к вам обращаться?" type="text">
+                <input class="input" placeholder="Номер телефона или почта" type="text">
                 <button class="btn">Отправить</button>
             </div>
         </form>
@@ -97,10 +108,10 @@
     <section class="flex-column friend-company">
         <h2>Мы работаем с:</h2>
         <div class="flex-row">
-            <div v-for="cowork in coworks"
+            <div :key="cowork.id"
                  class="friend-company-item"
-                 :key="cowork.id">
-                <img :src="cowork.file[0].file" :alt="cowork.file[0].alt">
+                 v-for="cowork in coworks">
+                <img :alt="cowork.file[0].alt" :src="cowork.file[0].file">
                 <h3>{{cowork.name}}</h3>
                 <p>{{cowork.text}}</p>
             </div>
@@ -112,16 +123,22 @@
     import appMainTeachers from "../components/appCardsTeachers";
     import appMainClients from "../components/appCardsClients";
     import {mapGetters} from 'vuex'
+    import 'vue3-carousel/dist/carousel.css';
+    import {Carousel, Navigation, Pagination, Slide} from 'vue3-carousel';
 
     export default {
 
         components: {
             appMainTeachers,
             appMainClients,
+            Carousel,
+            Slide,
+            Pagination,
+            Navigation,
         },
         data() {
             return {
-                   comments: [1]
+                comments: [1],
             };
         },
         computed: {
@@ -136,23 +153,29 @@
         },
         mounted() {
             this.$store.dispatch('Backend/GET_CONTENT', 1)
-            this.$store.dispatch('Backend/GET_CLIENTS').then(()=>{
-                this.comments=this.clients
+            this.$store.dispatch('Backend/GET_CLIENTS').then(() => {
+                this.comments = this.clients
             })
             this.$store.dispatch('Backend/GET_TEACHERS')
         },
         methods: {
-            goClients(){
+            goClients() {
                 this.$router.push('/comments')
             },
-            goTeacher(){
+            goTeacher() {
                 this.$router.push('/comments')
+            },
+            freeLesson() {
+
             }
         }
     }
 </script>
 
 <style>
+    html {
+        scroll-behavior: smooth;
+    }
 
     .reasons-img {
         max-width: 40%;
@@ -168,6 +191,8 @@
         background: linear-gradient(rgba(255, 255, 255, 0.712), rgba(255, 255, 255, 0.712)),
         url('../assets/Roma-10.jpg') no-repeat center / 100% 100%;
         box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.2);
+        background-size: cover;
+        background-repeat: no-repeat;
     }
 
     .main-header img {

@@ -39,6 +39,11 @@
               class="navbar-menu-item"
               to="/comments"
       >Отзывы</router-link>
+      <router-link
+              class="navbar-menu-item"
+              to="#Contacts"
+              v-smooth-scroll
+      >Контакты</router-link>
       <img
               class="img-menu"
               @click="showDropdownMenu = !showDropdownMenu"
@@ -84,10 +89,9 @@
                       to="/comments"
               >Отзывы</router-link>
               <router-link
-                      @click="dropdownMenu"
-                      :class="this.$route.path === '/contacts' ? 'hover-item ' : ''"
                       class="dropdown-menu-item"
-                      to="/contacts"
+                      to="#Contacts"
+                      v-smooth-scroll
               >Контакты</router-link>
           </section>
       </transition>

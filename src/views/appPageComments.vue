@@ -6,10 +6,9 @@
     <app-cards-comments
             v-for="comment in clients"
             :key="comment.id"
-            :comment-img="comment.commentImg"
-            :author-name="comment.authorName"
-            :author-city="comment.authorCity"
-            :comment-text="comment.commentText"
+            :comment-img="comment.logo"
+            :author-name="comment.name"
+            :comment-text="comment.description"
     ></app-cards-comments>
 </template>
 
