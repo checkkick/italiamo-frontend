@@ -31,7 +31,6 @@ const getters = {
 }
 
 const mutations = {
-
     SET_CONTENT: (state, content) => {
         for (let i = 0; i < content[0].blocks.length; i++) {
             if (content[0].blocks[i].name == 'header') {

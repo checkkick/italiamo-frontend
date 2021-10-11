@@ -22,13 +22,13 @@
 
 <style scoped>
     .card-comment {
-        margin: 1rem 2rem 4rem 2rem;
+        margin: 1rem 2rem 2rem 2rem;
         padding: 1rem;
         justify-content: stretch;
         flex-wrap: nowrap;
         background-color: rgba(255,255,255,0.9);
         border-radius: 20px;
-        box-shadow: 0 0 15px 25px rgba(255,255,255,0.9);
+        box-shadow: 0 5px 20px 0 rgba(0,0,0,0.2);
     }
 
     .card-comment img {

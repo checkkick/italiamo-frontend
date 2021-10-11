@@ -18,11 +18,11 @@
 
 <style scoped>
     .teacher-card {
-        margin: 1rem;
+        margin: 2rem 1rem;
         justify-content: center;
         align-items: center;
         text-align: center;
-        width: 18rem;
+        width: 100%;
         background-color: white;
         border-radius: 20px;
         box-shadow: 1px 10px 20px 0 rgba(0,0,0,0.3);
@@ -33,8 +33,7 @@
         -moz-transition: all 0.3s ease;;
         -o-transition: all 0.3s ease;;
         transition: all 0.3s ease;
-        transform: scale(1.03);
-        background-color: #FFFCE5;
+        background-color: rgba(255, 252, 229, 0.9);
         cursor: pointer;
     }
 

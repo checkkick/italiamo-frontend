@@ -52,7 +52,7 @@
         align-items: center;
         transition: 1s;
         backface-visibility: hidden;
-        background-color: rgba(255,255,255,0.75);
+        background-color: rgba(255,255,255,0.9);
         border-radius: 15px;
     }
     .front {

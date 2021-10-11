@@ -20,32 +20,19 @@
 <style scoped>
     .text {
         height: 75px;
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
         overflow: hidden;
     }
     .teacher-card {
-        margin: 1rem;
+        padding: 0.5rem;
+        margin: 2rem 1rem;
         justify-content: center;
         align-items: center;
         text-align: center;
-        width: 50rem;
+        flex-grow: 1;
         background-color: white;
         border-radius: 20px;
         box-shadow: 1px 10px 20px 0 rgba(0,0,0,0.3);
     }
-
-    .teacher-card:hover {
-        -webkit-transition: all 0.3s ease;;
-        -moz-transition: all 0.3s ease;;
-        -o-transition: all 0.3s ease;;
-        transition: all 0.3s ease;
-        transform: scale(1.03);
-        background-color: #FFFCE5;
-        cursor: pointer;
-    }
-
     .teacher-card img {
         object-fit: cover;
         object-position: 50% 50%;
