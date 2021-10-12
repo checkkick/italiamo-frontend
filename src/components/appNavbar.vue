@@ -39,11 +39,7 @@
               class="navbar-menu-item"
               to="/comments"
       >Отзывы</router-link>
-      <router-link
-              class="navbar-menu-item"
-              to="#Contacts"
-              v-smooth-scroll
-      >Контакты</router-link>
+      <a class="navbar-menu-item" href="#contacts" v-smooth-scroll="{ updateHistory: false }">Контакты</a>
       <img
               class="img-menu"
               @click="showDropdownMenu = !showDropdownMenu"
@@ -88,11 +84,7 @@
                       class="dropdown-menu-item"
                       to="/comments"
               >Отзывы</router-link>
-              <router-link
-                      class="dropdown-menu-item"
-                      to="#Contacts"
-                      v-smooth-scroll
-              >Контакты</router-link>
+              <a class="dropdown-menu-item" href="#contacts" v-smooth-scroll="{ updateHistory: false }">Контакты</a>
           </section>
       </transition>
   </nav>

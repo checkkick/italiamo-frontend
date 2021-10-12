@@ -1,8 +1,8 @@
 <template>
-    <footer class="footer">
-        <h2 :id="'#Contacts'">Наши контакты</h2>
+    <footer id="contacts" class="footer flex-column">
+        <h2>Наши контакты</h2>
         <h3>Заполните форму и мы свяжемся с Вами!</h3>
-        <section class="flex-row">
+        <section class="flex-row flex-contacts">
             <div class="flex-column contacts-text">
                 <div class="telephones">
                     <h4><a href="tel:+78007001355">+7 (800) 700-13-55</a></h4>
@@ -52,7 +52,7 @@
 
 <style scoped>
     .footer {
-        margin-top: 4rem;
+        margin: 4rem 0 0 0;
         padding: 2rem 0;
         background-color: rgba(255, 252, 230, 0.6);
         box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.3);
@@ -77,5 +77,14 @@
     }
     .about-us .flex-row {
         justify-content: center;
+    }
+
+    @media (max-width: 650px) {
+        .flex-contacts {
+            flex-direction: column-reverse;
+        }
+        .contacts-text {
+            margin: 0;
+        }
     }
 </style>
