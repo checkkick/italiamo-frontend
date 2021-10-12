@@ -207,6 +207,13 @@ p {
 }
 
 @media (max-width: 950px) {
+    h2 {
+        margin: 0 0 1rem 0;
+        font-size: 35px;
+    }
+    h3 {
+        line-height: 25px;
+    }
     .form {
         width: 100%;
     }

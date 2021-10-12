@@ -35,7 +35,7 @@
 
     <section class="main-comments flex-column">
         <h2>Что пишут нашу ученики?</h2>
-        <carousel :items-to-show="1.5">
+        <carousel :items-to-show="1.4">
             <slide :key="client.id"
                    v-for="client in clients">
                 <app-main-clients
@@ -71,7 +71,7 @@
 
     <section class="flex-column main-teachers">
         <h2>Наши преподаватели</h2>
-        <carousel :items-to-show="1.7">
+        <carousel :items-to-show="1.6">
             <slide v-for="teacher in teachers"
                    :key="teacher.id">
                     <app-main-teachers
@@ -429,6 +429,9 @@
         cursor: pointer;
     }
     @media (max-width: 650px) {
+        .carousel {
+            margin: 0;
+        }
         .main-header img {
             display: none;
         }
