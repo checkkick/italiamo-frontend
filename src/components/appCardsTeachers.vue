@@ -48,7 +48,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            width: 100%;
+            width: 90%;
             background-color: white;
             border-radius: 20px;
             box-shadow: 1px 10px 20px 0 rgba(0,0,0,0.3);
@@ -56,7 +56,6 @@
             .teacher-card img {
                 margin: 0;
                 border-radius: 10px;
-                width: 100%;
                 height: auto;
             }
             .teacher-card .btn {
@@ -67,7 +66,7 @@
                 border-radius: 99px;
                 letter-spacing: 0.08em;
                 border: none;
-                width: 100%;
+                width: 90%;
                 max-width: none;
                 padding: 1rem 1rem;
                 background: rgba(233, 187, 145, 0.98);

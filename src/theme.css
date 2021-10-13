@@ -183,28 +183,6 @@ p {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
     border-radius: 6px;
 }
-.carousel {
-    margin: 0 1rem;
-    cursor: grab;
-}
-.carousel__slide > .carousel__item {
-    transform: scale(0.8) translate(-10px);
-    opacity: 0.7;
-    transition: 0.5s;
-}
-.carousel__slide--visible > .carousel__item {
-    opacity: 1;
-    transform: rotateY(0);
-}
-.carousel__slide--next > .carousel__item {
-    transform: scale(0.8) translate(-10px);
-}
-.carousel__slide--prev > .carousel__item {
-    transform: scale(0.8) translate(10px);
-}
-.carousel__slide--active > .carousel__item {
-    transform: scale(1);
-}
 
 @media (max-width: 950px) {
     h2 {
@@ -212,7 +190,7 @@ p {
         font-size: 35px;
     }
     h3 {
-        line-height: 25px;
+        line-height: 2rem;
     }
     .form {
         width: 100%;

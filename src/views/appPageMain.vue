@@ -35,17 +35,20 @@
 
     <section class="main-comments flex-column">
         <h2>Что пишут нашу ученики?</h2>
-        <carousel :items-to-show="1.4">
-            <slide :key="client.id"
-                   v-for="client in clients">
+        <carousel :breakpoints="breakpointsComments" :settings="settings">
+            <slide :key="index"
+                   v-for="(client, index) in clients" >
                 <app-main-clients
-                        class="carousel__item"
                         :image="client.logo"
                         :name="client.name"
                         :page-id="client.alt"
                         :text="client.description">
                 </app-main-clients>
             </slide>
+            <template #addons="{ slidesCount }">
+                <Navigation v-if="slidesCount > 1" />
+                <Pagination />
+            </template>
         </carousel>
         <button class="btn" v-on:click="goClients">Посмотреть отзывы</button>
     </section>
@@ -53,13 +56,17 @@
     <section class="flex-column main-program">
         <h2>Программы обучения</h2>
         <div class="flex-row cards">
-            <div class="card-course main">
-                <p>Основной курс итальянского</p>
-                <button class="btn">Подробнее</button>
+            <div class="card-course-out">
+                <div class="card-course main">
+                    <p>Основной курс итальянского</p>
+                    <button class="btn">Подробнее</button>
+                </div>
             </div>
-            <div class="card-course teenage">
-                <p>Курс итальнянского для детей и подростков</p>
-                <button class="btn">Подробнее</button>
+            <div class="card-course-out">
+                <div class="card-course teenage">
+                    <p>Курс итальнянского для детей и подростков</p>
+                    <button class="btn">Подробнее</button>
+                </div>
             </div>
             <div class="course-buttons flex-column">
                 <button class="btn">Все программы и цены</button>
@@ -71,21 +78,23 @@
 
     <section class="flex-column main-teachers">
         <h2>Наши преподаватели</h2>
-        <carousel :items-to-show="1.6">
+        <carousel :settings="settings" :breakpoints="breakpointsTeacher">
             <slide v-for="teacher in teachers"
                    :key="teacher.id">
                     <app-main-teachers
-                            class="carousel__item"
                             :image="teacher.logo"
                             :name="teacher.name"
                             :page-id="teacher.alt"
                     ></app-main-teachers>
             </slide>
+            <template #addons="{ slidesCount }">
+                <Navigation v-if="slidesCount > 1" />
+                <Pagination />
+            </template>
         </carousel>
     </section>
 
     <section class="flex-row main-form-call">
-
         <vue-collapsible-panel-group base-color="#ffffff" accordion>
             <vue-collapsible-panel :expanded="false">
                 <template #title>
@@ -148,16 +157,59 @@
 <script>
     import appMainTeachers from "../components/appCardsTeachers";
     import appMainClients from "../components/appCardsClients";
-    import {mapGetters} from 'vuex'
-    import 'vue3-carousel/dist/carousel.css';
-    import {Carousel, Slide} from 'vue3-carousel';
+    import {mapGetters, mapActions} from 'vuex'
+    import {Carousel, Navigation, Pagination, Slide} from 'vue3-carousel';
     import { VueCollapsiblePanelGroup, VueCollapsiblePanel } from '@dafcoe/vue-collapsible-panel'
     import '@dafcoe/vue-collapsible-panel/dist/vue-collapsible-panel.css'
+    import 'vue3-carousel/dist/carousel.css'
 
     export default {
         data() {
             return {
                 showQuestion: 0,
+                settings: {
+                    autoplay: 3000,
+                    wrapAround: true
+                },
+                breakpointsTeacher: {
+                    // 700 and up
+                    650: {
+                        itemsToShow: 1.9,
+                        snapAlign: 'center',
+                    },
+                    // 840 and up
+                    840: {
+                        itemsToShow: 2.5,
+                        snapAlign: 'center',
+                    },
+                    // 1150 and up
+                    1150: {
+                        itemsToShow: 3.5,
+                        snapAlign: 'center',
+                    },
+                    // 1480 and up
+                    1480: {
+                        itemsToShow: 4.5,
+                        snapAlign: 'center',
+                    },
+                },
+                breakpointsComments: {
+                    // 0 and up
+                    0: {
+                        itemsToShow: 1.3,
+                        snapAlign: 'center',
+                    },
+                    // 800 and up
+                    800: {
+                        itemsToShow: 1.5,
+                        snapAlign: 'center',
+                    },
+                    // 1150 and up
+                    1150: {
+                        itemsToShow: 2.5,
+                        snapAlign: 'center',
+                    },
+                }
             }
         },
         components: {
@@ -165,6 +217,8 @@
             appMainClients,
             Carousel,
             Slide,
+            Navigation,
+            Pagination,
             VueCollapsiblePanelGroup,
             VueCollapsiblePanel
         },
@@ -178,9 +232,9 @@
             })
         },
         mounted() {
-            this.$store.dispatch('Backend/GET_CONTENT', 1)
-            this.$store.dispatch('Backend/GET_CLIENTS')
-            this.$store.dispatch('Backend/GET_TEACHERS')
+            this.GET_CONTENT(1)
+            this.GET_CLIENTS()
+            this.GET_TEACHERS()
         },
         methods: {
             goClients() {
@@ -196,12 +250,36 @@
                 else {
                     this.showQuestion = question
                 }
-            }
+            },
+            ...mapActions('Backend', {
+                GET_CONTENT : 'GET_CONTENT',
+                GET_CLIENTS : 'GET_CLIENTS',
+                GET_TEACHERS : 'GET_TEACHERS'
+            })
         }
     }
 </script>
 
 <style>
+    .carousel {
+        margin: 0 1.5rem;
+        cursor: grab;
+    }
+    .carousel__prev, .carousel__next {
+        background-color: rgba(215, 177, 136, 0.85);
+        width: 2rem;
+        height: 2rem;
+        top: 45%;
+    }
+    .carousel__pagination {
+        margin: 0;
+    }
+    .carousel__pagination-button {
+        background-color: rgba(128, 128, 128, 0.55);
+    }
+    .carousel__pagination-button--active {
+        background-color: rgba(215, 177, 136, 0.85);;
+    }
     .reasons {
         display: flex;
         flex-direction: column;
@@ -283,42 +361,57 @@
         background-color: rgba(255, 252, 230, 0.7);
         box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.2);
     }
+    .card-course-out {
+        display: flex;
+        justify-content: center;
+        flex-grow: 1;
+    }
     .card-course {
         display: flex;
         margin: 1rem;
-        justify-content: flex-end;
+        justify-content: center;
         flex-direction: column;
         width: 20rem;
         height: 20rem;
+        box-shadow: 1px 2px 10px 0 rgba(0, 0, 0, 0.2);
     }
-    .card-course:hover {
-        -webkit-transition: all 0.3s ease;;
-        -moz-transition: all 0.3s ease;;
-        -o-transition: all 0.3s ease;;
-        transition: all 0.3s ease;
-        transform: scale(1.03);
-        cursor: pointer;
-    }
-    .card-course p {
-        background: rgba(255, 255, 255, 0.7);
-        padding: 0.7rem;
-    }
-    .card-course.main {
-        background: url('../assets/main-course.png') no-repeat center / 100% 100%;
+        .card-course:hover {
+            -webkit-transition: all 0.3s ease;;
+            -moz-transition: all 0.3s ease;;
+            -o-transition: all 0.3s ease;;
+            transition: all 0.3s ease;
+            transform: scale(1.03);
+            cursor: pointer;
+        }
+        .card-course .btn {
+            margin: 30% 1rem 0 1rem;
+        }
+        .card-course p {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 0.7rem;
+        }
+        .card-course.main {
+            background: url('../assets/main-course.png') no-repeat center / 100% 100%;
         border-radius: 1rem;
-    }
+        }
 
-    .card-course.teenage {
-        background: url('../assets/teenage-course.png') no-repeat center / 100% 100%;
-        border-radius: 1rem;
-    }
+        .card-course.teenage {
+            background: url('../assets/teenage-course.png') no-repeat center / 100% 100%;
+            border-radius: 1rem;
+        }
     .course-buttons {
         justify-content: space-between;
+        align-items: center;
+        width: 20rem;
+        height: 20rem;
+        margin: 1rem;
+        flex-grow: 1;
     }
-    .main-program .btn {
-        margin: 2rem;
-        padding: 1rem;
-    }
+        .course-buttons .btn {
+            margin: 0;
+            width: 90%;
+            max-width: none;
+        }
     .main-teachers h2 {
         align-self: center;
     }
@@ -331,6 +424,7 @@
         background-color: rgba(255, 255, 255, 0.9);
     }
     .vcp.vcp--expandable {
+        overflow-x: hidden;
         padding: 1rem 2rem;
         text-align: left;
     }
@@ -400,11 +494,14 @@
             transform: translateY(0);
         }
     }
-    .friend-company img {
-        max-width: 10rem;
-        max-height: 5rem;
+    .friend-company {
+        margin: 2rem 0 0 0;
     }
-    .friend-company h2 {
+        .friend-company img {
+            max-width: 10rem;
+            max-height: 5rem;
+        }
+        .friend-company h2 {
         align-self: center;
     }
 
@@ -454,6 +551,9 @@
         }
         .vcp__body {
             font-size: 20px;
+        }
+        .reasons {
+            height: 25rem;
         }
     }
 </style>

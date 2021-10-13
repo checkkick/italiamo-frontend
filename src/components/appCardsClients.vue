@@ -23,7 +23,8 @@
         overflow: hidden;
     }
     .teacher-card {
-        padding: 0.5rem;
+        cursor: pointer;
+        padding: 1rem;
         margin: 2rem 1rem;
         justify-content: center;
         align-items: center;

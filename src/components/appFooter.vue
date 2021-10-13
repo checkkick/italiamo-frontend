@@ -52,10 +52,14 @@
 
 <style scoped>
     .footer {
-        margin: 4rem 0 0 0;
-        padding: 2rem 0;
+        margin: 2rem 0 0 0;
+        padding: 2rem 0 0 0;
         background-color: rgba(255, 252, 230, 0.6);
         box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.3);
+    }
+    .footer h2, .footer h3 {
+        margin: 0 0 2rem 0;
+        align-self: center;
     }
     .flex-row {
         align-items: stretch;
@@ -78,7 +82,9 @@
     .about-us .flex-row {
         justify-content: center;
     }
-
+    .contacts-form, .contacts-text {
+        margin: 0;
+    }
     @media (max-width: 650px) {
         .flex-contacts {
             flex-direction: column-reverse;
