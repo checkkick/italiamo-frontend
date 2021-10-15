@@ -30,5 +30,12 @@ export default {
 </script>
 
 <style>
-
+    @media (max-width : 650px) {
+        .header h3 {
+            margin: 0;
+        }
+        .header h1 {
+            margin: 0 0 1.5rem 0;
+        }
+    }
 </style>

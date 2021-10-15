@@ -22,6 +22,7 @@
 
 <style scoped>
     .card-comment {
+        position: relative;
         margin: 1rem 2rem 2rem 2rem;
         padding: 1rem;
         justify-content: stretch;
@@ -30,26 +31,22 @@
         border-radius: 20px;
         box-shadow: 0 5px 20px 0 rgba(0,0,0,0.2);
     }
-
     .card-comment img {
         object-fit: cover;
         object-position: 50% 50%;
         align-self: flex-start;
         margin: 1rem;
-        width: 200px;
-        height: 200px;
-        border-radius: 10rem;
+        width: 12rem;
+        height: 12rem;
+        border-radius: 100%;
     }
-
     .comment-body {
         padding: 1rem;
         width: 100%;
     }
-
-    .comment-body p {
-        max-width: 100%;
-    }
-
+        .comment-body p {
+            max-width: 100%;
+        }
     .author-name {
         text-align: left;
         font-weight: bold;
@@ -69,13 +66,18 @@
     @media (max-width : 650px) {
         .card-comment {
             flex-direction: column;
+            margin: 1rem;
         }
-        .card-comment img {
-            margin: 0;
-            position: absolute;
-            left: 2rem;
-            width: 100px;
-            height: 100px;
+            .card-comment img {
+                margin: 1rem;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100px;
+                height: 100px;
+            }
+        .comment-text {
+            margin-top: 4rem;
         }
         .author-name {
             text-align: right;

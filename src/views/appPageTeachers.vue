@@ -36,5 +36,9 @@
 </script>
 
 <style scoped>
-
+    @media (max-width: 650px) {
+        h1 {
+            margin: 0;
+        }
+    }
 </style>

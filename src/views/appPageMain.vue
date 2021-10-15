@@ -2,8 +2,7 @@
     <header class="header main-header">
         <h1>Онлайн школа итальянского языка</h1>
         <img alt="изображение Italiamo" src="../assets/logo-1.png">
-            <button v-on:click="freeLesson()" class="btn">Попробовать бесплатно</button>
-
+            <button @click="freeLesson()" class="btn">Попробовать бесплатно</button>
     </header>
 
     <main class="main-section">
@@ -46,11 +45,11 @@
                 </app-main-clients>
             </slide>
             <template #addons="{ slidesCount }">
-                <Navigation v-if="slidesCount > 1" />
+                <Navigation class="carousel-navigation" v-if="slidesCount > 1" />
                 <Pagination />
             </template>
         </carousel>
-        <button class="btn" v-on:click="goClients">Посмотреть отзывы</button>
+        <button class="btn" @click="routerPush('comments')">Посмотреть отзывы</button>
     </section>
 
     <section class="flex-column main-program">
@@ -59,17 +58,17 @@
             <div class="card-course-out">
                 <div class="card-course main">
                     <p>Основной курс итальянского</p>
-                    <button class="btn">Подробнее</button>
+                    <button @click="routerPush('programs')" class="btn">Подробнее</button>
                 </div>
             </div>
             <div class="card-course-out">
                 <div class="card-course teenage">
                     <p>Курс итальнянского для детей и подростков</p>
-                    <button class="btn">Подробнее</button>
+                    <button @click="routerPush('programs')" class="btn">Подробнее</button>
                 </div>
             </div>
             <div class="course-buttons flex-column">
-                <button class="btn">Все программы и цены</button>
+                <button @click="routerPush('prices')" class="btn">Все программы и цены</button>
                 <button class="btn">Записаться на открытый урок</button>
                 <button class="btn">Пройти тестирование</button>
             </div>
@@ -82,13 +81,14 @@
             <slide v-for="teacher in teachers"
                    :key="teacher.id">
                     <app-main-teachers
+                            @click="routerPush('teachers')"
                             :image="teacher.logo"
                             :name="teacher.name"
                             :page-id="teacher.alt"
                     ></app-main-teachers>
             </slide>
             <template #addons="{ slidesCount }">
-                <Navigation v-if="slidesCount > 1" />
+                <Navigation class="carousel-navigation" v-if="slidesCount > 1" />
                 <Pagination />
             </template>
         </carousel>
@@ -157,7 +157,7 @@
 <script>
     import appMainTeachers from "../components/appCardsTeachers";
     import appMainClients from "../components/appCardsClients";
-    import {mapGetters, mapActions} from 'vuex'
+    import {mapGetters} from 'vuex'
     import {Carousel, Navigation, Pagination, Slide} from 'vue3-carousel';
     import { VueCollapsiblePanelGroup, VueCollapsiblePanel } from '@dafcoe/vue-collapsible-panel'
     import '@dafcoe/vue-collapsible-panel/dist/vue-collapsible-panel.css'
@@ -166,7 +166,6 @@
     export default {
         data() {
             return {
-                showQuestion: 0,
                 settings: {
                     autoplay: 3000,
                     wrapAround: true
@@ -231,31 +230,14 @@
                 coworks: 'COWORKS',
             })
         },
-        mounted() {
-            this.GET_CONTENT(1)
-            this.GET_CLIENTS()
-            this.GET_TEACHERS()
-        },
         methods: {
-            goClients() {
-                this.$router.push('/comments')
+            routerPush(path) {
+                window.scrollTo(0,0);
+                this.$router.push(`/${path}`)
             },
-            goTeacher() {
-                this.$router.push('/comments')
+            freeLesson() {
+                window.scrollTo(0,0);
             },
-            showQuestionClick(question) {
-                if (this.showQuestion !== 0) {
-                    this.showQuestion = 0
-                }
-                else {
-                    this.showQuestion = question
-                }
-            },
-            ...mapActions('Backend', {
-                GET_CONTENT : 'GET_CONTENT',
-                GET_CLIENTS : 'GET_CLIENTS',
-                GET_TEACHERS : 'GET_TEACHERS'
-            })
         }
     }
 </script>
@@ -272,6 +254,8 @@
         top: 45%;
     }
     .carousel__pagination {
+        align-items: center;
+        padding: 0;
         margin: 0;
     }
     .carousel__pagination-button {
@@ -529,11 +513,15 @@
         .carousel {
             margin: 0;
         }
+        .carousel-navigation {
+            display: none;
+        }
         .main-header img {
             display: none;
         }
         .main-section img {
             width: 100%;
+            margin: 0 2rem;
         }
         .vcpg {
             background-color: rgba(255, 255, 255, 0.9);

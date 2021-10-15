@@ -60,7 +60,12 @@
 
 <style scoped>
     .card {
-        margin: 1rem;
+        margin: 0.5rem;
         padding: 0;
+    }
+    @media (max-width: 650px) {
+        h1 {
+            margin: 0;
+        }
     }
 </style>

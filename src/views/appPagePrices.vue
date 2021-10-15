@@ -112,4 +112,9 @@
         .price-card-text .btn {
             align-self: stretch;
         }
+    @media (max-width: 650px) {
+        h1 {
+            margin: 0 1rem;
+        }
+    }
 </style>

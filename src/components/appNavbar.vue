@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar-menu">
-      <router-link to="/">
+      <router-link to="/" @click="scrollToTop">
           <img class="img-logo" src="../assets/logo-1.png" alt="logo">
       </router-link>
       <router-link
