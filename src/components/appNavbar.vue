@@ -84,7 +84,10 @@
                       class="dropdown-menu-item"
                       to="/comments"
               >Отзывы</router-link>
-              <a class="dropdown-menu-item" href="#contacts" v-smooth-scroll="{ updateHistory: false }">Контакты</a>
+              <a class="dropdown-menu-item"
+                 href="#contacts"
+                 @click="showDropdownMenu = !showDropdownMenu"
+                 v-smooth-scroll="{ updateHistory: false }">Контакты</a>
           </section>
       </transition>
   </nav>
