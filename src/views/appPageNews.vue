@@ -7,7 +7,7 @@
                 v-for="news in NEWS"
                 :key="news.id"
                 :news-img="news.img"
-                :dateNews="news.published"
+                :dateNews="new Date(news.published).toLocaleString()"
                 :titleNews="news.name"
                 :summary="news.mini_description"
                 :textNews="news.description"
@@ -30,7 +30,9 @@
             appCardsNews
         },
         mounted() {
-            this.$store.dispatch('Backend/GET_NEWS')
+            this.$store.dispatch('Backend/GET_NEWS').then(() => {
+                console.log(this.NEWS)
+            })
         }
     }
 </script>

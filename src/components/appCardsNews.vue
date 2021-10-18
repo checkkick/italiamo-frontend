@@ -6,14 +6,13 @@
         <img :src="newsImg" :alt="titleNews">
         <div class="news-title flex-column">
             <h3>{{ titleNews }}</h3>
-            <p>{{ summary }}</p>
+            <p>{{ summary }}... </p>
             <p>Автор публикации: {{ author }}</p>
             <p class="date-news">{{ dateNews }}</p>
         </div>
     </section>
     <section v-if="showNews" class="hidden-news-card flex-row">
         <button @click="showNews = !showNews" class="btn">X</button>
-        <img :src="newsImg" :alt="titleNews">
         <div class="news-title flex-column">
             <h3>{{ titleNews }}</h3>
             <p class="news-text">{{ textNews }}</p>
@@ -78,22 +77,24 @@
         max-width: 18rem;
         border-radius: 15px;
     }
-
     .news-title {
         align-items: flex-start;
         margin: 0;
         padding: 0 2rem;
+        height: 100%;
     }
-
-    .news-title p {
-        text-align: left;
-        font-size: 18px;
-        max-width: 100%;
-    }
-
-    .news-title .date-news p {
-        font-weight: lighter;
-    }
+        .news-title h3 {
+            padding: 0;
+            text-align: left;
+        }
+        .news-title p {
+            text-align: left;
+            font-size: 18px;
+            max-width: 100%;
+        }
+        .news-title .date-news p {
+            font-weight: lighter;
+        }
     .background-hidden {
         position: fixed;
         top: 0;
@@ -118,13 +119,13 @@
         border-radius: 20px;
         box-shadow: 1px 10px 20px 0 rgba(0,0,0,0.3);
     }
-
     .hidden-news-card img {
         max-width: 18rem;
         border-radius: 15px;
     }
     .hidden-news-card .btn {
         margin: 0.5rem;
+        padding: 1rem 1.3rem;
         font-weight: bolder;
         position: absolute;
         top: 0;
@@ -132,7 +133,6 @@
         font-size: 1rem;
         border-radius: 100%;
     }
-
     .news-text {
         height: 35rem;
         overflow: auto;
@@ -155,10 +155,6 @@
         }
         .hidden-news-card img {
             margin-top: 1rem;
-        }
-        .news-text {
-            max-height: 20rem;
-            overflow: auto;
         }
     }
 </style>
