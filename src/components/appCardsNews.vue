@@ -1,5 +1,4 @@
 <template>
-    <div v-if="showNews" class="background-hidden"></div>
     <section
             @click="showNews = !showNews"
             class="news-card flex-row">
@@ -11,15 +10,23 @@
             <p class="date-news">{{ dateNews }}</p>
         </div>
     </section>
-    <section v-if="showNews" class="hidden-news-card flex-row">
-        <button @click="showNews = !showNews" class="btn">X</button>
-        <div class="news-title flex-column">
-            <h3>{{ titleNews }}</h3>
-            <p class="news-text">{{ textNews }}</p>
-            <p>Автор публикации: {{ author }}</p>
-            <p class="date-news">{{ dateNews }}</p>
-        </div>
-    </section>
+
+    <transition name="fade-background">
+        <div v-if="showNews" class="background-hidden"></div>
+    </transition>
+
+    <transition name="fade-card">
+        <section v-if="showNews" class="hidden-news-card flex-row">
+            <button @click="showNews = !showNews" class="btn">X</button>
+            <div class="news-title flex-column">
+                <h3>{{ titleNews }}</h3>
+                <p class="news-text">{{ textNews }}</p>
+                <p>Автор публикации: {{ author }}</p>
+                <p class="date-news">{{ dateNews }}</p>
+            </div>
+        </section>
+    </transition>
+
 </template>
 
 <script>
@@ -136,6 +143,36 @@
     .news-text {
         height: 35rem;
         overflow: auto;
+    }
+
+    .fade-card-enter-active {
+        animation: fade-card-in .3s;
+    }
+    .fade-card-leave-active {
+        animation: fade-card-in .3s reverse;
+    }
+    @keyframes fade-card-in {
+        0% {
+            transform: scale(0);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    .fade-background-enter-active {
+        animation: fade-background-in .3s;
+    }
+    .fade-background-leave-active {
+        animation: fade-background-in .3s reverse;
+    }
+    @keyframes fade-background-in {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
     }
 
     @media (max-width : 750px) {

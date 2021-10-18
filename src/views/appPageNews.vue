@@ -30,9 +30,7 @@
             appCardsNews
         },
         mounted() {
-            this.$store.dispatch('Backend/GET_NEWS').then(() => {
-                console.log(this.NEWS)
-            })
+            this.$store.dispatch('Backend/GET_NEWS')
         }
     }
 </script>

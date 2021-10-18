@@ -18,7 +18,7 @@
 
 <style scoped>
     .teacher-card {
-        margin: 1rem;
+        margin: 2rem 1rem;
         justify-content: center;
         align-items: center;
         text-align: center;
