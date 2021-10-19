@@ -18,19 +18,25 @@
 
 <script>
     import appCardsNews from "../components/appCardsNews";
-    import {mapGetters} from "vuex";
+    import {mapGetters, mapActions} from "vuex";
+
     export default {
         computed:{
             ...mapGetters('Backend', {
                 NEWS: 'NEWS',
             })
         },
+        methods: {
+            ...mapActions('Backend', {
+                GET_NEWS : 'GET_NEWS'
+            })
+        },
+        mounted() {
+            this.GET_NEWS()
+        },
         name: "appPageNews",
         components: {
             appCardsNews
-        },
-        mounted() {
-            this.$store.dispatch('Backend/GET_NEWS')
         }
     }
 </script>

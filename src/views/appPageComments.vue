@@ -14,13 +14,21 @@
 
 <script>
 import appCardsComments from "../components/appCardsComments";
-import {mapGetters} from "vuex";
+import {mapActions, mapGetters} from "vuex";
 
 export default {
     computed:{
         ...mapGetters('Backend', {
             clients: 'CLIENTS',
         })
+    },
+    methods: {
+        ...mapActions('Backend', {
+            GET_CLIENTS : 'GET_CLIENTS'
+        })
+    },
+    mounted() {
+        this.GET_CLIENTS()
     },
     name: "appPageComments",
     components: {

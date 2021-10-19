@@ -156,7 +156,7 @@
 <script>
     import appMainTeachers from "../components/appCardsTeachers";
     import appMainClients from "../components/appCardsClients";
-    import {mapGetters} from 'vuex'
+    import {mapActions, mapGetters} from 'vuex'
     import {Carousel, Navigation, Pagination, Slide} from 'vue3-carousel';
     import { VueCollapsiblePanelGroup, VueCollapsiblePanel } from '@dafcoe/vue-collapsible-panel'
     import '@dafcoe/vue-collapsible-panel/dist/vue-collapsible-panel.css'
@@ -230,6 +230,11 @@
             })
         },
         methods: {
+            ...mapActions('Backend', {
+                GET_CONTENT : 'GET_CONTENT',
+                GET_CLIENTS : 'GET_CLIENTS',
+                GET_TEACHERS : 'GET_TEACHERS'
+            }),
             routerPush(path) {
                 window.scrollTo(0,0);
                 this.$router.push(`/${path}`)
@@ -237,6 +242,11 @@
             freeLesson() {
                 window.scrollTo(0,0);
             },
+        },
+        mounted() {
+            this.GET_CONTENT(1)
+            this.GET_CLIENTS()
+            this.GET_TEACHERS()
         }
     }
 </script>

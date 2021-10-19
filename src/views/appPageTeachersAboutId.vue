@@ -17,7 +17,7 @@
 </template>
 
 <script>
-    import {mapGetters} from 'vuex'
+    import {mapActions, mapGetters} from 'vuex'
 
     export default {
         data() {
@@ -30,13 +30,19 @@
                 TEACHERS: 'TEACHERS',
             })
         },
+        methods: {
+            ...mapActions('Backend', {
+                GET_TEACHERS : 'GET_TEACHERS'
+            })
+        },
         mounted() {
-            for (let content of this.TEACHERS) {
-                if (content.alt === this.$route.params.teacherId) {
-                    console.log(content)
-                    this.teacherContent = content
+            this.GET_TEACHERS().then(() => {
+                for (let content of this.TEACHERS) {
+                    if (content.alt === this.$route.params.teacherId) {
+                        this.teacherContent = content
+                    }
                 }
-            }
+            })
         },
         name: "appPageTeachersAboutId"
     }
@@ -48,7 +54,7 @@
         margin-bottom: 3rem;
     }
         .about-section p {
-            text-align: left;
+            text-align: justify;
             max-width: 100%;
         }
         .about-section img {
@@ -74,6 +80,11 @@
         max-width: 100%;
     }
     @media (max-width: 650px) {
+        .about-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
         .header h1 {
             margin: 0;
         }
@@ -89,8 +100,8 @@
                 max-width: 100%;
             }
             .about-section img {
-                width: 15rem;
-                height: 15rem;
+                width: auto;
+                height: auto;
                 margin: 1rem;
             }
         .personal-data {

@@ -17,7 +17,7 @@
 
 <script>
     import appMainTeachers from "../components/appCardsTeachers";
-    import {mapGetters} from "vuex";
+    import {mapActions, mapGetters} from "vuex";
     export default {
         name: "appPageTeachers",
         computed: {
@@ -25,12 +25,16 @@
                 teachers: 'TEACHERS',
             }),
         },
-
-        components: {
-            appMainTeachers
+        methods: {
+            ...mapActions('Backend', {
+                GET_TEACHERS : 'GET_TEACHERS'
+            })
         },
         mounted() {
-            this.$store.dispatch('Backend/GET_TEACHERS')
+            this.GET_TEACHERS()
+        },
+        components: {
+            appMainTeachers
         }
     }
 </script>
