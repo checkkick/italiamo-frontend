@@ -81,7 +81,6 @@
             <slide v-for="teacher in teachers"
                    :key="teacher.id">
                     <app-main-teachers
-                            @click="routerPush('teachers')"
                             :image="teacher.logo"
                             :name="teacher.name"
                             :page-id="teacher.alt"

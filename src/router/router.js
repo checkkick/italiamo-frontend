@@ -6,6 +6,7 @@ import appPageTeachers from "../views/appPageTeachers";
 import appPageNews from "../views/appPageNews";
 import appPagePrices from "../views/appPagePrices";
 import appPageProgramsCourseId from "../views/appPageProgramsCourseId";
+import appPageTeachersAboutId from "../views/appPageTeachersAboutId";
 
 export default createRouter({
     history: createWebHistory(process.env.BASE_URL),
@@ -44,6 +45,11 @@ export default createRouter({
             path: '/programs/:courseId',
             name: 'appPageProgramsCourseId',
             component: appPageProgramsCourseId
+        },
+        {
+            path: '/teachers/:teacherId',
+            name: 'appPageTeachersAboutId',
+            component: appPageTeachersAboutId
         },
     ]
 })

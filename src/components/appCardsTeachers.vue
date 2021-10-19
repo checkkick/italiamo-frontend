@@ -2,7 +2,7 @@
     <div class="flex-column teacher-card">
         <img :src="image" :alt="pageId">
         <p>{{ name }}</p>
-        <button class="btn">Познакомиться</button>
+        <button @click="routerPush(`teachers/${pageId}`)" class="btn">Познакомиться</button>
     </div>
 </template>
 
@@ -13,6 +13,12 @@
             pageId: String,
             image: String
         },
+        methods: {
+            routerPush(path) {
+                window.scrollTo(0, 0);
+                this.$router.push(`/${path}`)
+            },
+        }
     }
 </script>
 
@@ -34,7 +40,6 @@
             -o-transition: all 0.3s ease;;
             transition: all 0.3s ease;
             background-color: rgba(255, 252, 229, 0.9);
-            cursor: pointer;
         }
         .teacher-card img {
             margin: 2rem;
