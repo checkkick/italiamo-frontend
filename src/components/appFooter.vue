@@ -6,7 +6,7 @@
             <div class="flex-column contacts-text">
                 <div class="telephones">
                     <h4><a href="tel:+78007001355">+7 (800) 700-13-55</a></h4>
-                    <h4><a href="tel:+79157753050">+7 (915) 775-30-50</a></h4>
+                    <h4><a href="tel:+79300309922">+7 (930) 030-99-22</a></h4>
                     <h4><a href="mailto:info@italiamo.online">info@italiamo.online</a></h4>
                     <h4>Разработка: <a href="mailto:bexram33@mail.ru">bexram33@mail.ru</a></h4>
                 </div>
