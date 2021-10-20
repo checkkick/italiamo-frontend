@@ -33,12 +33,30 @@
                 titleText="Курс итальянского для детей и подростков"
                 aboutText="Если вы хотите, чтобы ваши дети изучали итальянский язык и расширяли свой кругозор, то уроки в школе ITALIAMO вам несомненно подходят. Каждая языковая программа для детей индивидуальна и зависит от уровня владения языком ребенка, а также от возраста самого ребенка. Во время занятий используются песни, видеоролики, игры, специальные учебные пособия для каждого возрастного периода. Уроки проходят в соответствии с самыми современными методиками обучения иностранным языкам детей."
         ></app-cards-programs>
+
     </main>
 </template>
 
 <script>
     import appCardsPrograms from "../components/appCardsPrograms";
+    import {mapActions, mapGetters} from "vuex";
+
     export default {
+        computed:{
+            ...mapGetters('Backend', {
+                PROGRAMS: 'PROGRAMS',
+            })
+        },
+        methods: {
+            ...mapActions('Backend', {
+                GET_PROGRAMS : 'GET_PROGRAMS'
+            })
+        },
+        mounted() {
+            this.GET_PROGRAMS().then(() => {
+                console.log(this.PROGRAMS)
+            })
+        },
         name: "appPagePrograms",
         components: {
             appCardsPrograms
