@@ -8,6 +8,7 @@
                     <h4><a href="tel:+78007001355">+7 (800) 700-13-55</a></h4>
                     <h4><a href="tel:+79300309922">+7 (930) 030-99-22</a></h4>
                     <h4><a href="mailto:info@italiamo.online">info@italiamo.online</a></h4>
+                    <h4>Дизайн: <a href="mailto:adelina.sinitsyna@mail.ru">adelina.sinitsyna@mail.ru</a></h4>
                     <h4>Разработка: <a href="mailto:bexram33@mail.ru">bexram33@mail.ru</a></h4>
                 </div>
                 <div class="about-us">
@@ -85,9 +86,12 @@
     .contacts-form, .contacts-text {
         margin: 0;
     }
-    @media (max-width: 650px) {
+    @media (max-width: 965px) {
         .flex-contacts {
             flex-direction: column-reverse;
+        }
+        .textarea {
+            width: auto;
         }
         .contacts-text {
             margin: 0;

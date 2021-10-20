@@ -2,7 +2,7 @@
     <header class="header main-header">
         <h1>Онлайн школа итальянского языка</h1>
         <img alt="изображение Italiamo" src="../assets/logo-1.png">
-            <button @click="freeLesson()" class="btn">Попробовать бесплатно</button>
+            <button href="#contacts" v-smooth-scroll="{ updateHistory: false }" class="btn">Оставить заявку</button>
     </header>
 
     <main class="main-section">
@@ -69,7 +69,7 @@
             </div>
             <div class="course-buttons flex-column">
                 <button @click="routerPush('prices')" class="btn">Все программы и цены</button>
-                <button class="btn">Записаться на открытый урок</button>
+                <button class="btn" href="#contacts" v-smooth-scroll="{ updateHistory: false }">Оставить заявку</button>
                 <button class="btn">Пройти тестирование</button>
             </div>
         </div>
@@ -384,12 +384,12 @@
             padding: 0.7rem;
         }
         .card-course.main {
-            background: url('../assets/main-course.png') no-repeat center / 100% 100%;
+            background: url('../assets/main-course.png') no-repeat center / cover;
         border-radius: 1rem;
         }
 
         .card-course.teenage {
-            background: url('../assets/teenage-course.png') no-repeat center / 100% 100%;
+            background: url('../assets/teenage-course.png') no-repeat center / cover;
             border-radius: 1rem;
         }
     .course-buttons {

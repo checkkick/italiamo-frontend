@@ -11,31 +11,31 @@
       >Главная</router-link>
       <router-link
               @click="scrollToTop"
-              :class="this.$route.path === '/news' ? 'hover-item ' : ''"
+              :class="this.$route.path.includes('/news') ? 'hover-item ' : ''"
               class="navbar-menu-item"
               to="/news"
       >Новости</router-link>
       <router-link
               @click="scrollToTop"
-              :class="this.$route.path === '/programs' ? 'hover-item ' : ''"
+              :class="this.$route.path.includes('/programs') ? 'hover-item ' : ''"
               class="navbar-menu-item"
               to="/programs"
       >Программы</router-link>
       <router-link
               @click="scrollToTop"
-              :class="this.$route.path === '/prices' ? 'hover-item ' : ''"
+              :class="this.$route.path.includes('/prices') ? 'hover-item ' : ''"
               class="navbar-menu-item"
               to="/prices"
       >Цены</router-link>
       <router-link
               @click="scrollToTop"
-              :class="this.$route.path === '/teachers' ? 'hover-item ' : ''"
+              :class="this.$route.path.includes('/teachers') ? 'hover-item ' : ''"
               class="navbar-menu-item"
               to="/teachers"
       >Преподаватели</router-link>
       <router-link
               @click="scrollToTop"
-              :class="this.$route.path === '/comments' ? 'hover-item ' : ''"
+              :class="this.$route.path.includes('/comments') ? 'hover-item ' : ''"
               class="navbar-menu-item"
               to="/comments"
       >Отзывы</router-link>
@@ -56,31 +56,31 @@
               >Главная</router-link>
               <router-link
                       @click="dropdownMenu"
-                      :class="this.$route.path === '/news' ? 'hover-item ' : ''"
+                      :class="this.$route.path.includes('/news') ? 'hover-item ' : ''"
                       class="dropdown-menu-item"
                       to="/news"
               >Новости</router-link>
               <router-link
                       @click="dropdownMenu"
-                      :class="this.$route.path === '/programs' ? 'hover-item ' : ''"
+                      :class="this.$route.path.includes('/programs') ? 'hover-item ' : ''"
                       class="dropdown-menu-item"
                       to="/programs"
               >Программы обучения</router-link>
               <router-link
                       @click="dropdownMenu"
-                      :class="this.$route.path === '/prices' ? 'hover-item ' : ''"
+                      :class="this.$route.path.includes('/prices') ? 'hover-item ' : ''"
                       class="dropdown-menu-item"
                       to="/prices"
               >Цены и оплата</router-link>
               <router-link
                       @click="dropdownMenu"
-                      :class="this.$route.path === '/teachers' ? 'hover-item ' : ''"
+                      :class="this.$route.path.includes('/teachers') ? 'hover-item ' : ''"
                       class="dropdown-menu-item"
                       to="/teachers"
               >Преподаватели</router-link>
               <router-link
                       @click="dropdownMenu"
-                      :class="this.$route.path === '/comments' ? 'hover-item ' : ''"
+                      :class="this.$route.path.includes('/comments') ? 'hover-item ' : ''"
                       class="dropdown-menu-item"
                       to="/comments"
               >Отзывы</router-link>
