@@ -1,16 +1,11 @@
 <template>
     <header class="header flex-column">
-        <h1>Название курса</h1>
+        <h1>{{ programContent.name }}</h1>
     </header>
     <main class="main">
         <section class="course-about flex-row">
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aut blanditiis delectus, distinctio doloremque dolores earum facere laboriosam odit perferendis provident quae quas quidem, quis rem sequi sit sunt totam.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem eaque eum eveniet expedita facilis in incidunt ipsa mollitia necessitatibus nemo non possimus quasi, qui suscipit ullam veritatis vitae voluptatem voluptates!
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci at autem consequuntur cum distinctio dolorum earum hic minus sunt vero? Consequuntur cum illo incidunt, modi omnis optio porro quis rem.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid error eveniet fugiat quaerat quo! Beatae, excepturi explicabo incidunt labore laudantium nostrum obcaecati officiis pariatur provident quaerat reprehenderit, similique vel, velit!
-            </p>
-            <img class="card-shadow" src="../assets/main-course.png" alt="course image">
+            <p>{{ programContent.description }}</p>
+            <img class="card-shadow" :src="programContent.img" :alt="programContent.name">
         </section>
 
         <section class="table-course flex-column">
@@ -62,12 +57,41 @@
 </template>
 
 <script>
+    import {mapActions, mapGetters} from "vuex";
+
     export default {
+        data() {
+            return {
+                programContent: {}
+            }
+        },
+        computed:{
+            ...mapGetters('Backend', {
+                programs: 'PROGRAMS',
+            })
+        },
+        methods: {
+            ...mapActions('Backend', {
+                GET_PROGRAMS : 'GET_PROGRAMS'
+            })
+        },
+        mounted() {
+            this.GET_PROGRAMS().then(() => {
+                for (let content of this.programs) {
+                    if (content.id == this.$route.params.courseId) {
+                        this.programContent = content
+                    }
+                }
+            })
+        },
         name: "appPageProgramsCourseId"
     }
 </script>
 
 <style scoped>
+    .header h1 {
+        margin: 0 1rem;
+    }
     .main {
         padding: 0 1rem;
     }
@@ -76,6 +100,7 @@
             flex-grow: 1;
         }
         .course-about img {
+            margin: 1rem 0 0 0;
             width: 100%;
             max-width: 25rem;
             max-height: 25rem;
@@ -100,11 +125,11 @@
             .course-about p {
                 margin: 2rem 0 0 0;
             }
+            .course-about img {
+                margin: 0;
+            }
         .row-none {
             display: none;
-        }
-        .header h1 {
-            margin: 0 1rem;
         }
     }
 </style>

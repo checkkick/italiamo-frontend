@@ -1,13 +1,13 @@
 <template>
         <section class="card" >
             <div class="front"
-                 :style="{background: `url(${require(`../assets/${path}.png`)}) no-repeat center / cover`}">
+                 :style="{background: `url(${image}) no-repeat center / cover`}">
                 <p>{{ titleText }}</p>
-                <button @click="routerPush(path)" class="mobile btn">Подробнее</button>
+                <button @click="routerPush(id)" class="mobile btn">Подробнее</button>
             </div>
             <div class="back">
-                <p>{{ aboutText }}</p>
-                <p @click="routerPush(path)" class="btn">Подробнее</p>
+                <div><p  class="back-text">{{ aboutText }}</p></div>
+                <p @click="routerPush(id)" class="btn">Подробнее</p>
             </div>
         </section>
 
@@ -17,7 +17,8 @@
 <script>
     export default {
         props: {
-          path: String,
+          id: Number,  
+          image: String,
           titleText: String,
           aboutText: String
         },
@@ -46,7 +47,7 @@
         height: 30rem;
         margin: 0;
         display: flex;
-        justify-content: center;
+        justify-content: space-evenly;
         flex-direction: column;
         align-items: center;
         transition: 1s;
@@ -79,6 +80,13 @@
             margin: 0;
             padding: 2rem 1rem;
         }
+    .back-text {
+        max-height: 10.5rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 10;
+        -webkit-box-orient: vertical;  
+        overflow: hidden;
+    }
     .card:hover .front {
         transform: rotateY(180deg);
     }

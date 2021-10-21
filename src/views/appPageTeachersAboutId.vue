@@ -5,7 +5,7 @@
     <main class="main">
         <section class="about-section">
             <img class="card-shadow" :src="teacherContent.logo" :alt="teacherContent.alt">
-            <p v-html="teacherContent.description"></p>
+            <p class="about-text" v-html="teacherContent.description"></p>
         </section>
         <section class="input-section flex-row">
             <input class="input" type="text" placeholder="Имя">
