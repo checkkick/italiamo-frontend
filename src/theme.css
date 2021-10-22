@@ -154,7 +154,6 @@ h3 {
 }
 
 p {
-    max-width: 50rem;
     margin: 1rem 0;
     font-family: 'Istok Web', cursive;
     font-style: normal;
@@ -164,7 +163,6 @@ p {
     letter-spacing: 0.03em;
 }
 ul {
-    text-align:center;
     list-style-position: inside;
 }
 .flex-column {
@@ -223,5 +221,11 @@ ul {
         font-size: 17px;
         text-transform: uppercase;
         font-weight: bold;
+    }
+    @media (max-width: 650px) {
+        ul {
+            padding: 0 0 0 1.5rem;
+            list-style-position: outside;
+        }
     }
 }

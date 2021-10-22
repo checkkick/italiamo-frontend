@@ -5,7 +5,7 @@
     <main class="main">
         <section class="about-section">
             <img class="card-shadow" :src="teacherContent.logo" :alt="teacherContent.alt">
-            <p class="about-text" v-html="teacherContent.description"></p>
+            <p v-html="teacherContent.description"></p>
         </section>
         <section class="input-section flex-row">
             <input class="input" type="text" placeholder="Имя">
@@ -64,15 +64,18 @@
             float: left;
         }
     .input-section {
+        width: 100%;
         margin: 3rem -1rem 1rem -1rem;
         align-items: center;
     }
         .input-section .input {
+            width: 30%;
             flex-grow: 1;
         }
         .input-section .btn {
             flex-grow: 1;
             margin: 0.5rem 1rem;
+            max-width: none;
             padding: 1rem 1.5rem;
         }
     .personal-data {
@@ -94,16 +97,14 @@
             flex-direction: column;
             align-items: center;
         }
-            .about-section p {
-                margin: 1rem 0 0 0;
-                text-align: center;
-                max-width: 100%;
-            }
             .about-section img {
                 width: auto;
                 height: auto;
                 margin: 1rem;
             }
+        .input-section {
+            margin-top: 0;
+        }    
         .personal-data {
             margin: 0;
         }
