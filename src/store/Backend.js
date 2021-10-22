@@ -69,7 +69,7 @@ const actions = {
     GET_CONTENT({commit}, page) {
         return axios({
             method: "GET",
-            url: `https://bexram.pythonanywhere.com/page/${page}/`
+            url: `http://bexram.online:8005/page/${page}/`
         })
             .then((response) => {
                 commit("SET_CONTENT", response.data);
@@ -83,7 +83,7 @@ const actions = {
     GET_CLIENTS({commit}) {
         return axios({
             method: "GET",
-            url: `https://bexram.pythonanywhere.com/client/`
+            url: `http://bexram.online:8005/client/`
         })
             .then((response) => {
                 commit("SET_CLIENTS", response.data);
@@ -97,7 +97,7 @@ const actions = {
     GET_TEACHERS({commit}) {
         return axios({
             method: "GET",
-            url: `https://bexram.pythonanywhere.com/teacher/`
+            url: `http://bexram.online:8005/teacher/`
         })
             .then((response) => {
                 commit("SET_TEACHERS", response.data);
@@ -111,7 +111,7 @@ const actions = {
     GET_NEWS({commit}) {
         return axios({
             method: "GET",
-            url: `https://bexram.pythonanywhere.com/news/`
+            url: `http://bexram.online:8005/news/`
         })
             .then((response) => {
                 commit("SET_NEWS", response.data);
@@ -125,7 +125,7 @@ const actions = {
     GET_PROGRAMS({commit}) {
         return axios({
             method: "GET",
-            url: `https://bexram.pythonanywhere.com/programs/`
+            url: `http://bexram.online:8005/programs/`
         })
             .then((response) => {
                 commit("SET_PROGRAMS", response.data);
