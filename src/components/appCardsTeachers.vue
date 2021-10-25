@@ -1,6 +1,8 @@
 <template>
     <div class="flex-column teacher-card">
-        <img :src="image" :alt="pageId">
+        <div class="flex-column teacher-image">
+            <img :src="image" :alt="pageId">
+        </div>
         <p>{{ name }}</p>
         <button @click="routerPush(`teachers/${pageId}`)" class="btn">Познакомиться</button>
     </div>
@@ -24,11 +26,13 @@
 
 <style scoped>
     .teacher-card {
-        margin: 2rem 1rem;
-        justify-content: center;
+        position: relative;
+        margin: 1rem;
+        justify-content: space-between;
         align-items: center;
         text-align: center;
         width: 30%;
+        height: 30rem;
         flex-grow: 1;
         background-color: white;
         border-radius: 20px;
@@ -41,28 +45,40 @@
             transition: all 0.3s ease;
             background-color: rgba(255, 252, 229, 0.9);
         }
-        .teacher-card img {
-            margin: 2rem;
+    .teacher-image {
+        margin: 0 2rem;
+        height: 100%;
+        align-items: center;
+    }
+        .teacher-image img {
+            margin: 0;
             border-radius: 10px;
-            width: 206px;
-            height: 191px;
+            max-width: 90%;
+            max-height: 17rem;
         }
     @media (max-width: 650px) {
         .teacher-card {
-            padding: 1rem;
-            margin: 2rem 1rem;
-            justify-content: center;
+            padding: 2rem 1rem;
+            margin: 1rem;
+            justify-content: space-between;
             align-items: center;
             text-align: center;
-            width: 90%;
+            width: auto;
+            height: 25rem;
             background-color: white;
             border-radius: 20px;
             box-shadow: 1px 10px 20px 0 rgba(0,0,0,0.3);
         }
-            .teacher-card img {
+        .teacher-image {
+            margin: 0;
+            height: 100%;
+            align-items: center;
+        }
+            .teacher-image img {
                 margin: 0;
                 border-radius: 10px;
-                height: auto;
+                max-width: 90%;
+                max-height: 14rem;
             }
             .teacher-card .btn {
                 margin: 0;

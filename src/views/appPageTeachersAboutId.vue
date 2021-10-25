@@ -58,8 +58,8 @@
             max-width: 100%;
         }
         .about-section img {
-            width: 20rem;
-            height: 20rem;
+            max-width: 20rem;
+            max-height: 20rem;
             margin: 0 2rem 1rem 0;
             float: left;
         }

@@ -169,8 +169,8 @@
                 },
                 breakpointsTeacher: {
                     // 700 and up
-                    650: {
-                        itemsToShow: 1.9,
+                    0: {
+                        itemsToShow: 1.3,
                         snapAlign: 'center',
                     },
                     // 840 and up

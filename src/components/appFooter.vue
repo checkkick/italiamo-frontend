@@ -21,8 +21,9 @@
                 </div>
             </div>
             <div class="flex-column contacts-form">
-                <input class="input" type="text" placeholder="Номер телефона или почта" v-model="inputContacts">
                 <input class="input" type="text" placeholder="Как к вам обращаться?" v-model="inputName">
+                <input class="input" type="text" placeholder="Номер телефона" v-model="inputTelephone">
+                <input class="input" type="text" placeholder="Адрес почты" v-model="inputEmail">
                 <textarea v-model="inputComment"
                           class="textarea"
                           name="contact-area"
@@ -41,7 +42,8 @@
     export default {
         data() {
             return {
-                inputContacts: '',
+                inputTelephone: '',
+                inputEmail: '',
                 inputName: '',
                 inputComment: ''
             };
@@ -49,16 +51,18 @@
         methods: {
             sendPostContacts() {
                 axios.post('https://italiamo-backend.bexram.online/forms/',
-                            JSON.stringify({telephone : this.inputContacts, name : this.inputName, other : this.inputComment}))
+                            JSON.stringify({telephone : this.inputTelephone, email : this.inputEmail, name : this.inputName, other : this.inputComment}))
                     .then((response) => {
                         console.log(response)
-                        this.inputContacts = ''
-                        this.inputName = ''
-                        this.inputComment = ''
                     })
                     .catch((error) => {
                         console.log(error)
                     });
+
+                this.inputTelephone = ''
+                this.inputEmail = ''
+                this.inputName = ''
+                this.inputComment = ''
             }
         },
         name: "appFooter"
