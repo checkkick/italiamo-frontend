@@ -69,7 +69,7 @@ const actions = {
     GET_CONTENT({commit}, page) {
         return axios({
             method: "GET",
-            url: `http://bexram.online:8005/page/${page}/`
+            url: `https://italiamo-backend.bexram.online/page/${page}/`
         })
             .then((response) => {
                 commit("SET_CONTENT", response.data);
@@ -83,7 +83,7 @@ const actions = {
     GET_CLIENTS({commit}) {
         return axios({
             method: "GET",
-            url: `http://bexram.online:8005/client/`
+            url: `https://italiamo-backend.bexram.online/client/`
         })
             .then((response) => {
                 commit("SET_CLIENTS", response.data);
@@ -97,7 +97,7 @@ const actions = {
     GET_TEACHERS({commit}) {
         return axios({
             method: "GET",
-            url: `http://bexram.online:8005/teacher/`
+            url: `https://italiamo-backend.bexram.online/teacher/`
         })
             .then((response) => {
                 commit("SET_TEACHERS", response.data);
@@ -111,7 +111,7 @@ const actions = {
     GET_NEWS({commit}) {
         return axios({
             method: "GET",
-            url: `http://bexram.online:8005/news/`
+            url: `https://italiamo-backend.bexram.online/news/`
         })
             .then((response) => {
                 commit("SET_NEWS", response.data);
@@ -125,7 +125,7 @@ const actions = {
     GET_PROGRAMS({commit}) {
         return axios({
             method: "GET",
-            url: `http://bexram.online:8005/programs/`
+            url: `https://italiamo-backend.bexram.online/programs/`
         })
             .then((response) => {
                 commit("SET_PROGRAMS", response.data);

@@ -20,32 +20,46 @@
                     </span>
                 </div>
             </div>
-            <form class="form" action="">
-                <div class="flex-column contacts-form">
-                    <input class="input" type="text" placeholder="Номер телефона или почта">
-                    <input class="input" type="text" placeholder="Как к вам обращаться?">
-                    <textarea v-model="footercomment"
-                            class="textarea"
-                            name="contact-area"
-                            id="contact-comment"
-                            placeholder="Комментарий"
-                    ></textarea>
-                    <button class="btn">Отправить</button>
-                </div>
-            </form>
+            <div class="flex-column contacts-form">
+                <input class="input" type="text" placeholder="Номер телефона или почта" v-model="inputContacts">
+                <input class="input" type="text" placeholder="Как к вам обращаться?" v-model="inputName">
+                <textarea v-model="inputComment"
+                          class="textarea"
+                          name="contact-area"
+                          id="contact-comment"
+                          placeholder="Комментарий"
+                ></textarea>
+                <button class="btn" @click="sendPostContacts">Отправить</button>
+            </div>
         </section>
     </footer>
 </template>
 
 <script>
+    import axios from 'axios'
+
     export default {
         data() {
             return {
-                footercomment: this.comment
+                inputContacts: '',
+                inputName: '',
+                inputComment: ''
             };
         },
-        props: {
-            comment: String,
+        methods: {
+            sendPostContacts() {
+                axios.post('https://italiamo-backend.bexram.online/forms/',
+                            JSON.stringify({telephone : this.inputContacts, name : this.inputName, other : this.inputComment}))
+                    .then((response) => {
+                        console.log(response)
+                        this.inputContacts = ''
+                        this.inputName = ''
+                        this.inputComment = ''
+                    })
+                    .catch((error) => {
+                        console.log(error)
+                    });
+            }
         },
         name: "appFooter"
     }

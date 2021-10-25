@@ -11,10 +11,8 @@
                 <div class="flex-column" v-html="el.text"
                      v-if="el.name=='slogan'">
                 </div>
-                <img
-                        v-bind:alt="el.file[0].alt" v-bind:src="el.file[0].file"
-                        v-if="el.name=='slogan'"
-                >
+                <img v-bind:alt="el.file[0].alt" v-bind:src="el.file[0].file"
+                     v-if="el.name=='slogan'">
             </template>
         </div>
     </main>
@@ -296,12 +294,12 @@
         box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.2);
         background-size: cover;
     }
-    .main-header .btn {
-        margin: 2rem 0 0 0;
-    }
-    .main-header img {
-        width: 10rem;
-    }
+        .main-header .btn {
+            margin: 2rem 0 0 0;
+        }
+        .main-header img {
+            width: 10rem;
+        }
     .main-section {
         margin: 0;
         padding: 2rem;
@@ -311,12 +309,14 @@
         align-items: center;
         flex-direction: column;
     }
-    .main-section img {
-        border-radius: 10px;
-        margin: 0 2rem 2rem 2rem;
-        width: 300px;
-    }
-
+        .main-section img {
+            border-radius: 10px;
+            margin: 0 2rem 2rem 2rem;
+            width: 300px;
+        }
+        .main-section .flex-column {
+            align-items: center;
+        }
     .main-article {
         margin: 0;
         padding: 2rem 0;
@@ -328,18 +328,17 @@
         background-color: rgba(255, 255, 255, 0.9);
         box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.2);
     }
-
-    .main-article h1 {
-        font-size: 50px;
-        line-height: 58px;
-        margin: 1rem;
-        font-weight: lighter;
-        color: #000000;
-    }
-    .main-article .flex-row {
-        justify-content: space-around;
-        align-items: baseline;
-    }
+        .main-article h1 {
+            font-size: 50px;
+            line-height: 58px;
+            margin: 1rem;
+            font-weight: lighter;
+            color: #000000;
+        }
+        .main-article .flex-row {
+            justify-content: space-around;
+            align-items: baseline;
+        }
     .main-comments {
         margin: 0;
     }
