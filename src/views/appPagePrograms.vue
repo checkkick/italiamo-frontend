@@ -6,7 +6,7 @@
         <app-cards-programs 
             v-for="program in programs" 
             :key="program.id"
-            :id="program.id"
+            :href="program.href"
             :image="program.img"
             :titleText="program.name"
             :aboutText="program.description"

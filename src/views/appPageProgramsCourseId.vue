@@ -78,7 +78,7 @@
         mounted() {
             this.GET_PROGRAMS().then(() => {
                 for (let content of this.programs) {
-                    if (content.id == this.$route.params.courseId) {
+                    if (content.href == this.$route.params.courseId) {
                         this.programContent = content
                     }
                 }

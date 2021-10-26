@@ -3,11 +3,11 @@
             <div class="front"
                  :style="{background: `url(${image}) no-repeat center / cover`}">
                 <p>{{ titleText }}</p>
-                <button @click="routerPush(id)" class="mobile btn">Подробнее</button>
+                <button @click="routerPush(href)" class="mobile btn">Подробнее</button>
             </div>
             <div class="back">
                 <div><p  class="back-text">{{ aboutText }}</p></div>
-                <p @click="routerPush(id)" class="btn">Подробнее</p>
+                <p @click="routerPush(href)" class="btn">Подробнее</p>
             </div>
         </section>
 
@@ -17,7 +17,7 @@
 <script>
     export default {
         props: {
-          id: Number,  
+          href: String,
           image: String,
           titleText: String,
           aboutText: String

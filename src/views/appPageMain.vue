@@ -56,13 +56,13 @@
             <div class="card-course-out">
                 <div class="card-course main">
                     <p>Основной курс итальянского</p>
-                    <button @click="routerPush('programs/main-course')" class="btn">Подробнее</button>
+                    <button @click="routerPush('programs/maincourse')" class="btn">Подробнее</button>
                 </div>
             </div>
             <div class="card-course-out">
                 <div class="card-course teenage">
                     <p>Курс итальнянского для детей и подростков</p>
-                    <button @click="routerPush('programs/teenage-course')" class="btn">Подробнее</button>
+                    <button @click="routerPush('programs/childcourse')" class="btn">Подробнее</button>
                 </div>
             </div>
             <div class="course-buttons flex-column">
