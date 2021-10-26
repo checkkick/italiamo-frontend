@@ -42,9 +42,14 @@ a {
     transition: all 0.05s;
     box-shadow: 1px 2px 10px 0 rgba(0, 0, 0, 0.2);
 }
-
 .input:focus {
     outline: rgb(233, 187, 145) solid 0.2rem;
+}
+.input.notvalid {
+    outline: rgba(255, 111, 111, 0.71) solid 0.2rem;
+}
+.input.valid {
+    outline: rgba(162, 255, 122, 0.64) solid 0.2rem;
 }
 
 .textarea {

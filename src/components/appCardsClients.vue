@@ -25,14 +25,14 @@
     .teacher-card {
         cursor: pointer;
         padding: 1rem;
-        margin: 2rem 1rem;
+        margin: 1rem;
         justify-content: center;
         align-items: center;
         text-align: center;
         flex-grow: 1;
         background-color: white;
         border-radius: 20px;
-        box-shadow: 1px 10px 20px 0 rgba(0,0,0,0.3);
+        box-shadow: 1px 7px 10px 0 rgba(0,0,0,0.3);
     }
     .teacher-card img {
         object-fit: cover;

@@ -36,7 +36,7 @@
         flex-grow: 1;
         background-color: white;
         border-radius: 20px;
-        box-shadow: 1px 10px 20px 0 rgba(0,0,0,0.3);
+        box-shadow: 1px 7px 10px 0 rgba(0,0,0,0.3);
     }
         .teacher-card:hover {
             -webkit-transition: all 0.3s ease;;
@@ -52,9 +52,12 @@
     }
         .teacher-image img {
             margin: 0;
-            border-radius: 10px;
-            max-width: 90%;
-            max-height: 17rem;
+            object-fit: cover;
+            object-position: 50% 50%;
+            align-self: flex-start;
+            width: 12rem;
+            height: 12rem;
+            border-radius: 100%;
         }
     @media (max-width: 650px) {
         .teacher-card {
@@ -66,20 +69,12 @@
             width: auto;
             height: 25rem;
             background-color: white;
-            border-radius: 20px;
-            box-shadow: 1px 10px 20px 0 rgba(0,0,0,0.3);
         }
         .teacher-image {
             margin: 0;
             height: 100%;
             align-items: center;
         }
-            .teacher-image img {
-                margin: 0;
-                border-radius: 10px;
-                max-width: 90%;
-                max-height: 14rem;
-            }
             .teacher-card .btn {
                 margin: 0;
                 font-family: 'Poiret One', serif, sans-serif;

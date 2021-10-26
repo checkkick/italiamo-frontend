@@ -5,7 +5,7 @@
         <img :src="newsImg" :alt="titleNews">
         <div class="news-title flex-column">
             <h3>{{ titleNews }}</h3>
-            <p>{{ summary }}... </p>
+            <span v-html="summary"></span>
             <p>Автор публикации: {{ author }}</p>
             <p class="date-news">{{ dateNews }}</p>
         </div>
@@ -20,7 +20,7 @@
             <button @click="showNews = !showNews" class="btn">X</button>
             <div class="news-title flex-column">
                 <h3>{{ titleNews }}</h3>
-                <p class="news-text">{{ textNews }}</p>
+                <span class="news-text" v-html="textNews"></span>
                 <p>Автор публикации: {{ author }}</p>
                 <p class="date-news">{{ dateNews }}</p>
             </div>
@@ -94,7 +94,7 @@
             padding: 0;
             text-align: left;
         }
-        .news-title p {
+        .news-title p, .news-title span {
             text-align: left;
             font-size: 18px;
             max-width: 100%;
