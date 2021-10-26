@@ -19,11 +19,19 @@
 <script>
     import appCardsNews from "../components/appCardsNews";
     import {mapGetters, mapActions} from "vuex";
-
+    import { useMeta } from 'vue-meta'
     export default {
         computed:{
             ...mapGetters('Backend', {
                 NEWS: 'NEWS',
+            })
+        },
+        setup() {
+            useMeta({
+                title: 'Блог и новости',
+                description: 'Мы стараемся делиться с Вами самыми важными новостями и интересными фактками из Италии!',
+                keywords: 'культура италии, новости италии,курсы итальянского, итальянский язык онлайн, учить итальянский язык по скайпу, Италиамо',
+                htmlAttrs: {lang: 'ru'}
             })
         },
         methods: {

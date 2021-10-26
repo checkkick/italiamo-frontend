@@ -17,8 +17,17 @@
 <script>
     import appCardsPrograms from "../components/appCardsPrograms";
     import {mapActions, mapGetters} from "vuex";
-
+    import { useMeta } from 'vue-meta'
     export default {
+        setup() {
+            useMeta({
+                title: 'Программы обучения',
+                description: 'В нашей школе есть множество курсов итальянского языка, направленных на изучение разных аспектов языка. Среди них разговорный курс, курс для бизнеса' +
+                    ', курс для туризма и другие!',
+                htmlAttrs: {lang: 'ru'},
+                keywords: 'курсы итальянского, итальянский язык онлайн, учить итальянский язык по скайпу, Италиамо',
+            })
+        },
         computed:{
             ...mapGetters('Backend', {
                 programs: 'PROGRAMS',
