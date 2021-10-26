@@ -161,7 +161,7 @@
     import { VueCollapsiblePanelGroup, VueCollapsiblePanel } from '@dafcoe/vue-collapsible-panel'
     import '@dafcoe/vue-collapsible-panel/dist/vue-collapsible-panel.css'
     import 'vue3-carousel/dist/carousel.css'
-
+    import { useMeta } from 'vue-meta'
     export default {
         data() {
             return {
@@ -209,6 +209,15 @@
                     },
                 }
             }
+        },
+        setup() {
+            useMeta({
+                title: 'Онлайн курсы Итальянского языка',
+                description: 'Наши ученики с радостью поделяться с Вами впечателениями о школе, потому здесь они не только учаться итальянскому языку,' +
+                    ' но и общаются с носителями языка и изучают культуру Италии!',
+                keywords: ' курсы итальянского, итальянский язык онлайн, учить итальянский язык по скайпу, Италиамо',
+                htmlAttrs: {lang: 'ru'}
+            })
         },
         components: {
             appMainTeachers,

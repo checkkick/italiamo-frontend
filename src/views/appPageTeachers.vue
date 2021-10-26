@@ -19,7 +19,17 @@
 <script>
     import appMainTeachers from "../components/appCardsTeachers";
     import {mapActions, mapGetters} from "vuex";
+    import { useMeta } from 'vue-meta'
     export default {
+        setup() {
+            useMeta({
+                title: 'Преподаватели',
+                description: 'В нашей школе Вас будут обучать преподаватели с большим опытом. Среди них так же есть носители языка, родившиеся и проживающие в Италии' +
+                    ' и преподаватели крупнеших ВУЗов!',
+                htmlAttrs: {lang: 'ru'},
+                keywords: 'стоймость, занятия в группах,курсы итальянского, итальянский язык онлайн, учить итальянский язык по скайпу, Италиамо',
+            })
+        },
         name: "appPageTeachers",
         computed: {
             ...mapGetters('Backend', {

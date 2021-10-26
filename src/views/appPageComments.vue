@@ -15,8 +15,17 @@
 <script>
 import appCardsComments from "../components/appCardsComments";
 import {mapActions, mapGetters} from "vuex";
+import { useMeta } from 'vue-meta'
 
 export default {
+    setup() {
+        useMeta({
+            title: 'Отызывы',
+            description: 'Мы создали онлайн-школу и объединили лучших преподавателей. Преподаватели-носители языка! Более 100 выпускников! Бесплатные открыте уроки. Лучшие курсы по итальянскому для бизнеса, детей, туризма и не только. ',
+            keywords: 'курсы итальянского, итальянский язык онлайн, учить итальянский язык по скайпу, Италиамо',
+            htmlAttrs: {lang: 'ru'}
+        })
+    },
     computed:{
         ...mapGetters('Backend', {
             clients: 'CLIENTS',

@@ -1,4 +1,7 @@
 <template>
+  <metainfo>
+    <template v-slot:title="{ content }">{{ content ? `${content} | Italiamo` : `Italiamo` }}</template>
+  </metainfo>
   <app-navbar></app-navbar>
   <router-view></router-view>
   <app-footer></app-footer>
