@@ -8,7 +8,7 @@
             <img class="card-shadow" :src="programContent.img" :alt="programContent.name">
         </section>
 
-        <section class="table-course flex-column">
+        <section style="display: none" class="table-course flex-column">
             <table class="table">
                 <thead>
                     <tr  class="table-title">
@@ -28,7 +28,7 @@
                     <td class="table-row-item">четверг 8.00-9.00</td>
                     <td class="table-row-item" aria-label="Преподаватель">Екатерина Крамкова</td>
                     <td class="table-row-item">
-                        <button style="display: none" class="btn">Выбрать группу</button>
+                        <button class="btn">Выбрать группу</button>
                     </td>
                 </tr>
                 <tr class="table-row-2">
@@ -37,7 +37,7 @@
                     <td class="table-row-item">четверг 16.00-17.00</td>
                     <td class="table-row-item" aria-label="Преподаватель">Екатерина Крамкова</td>
                     <td class="table-row-item">
-                        <button style="display: none" class="btn">Выбрать группу</button>
+                        <button class="btn">Выбрать группу</button>
                     </td>
                 </tr>
                 <tr class="table-row-1">
@@ -48,7 +48,7 @@
                     <td class="table-row-item" :class="true ? 'row-none' : ''"></td>
                     <td class="table-row-item" aria-label="Преподаватель">Екатерина Крамкова</td>
                     <td class="table-row-item">
-                        <button style="display: none" class="btn">Выбрать группу</button>
+                        <button class="btn">Выбрать группу</button>
                     </td>
                 </tr>
             </table>

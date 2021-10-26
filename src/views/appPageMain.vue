@@ -236,11 +236,11 @@
                 GET_TEACHERS : 'GET_TEACHERS'
             }),
             routerPush(path) {
-                window.scrollTo(0,0);
+                window.scrollTo(0,0)
                 this.$router.push(`/${path}`)
             },
             freeLesson() {
-                window.scrollTo(0,0);
+                window.scrollTo(0,0)
             },
         },
         mounted() {

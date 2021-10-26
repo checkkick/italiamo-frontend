@@ -12,6 +12,9 @@
                     <h4>Разработка: <a href="mailto:bexram33@mail.ru">bexram33@mail.ru</a></h4>
                 </div>
                 <div class="about-us">
+                    <router-link to="/oferta">
+                        <h4 @click="scrollToTop" class="oferta-link">Публичная оферта</h4>
+                    </router-link>
                     <h4>ОГРНИП 320332800003572</h4>
                     <h4>Italiamo, ©2020—2021</h4>
                     <span class="flex-row">
@@ -60,6 +63,9 @@
             };
         },
         methods: {
+            scrollToTop() {
+                window.scrollTo(0,0)
+            },
             sendPostContacts() {
                 if((this.inputTelephone.length === 18 ||
                     (this.inputEmail.includes('@') && this.inputEmail.length > 6)) &&
@@ -123,6 +129,9 @@
     }
     .contacts-form, .contacts-text {
         margin: 0;
+    }
+    .oferta-link {
+        text-decoration: underline;
     }
     @media (max-width: 965px) {
         .flex-contacts {
