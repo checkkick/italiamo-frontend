@@ -21,9 +21,19 @@
                 </div>
             </div>
             <div class="flex-column contacts-form">
-                <input class="input" type="text" placeholder="Как к вам обращаться?" v-model="inputName">
-                <input class="input" type="text" placeholder="Номер телефона" v-model="inputTelephone">
-                <input class="input" type="text" placeholder="Адрес почты" v-model="inputEmail">
+                <input class="input"
+                       type="text"
+                       placeholder="Как к вам обращаться?"
+                       v-model="inputName">
+                <input class="input"
+                       type="tel"
+                       placeholder="+7 (___) ___-__-__"
+                       v-model="inputTelephone"
+                       v-mask="'+7 (###) ###-##-##'">
+                <input class="input"
+                       type="email"
+                       placeholder="Адрес почты"
+                       v-model="inputEmail">
                 <textarea v-model="inputComment"
                           class="textarea"
                           name="contact-area"
@@ -38,6 +48,7 @@
 
 <script>
     import axios from 'axios'
+    import {mask} from 'vue-the-mask'
 
     export default {
         data() {
@@ -50,21 +61,31 @@
         },
         methods: {
             sendPostContacts() {
-                axios.post('https://italiamo-backend.bexram.online/forms/',
-                            JSON.stringify({telephone : this.inputTelephone, email : this.inputEmail, name : this.inputName, other : this.inputComment}))
-                    .then((response) => {
-                        console.log(response)
+                if(this.inputTelephone.length === 18 &&
+                    this.inputEmail.includes('@') &&
+                    this.inputEmail.length > 6 &&
+                    this.inputName.length !== 0) {
+                    axios.post('https://italiamo-backend.bexram.online/forms/', {
+                        telephone: this.inputTelephone,
+                        email: this.inputEmail,
+                        name: this.inputName,
+                        other: this.inputComment
                     })
-                    .catch((error) => {
-                        console.log(error)
-                    });
-
-                this.inputTelephone = ''
-                this.inputEmail = ''
-                this.inputName = ''
-                this.inputComment = ''
+                        .then((response) => {
+                            console.log(response)
+                            this.inputTelephone = ''
+                            this.inputEmail = ''
+                            this.inputName = ''
+                            this.inputComment = ''
+                        })
+                        .catch((error) => {console.log(error)})
+                }
+                else {
+                    alert('Проверьте правильность ввода всех полей!')
+                }
             }
         },
+        directives: {mask},
         name: "appFooter"
     }
 </script>
