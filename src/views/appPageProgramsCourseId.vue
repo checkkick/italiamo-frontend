@@ -3,7 +3,7 @@
         <h1>{{ programContent.name }}</h1>
     </header>
     <main class="main">
-        <section class="course-about flex-row">
+        <section class="course-about flex-row card-shadow">
             <p>{{ programContent.description }}</p>
             <img class="card-shadow" :src="programContent.img" :alt="programContent.name">
         </section>
@@ -28,7 +28,7 @@
                     <td class="table-row-item">четверг 8.00-9.00</td>
                     <td class="table-row-item" aria-label="Преподаватель">Екатерина Крамкова</td>
                     <td class="table-row-item">
-                        <button class="btn">Выбрать группу</button>
+                        <button style="display: none" class="btn">Выбрать группу</button>
                     </td>
                 </tr>
                 <tr class="table-row-2">
@@ -37,7 +37,7 @@
                     <td class="table-row-item">четверг 16.00-17.00</td>
                     <td class="table-row-item" aria-label="Преподаватель">Екатерина Крамкова</td>
                     <td class="table-row-item">
-                        <button class="btn">Выбрать группу</button>
+                        <button style="display: none" class="btn">Выбрать группу</button>
                     </td>
                 </tr>
                 <tr class="table-row-1">
@@ -48,7 +48,7 @@
                     <td class="table-row-item" :class="true ? 'row-none' : ''"></td>
                     <td class="table-row-item" aria-label="Преподаватель">Екатерина Крамкова</td>
                     <td class="table-row-item">
-                        <button class="btn">Выбрать группу</button>
+                        <button style="display: none" class="btn">Выбрать группу</button>
                     </td>
                 </tr>
             </table>
@@ -95,12 +95,17 @@
     .main {
         padding: 0 1rem;
     }
+    .course-about {
+        flex-direction: row-reverse;
+        flex-wrap: nowrap;
+     }
         .course-about p {
             width: 100%;
             flex-grow: 1;
+            margin: 2rem;
         }
         .course-about img {
-            margin: 1rem 0 0 0;
+            margin: 2rem;
             width: 100%;
             max-width: 25rem;
             max-height: 25rem;
@@ -121,12 +126,14 @@
     @media (max-width : 650px) {
         .course-about {
             flex-direction: column-reverse;
+            padding: 1.5rem 1rem;
         }
             .course-about p {
-                margin: 2rem 0 0 0;
+                margin: 0;
             }
             .course-about img {
-                margin: 0;
+                align-self: center;
+                margin: 0 0 1rem 0;
             }
         .row-none {
             display: none;

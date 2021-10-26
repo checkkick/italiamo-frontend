@@ -8,9 +8,16 @@
             <p v-html="teacherContent.description"></p>
         </section>
         <section class="input-section flex-row">
-            <input class="input" type="text" placeholder="Имя">
-            <input class="input" type="text" placeholder="Номер телефона">
-            <button class="btn">Записаться в группу</button>
+            <input class="input"
+                   type="text"
+                   v-model="inputName"
+                   placeholder="Имя">
+            <input class="input"
+                   type="tel"
+                   placeholder="+7 (___) ___-__-__"
+                   v-model="inputTelephone"
+                   v-mask="'+7 (###) ###-##-##'">
+            <button class="btn" @click="sendPostContacts">Записаться в группу</button>
         </section>
         <p class="personal-data">Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c политикой конфиденциальности</p>
     </main>
@@ -18,10 +25,14 @@
 
 <script>
     import {mapActions, mapGetters} from 'vuex'
+    import {mask} from 'vue-the-mask'
+    import axios from "axios";
 
     export default {
         data() {
             return {
+                inputName: '',
+                inputTelephone: '',
                 teacherContent: {}
             }
         },
@@ -33,17 +44,36 @@
         methods: {
             ...mapActions('Backend', {
                 GET_TEACHERS : 'GET_TEACHERS'
-            })
+            }),
+            sendPostContacts() {
+                if(this.inputTelephone.length === 18 && this.inputName.length !== 0) {
+                    axios.post('https://italiamo-backend.bexram.online/forms/', {
+                        telephone: this.inputTelephone,
+                        name: this.inputName,
+                        other: this.teacherContent.alt,
+                    })
+                        .then((response) => {
+                            console.log(response)
+                            this.inputTelephone = ''
+                            this.inputName = ''
+                        })
+                        .catch((error) => {console.log(error)})
+                }
+                else {
+                    alert('Проверьте правильность ввода всех полей!')
+                }
+            }
         },
         mounted() {
             this.GET_TEACHERS().then(() => {
                 for (let content of this.TEACHERS) {
-                    if (content.alt === this.$route.params.teacherId) {
+                    if (content.href === this.$route.params.teacherId) {
                         this.teacherContent = content
                     }
                 }
             })
         },
+        directives: {mask},
         name: "appPageTeachersAboutId"
     }
 </script>

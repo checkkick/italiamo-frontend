@@ -7,9 +7,10 @@
             <app-main-teachers
                     v-for="content in teachers"
                     :key="content.id"
-                    :page-id="content.alt"
+                    :alt="content.alt"
                     :name="content.name"
                     :image="content.logo"
+                    :href="content.href"
             ></app-main-teachers>
         </div>
     </section>

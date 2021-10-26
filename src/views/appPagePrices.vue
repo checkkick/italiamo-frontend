@@ -31,7 +31,7 @@
                 <td class="table-row-item" aria-label="Индивидуальные">5880 руб. (4 занятия)</td>
             </tr>
         </table>
-        <button class="btn" style="width: 70%;">Оплата</button>
+        <button class="btn" style="width: 70%; display: none">Оплата</button>
         <div class="information-message">
             <img src="../assets/info-logo.png" alt="info-logo" class="info-logo-img">
             <p>В цену входят:</p>
@@ -55,7 +55,7 @@
                         <p>занятия в мини-группе с преподавателем (один урок - 60 мин)</p>
                         <p>доступ в виртуальный класс с учебными материалами </p>
                         <p>задания для закрепления материалов каждого занятия </p>
-                        <button class="btn">Оплата</button>
+                        <button style="display: none" class="btn">Оплата</button>
                     </div>
                 </div>
                 <div class="price-card">
@@ -68,7 +68,7 @@
                         <p>занятия в мини-группе с преподавателем (один урок - 60 мин)</p>
                         <p>доступ в виртуальный класс с учебными материалами</p>
                         <p>задания для закрепления материалов каждого занятия</p>
-                        <button class="btn">Оплата</button>
+                        <button style="display: none" class="btn">Оплата</button>
                     </div>
                 </div>
             </div>

@@ -1,10 +1,10 @@
 <template>
     <div class="flex-column teacher-card">
         <div class="flex-column teacher-image">
-            <img :src="image" :alt="pageId">
+            <img :src="image" :alt="alt">
         </div>
         <p>{{ name }}</p>
-        <button @click="routerPush(`teachers/${pageId}`)" class="btn">Познакомиться</button>
+        <button @click="routerPush(`teachers/${href}`)" class="btn">Познакомиться</button>
     </div>
 </template>
 
@@ -12,8 +12,9 @@
     export default {
         props: {
             name: String,
-            pageId: String,
-            image: String
+            alt: String,
+            image: String,
+            href: String
         },
         methods: {
             routerPush(path) {

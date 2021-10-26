@@ -68,7 +68,7 @@
             <div class="course-buttons flex-column">
                 <button @click="routerPush('prices')" class="btn">Все программы и цены</button>
                 <button class="btn" href="#contacts" v-smooth-scroll="{ updateHistory: false }">Оставить заявку</button>
-                <button class="btn">Пройти тестирование</button>
+                <button style="display: none" class="btn">Пройти тестирование</button>
             </div>
         </div>
     </section>
@@ -81,7 +81,8 @@
                     <app-main-teachers
                             :image="teacher.logo"
                             :name="teacher.name"
-                            :page-id="teacher.alt"
+                            :alt="teacher.alt"
+                            :href="teacher.href"
                     ></app-main-teachers>
             </slide>
             <template #addons="{ slidesCount }">
@@ -140,13 +141,14 @@
     <section class="flex-column friend-company">
         <h2>Мы работаем с:</h2>
         <div class="flex-row">
-            <div :key="cowork.id"
-                 class="friend-company-item"
-                 v-for="cowork in coworks">
+            <a :key="cowork.id"
+               :href="cowork.text.split(' /')[1]"
+               class="friend-company-item"
+               v-for="cowork in coworks">
                 <img :alt="cowork.file[0].alt" :src="cowork.file[0].file">
                 <h3>{{cowork.name}}</h3>
-                <p>{{cowork.text}}</p>
-            </div>
+                <span v-html="cowork.text.split(' /')[0]"></span>
+            </a>
         </div>
     </section>
 </template>
@@ -242,7 +244,7 @@
             },
         },
         mounted() {
-            this.GET_CONTENT(1)
+            this.GET_CONTENT(1).then()
             this.GET_CLIENTS()
             this.GET_TEACHERS()
         }
@@ -498,6 +500,10 @@
     }
 
     .friend-company-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
         margin: 0.5rem 1rem;
         min-width: 10rem;
         width: 25%;

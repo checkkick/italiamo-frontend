@@ -61,9 +61,8 @@
         },
         methods: {
             sendPostContacts() {
-                if(this.inputTelephone.length === 18 &&
-                    this.inputEmail.includes('@') &&
-                    this.inputEmail.length > 6 &&
+                if((this.inputTelephone.length === 18 ||
+                    (this.inputEmail.includes('@') && this.inputEmail.length > 6)) &&
                     this.inputName.length !== 0) {
                     axios.post('https://italiamo-backend.bexram.online/forms/', {
                         telephone: this.inputTelephone,
