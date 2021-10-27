@@ -11,12 +11,18 @@
                 <h3>Попробуйте еще раз, с Главной страницы.</h3>
             </div>
         </section>
-        <button class="btn">Перейти на главную</button>
+        <button class="btn" @click="routerPush">Перейти на главную</button>
     </main>
 </template>
 
 <script>
     export default {
+        methods: {
+            routerPush() {
+                window.scrollTo(0,0);
+                this.$router.push('/')
+            }
+        },
         name: "appPage404"
     }
 </script>
