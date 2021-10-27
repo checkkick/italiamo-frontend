@@ -8,6 +8,7 @@ import appPagePrices from "../views/appPagePrices";
 import appPageProgramsCourseId from "../views/appPageProgramsCourseId";
 import appPageTeachersAboutId from "../views/appPageTeachersAboutId";
 import appPagePublicOferta from "../views/appPagePublicOferta";
+import appPage404 from "../views/appPage404";
 
 export default createRouter({
     history: createWebHistory(process.env.BASE_URL),
@@ -57,5 +58,14 @@ export default createRouter({
             name: 'appPagePublicOferta',
             component: appPagePublicOferta
         },
+        {
+            path: '/404',
+            name: '404',
+            component: appPage404,
+        },
+            {
+                path: '/:pathMatch(.*)*',
+                redirect: '/404'
+            }
     ]
 })
