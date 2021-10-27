@@ -54,7 +54,7 @@ const mutations = {
     },
 
     SET_TEACHERS: (state, content) => {
-        state.teachers = content
+        state.teachers = content.sort((prev, next) => prev.sort - next.sort)
     },
     SET_NEWS: (state, content) => {
         state.news = content
