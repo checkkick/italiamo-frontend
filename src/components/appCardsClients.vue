@@ -35,6 +35,7 @@
         align-items: center;
         text-align: center;
         flex-grow: 1;
+        height: 28rem;
         background-color: white;
         border-radius: 20px;
         box-shadow: 1px 7px 10px 0 rgba(0,0,0,0.3);
