@@ -2,7 +2,9 @@
     <div class="flex-column teacher-card">
         <img :src="image" :alt="pageId">
         <p>{{ name }}</p>
-        <div><p class="text">{{text}}</p></div>
+        <p class="text">
+            <span v-html="text"></span>
+        </p>
     </div>
 </template>
 
@@ -19,7 +21,10 @@
 
 <style scoped>
     .text {
-        height: 75px;
+        max-height: 6rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
         overflow: hidden;
     }
     .teacher-card {
@@ -39,7 +44,7 @@
         object-position: 50% 50%;
         margin: 2rem;
         border-radius: 10px;
-        width: 150px;
-        height: 150px;
+        width: 9rem;
+        height: 9rem;
     }
 </style>

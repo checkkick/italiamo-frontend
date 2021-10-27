@@ -3,7 +3,9 @@
         <img :src="commentImg" :alt="authorName + ' image'">
         <div class="comment-body">
             <p class="author-name">{{ authorName }}</p>
-            <p class="comment-text">{{ commentText }}</p>
+            <p class="comment-text">
+                <span v-html="commentText"></span>
+            </p>
         </div>
     </div>
 </template>
