@@ -138,9 +138,10 @@ export default {
         box-shadow: 0 0 1rem 0 rgba(0,0,0,0.1);
     }
     .img-logo {
+        object-fit: cover;
         cursor: pointer;
-        width: 80px;
-        height: 80px;
+        max-width: 5rem;
+        max-height: 5rem;
     }
     .img-menu {
         display: none;

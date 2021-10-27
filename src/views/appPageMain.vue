@@ -39,7 +39,8 @@
                         :image="client.logo"
                         :name="client.name"
                         :page-id="client.alt"
-                        :text="client.description">
+                        :text="client.description"
+                        @click="routerPush('comments')">
                 </app-main-clients>
             </slide>
             <template #addons="{ slidesCount }">
@@ -52,24 +53,25 @@
 
     <section class="flex-column main-program">
         <h2>Программы обучения</h2>
-        <div class="flex-row cards">
-            <div class="card-course-out">
-                <div class="card-course main">
-                    <p>Основной курс итальянского</p>
-                    <button @click="routerPush('programs/maincourse')" class="btn">Подробнее</button>
+
+        <carousel :breakpoints="breakpointsTeacher" :settings="settings">
+            <slide :key="program.id"
+                   v-for="program in programs">
+                <div class="card-course"
+                     :style="{background: `url(${program.img}) no-repeat center / cover`}">
+                    <p>{{ program.name }}</p>
+                    <button @click="routerPush(`programs/${program.href}`)" class="btn">Подробнее</button>
                 </div>
-            </div>
-            <div class="card-course-out">
-                <div class="card-course teenage">
-                    <p>Курс итальнянского для детей и подростков</p>
-                    <button @click="routerPush('programs/childcourse')" class="btn">Подробнее</button>
-                </div>
-            </div>
-            <div class="course-buttons flex-column">
-                <button @click="routerPush('prices')" class="btn">Все программы и цены</button>
-                <button class="btn" href="#contacts" v-smooth-scroll="{ updateHistory: false }">Оставить заявку</button>
-                <button style="display: none" class="btn">Пройти тестирование</button>
-            </div>
+            </slide>
+            <template #addons="{ slidesCount }">
+                <Navigation class="carousel-navigation" v-if="slidesCount > 1" />
+                <Pagination />
+            </template>
+        </carousel>
+
+        <div class="course-buttons flex-row">
+            <button @click="routerPush('prices')" class="btn">Узнать цены</button>
+            <button class="btn" href="#contacts" v-smooth-scroll="{ updateHistory: false }">Оставить заявку</button>
         </div>
     </section>
 
@@ -166,7 +168,7 @@
         data() {
             return {
                 settings: {
-                    autoplay: 3000,
+                    autoplay: 3500,
                     wrapAround: true
                 },
                 breakpointsTeacher: {
@@ -236,13 +238,15 @@
                 clients: 'CLIENTS',
                 teachers: 'TEACHERS',
                 coworks: 'COWORKS',
+                programs: 'PROGRAMS',
             })
         },
         methods: {
             ...mapActions('Backend', {
                 GET_CONTENT : 'GET_CONTENT',
                 GET_CLIENTS : 'GET_CLIENTS',
-                GET_TEACHERS : 'GET_TEACHERS'
+                GET_TEACHERS : 'GET_TEACHERS',
+                GET_PROGRAMS : 'GET_PROGRAMS'
             }),
             routerPush(path) {
                 window.scrollTo(0,0)
@@ -256,6 +260,7 @@
             this.GET_CONTENT(1).then()
             this.GET_CLIENTS()
             this.GET_TEACHERS()
+            this.GET_PROGRAMS()
         }
     }
 </script>
@@ -364,11 +369,6 @@
         background-color: rgba(255, 252, 230, 0.7);
         box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.2);
     }
-    .card-course-out {
-        display: flex;
-        justify-content: center;
-        flex-grow: 1;
-    }
     .card-course {
         display: flex;
         margin: 1rem;
@@ -376,16 +376,9 @@
         flex-direction: column;
         width: 20rem;
         height: 20rem;
+        border-radius: 10px;
         box-shadow: 1px 2px 10px 0 rgba(0, 0, 0, 0.2);
     }
-        .card-course:hover {
-            -webkit-transition: all 0.3s ease;;
-            -moz-transition: all 0.3s ease;;
-            -o-transition: all 0.3s ease;;
-            transition: all 0.3s ease;
-            transform: scale(1.03);
-            cursor: pointer;
-        }
         .card-course .btn {
             margin: 30% 1rem 0 1rem;
         }
@@ -393,26 +386,15 @@
             background: rgba(255, 255, 255, 0.7);
             padding: 0.7rem;
         }
-        .card-course.main {
-            background: url('../assets/main-course.png') no-repeat center / cover;
-        border-radius: 1rem;
-        }
-
-        .card-course.teenage {
-            background: url('../assets/teenage-course.png') no-repeat center / cover;
-            border-radius: 1rem;
-        }
     .course-buttons {
-        justify-content: space-between;
+        justify-content: space-evenly;
         align-items: center;
-        width: 20rem;
-        height: 20rem;
-        margin: 1rem;
-        flex-grow: 1;
+        margin: 1rem 0 0 0;
     }
         .course-buttons .btn {
-            margin: 0;
-            width: 90%;
+            margin: 1rem;
+            width: 20rem;
+            flex-grow: 1;
             max-width: none;
         }
     .main-teachers h2 {

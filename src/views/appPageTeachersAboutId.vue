@@ -3,7 +3,7 @@
         <h1>{{ teacherContent.name }}</h1>
     </header>
     <main class="main">
-        <section class="about-section">
+        <section class="about-section card-shadow">
             <img class="card-shadow" :src="teacherContent.logo" :alt="teacherContent.alt">
             <p v-html="teacherContent.description"></p>
         </section>
@@ -83,6 +83,9 @@
         padding: 0 2rem;
         margin-bottom: 3rem;
     }
+    .about-section {
+        padding: 1rem 2rem;
+    }
         .about-section p {
             text-align: justify;
             max-width: 100%;
@@ -94,7 +97,6 @@
             float: left;
         }
     .input-section {
-        width: 100%;
         margin: 3rem -1rem 1rem -1rem;
         align-items: center;
     }
@@ -114,9 +116,13 @@
     }
     @media (max-width: 650px) {
         .about-section {
+            padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
+        }
+        .about-section p {
+            margin: 0 1rem;
         }
         .header h1 {
             margin: 0;
