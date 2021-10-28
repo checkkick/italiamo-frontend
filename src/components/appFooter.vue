@@ -18,11 +18,11 @@
                     <h4>ОГРНИП 320332800003572</h4>
                     <h4>Italiamo, ©2020—2021</h4>
                     <span class="flex-row">
-                        <a href="https://www.instagram.com/italiamo.online/">
+                        <a class="social-logo" href="https://www.instagram.com/italiamo.online/">
                             <img src="../assets/insta-logo.png" alt="instagram logo">
                         </a>
                         <a href="https://www.youtube.com/channel/UCqXjhRF6y0E-R2KnyuKK9IA">
-                            <img src="../assets/youtube-logo.png" alt="youtube logo">
+                            <img class="social-logo" src="../assets/youtube-logo.png" alt="youtube logo">
                         </a>
                     </span>
                 </div>
@@ -110,20 +110,17 @@
         margin: 0 0 2rem 0;
         align-self: center;
     }
-    .flex-row {
-        align-items: stretch;
-    }
     .contacts-text {
         justify-content: space-between;
     }
     .telephones h4 {
-        margin: 1rem 0;
+        margin: 1rem;
     }
     .about-us h4 {
         font-size: 1.2rem;
         margin: 0.5rem;
     }
-    .about-us a {
+    .social-logo {
         display: flex;
         align-items: center;
         cursor: pointer;
@@ -143,7 +140,7 @@
     .oferta-link {
         text-decoration: underline;
     }
-    @media (max-width: 965px) {
+    @media (max-width: 985px) {
         .flex-contacts {
             flex-direction: column-reverse;
         }
@@ -155,6 +152,9 @@
         }
         .contacts-text {
             margin: 0;
+        }
+        .contacts-form .btn {
+            max-width: none;
         }
     }
 </style>
