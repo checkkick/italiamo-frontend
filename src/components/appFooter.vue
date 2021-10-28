@@ -147,6 +147,9 @@
         .flex-contacts {
             flex-direction: column-reverse;
         }
+        .contacts-form {
+            width: 100%
+        }
         .textarea {
             width: auto;
         }

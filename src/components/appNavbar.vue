@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar-menu">
-      <router-link to="/" @click="scrollToTop">
+      <router-link class="link-logo" to="/" @click="scrollToTop">
           <img class="img-logo" src="../assets/logo-1.png" alt="logo">
       </router-link>
       <router-link
@@ -137,8 +137,12 @@ export default {
         text-shadow: 0 3px 3px rgba(0, 0, 0, 0.25);
         box-shadow: 0 0 1rem 0 rgba(0,0,0,0.1);
     }
+    .link-logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
     .img-logo {
-        object-fit: cover;
         cursor: pointer;
         max-width: 5rem;
         max-height: 5rem;
