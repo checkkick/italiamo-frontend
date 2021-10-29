@@ -6,13 +6,16 @@
     </header>
 
     <main class="main-section">
-        <div class="flex-row">
+        <div class="flex-column">
             <template v-bind:key="el.id" v-for="el in header">
                 <div class="flex-column" v-html="el.text"
                      v-if="el.name=='slogan'">
                 </div>
                 <img v-bind:alt="el.file[0].alt" v-bind:src="el.file[0].file"
                      v-if="el.name=='slogan'">
+                <span class="image-description" v-html="el.text"
+                     v-if="el.name=='slogan-2'">
+                </span>
             </template>
         </div>
     </main>
@@ -25,7 +28,7 @@
                  v-for="adv in advantages">
                 <img :alt="adv.file[0].alt" :src="adv.file[0].file" class="reasons-img">
                 <h3>{{adv.name}}</h3>
-                <p>{{adv.text}}</p>
+                <span v-html="adv.text"></span>
             </div>
         </div>
     </article>
@@ -327,12 +330,16 @@
     }
         .main-section img {
             border-radius: 10px;
-            margin: 0 2rem 2rem 2rem;
+            margin: 0 2rem;
             width: 300px;
         }
         .main-section .flex-column {
+            margin: 0;
             align-items: center;
         }
+    .image-description p {
+        font-size: 1.1rem;
+    }
     .main-article {
         margin: 0;
         padding: 2rem 0;

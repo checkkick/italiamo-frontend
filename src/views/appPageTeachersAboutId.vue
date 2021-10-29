@@ -101,7 +101,7 @@
         align-items: center;
     }
         .input-section .input {
-            width: 30%;
+            width: 20rem;
             flex-grow: 1;
         }
         .input-section .btn {
@@ -139,8 +139,12 @@
                 margin: 1rem;
             }
         .input-section {
-            margin-top: 0;
-        }    
+            margin-top: 1rem;
+        }
+        .input-section .input {
+            width: 100%;
+            flex-grow: 1;
+        }
         .personal-data {
             margin: 0;
         }
