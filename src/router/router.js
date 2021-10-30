@@ -8,6 +8,7 @@ import appPagePrices from "../views/appPagePrices";
 import appPageProgramsCourseId from "../views/appPageProgramsCourseId";
 import appPageTeachersAboutId from "../views/appPageTeachersAboutId";
 import appPagePublicOferta from "../views/appPagePublicOferta";
+import appPagePayment from "../views/appPagePayment"
 import appPage404 from "../views/appPage404";
 
 export default createRouter({
@@ -57,6 +58,11 @@ export default createRouter({
             path: '/oferta',
             name: 'appPagePublicOferta',
             component: appPagePublicOferta
+        },
+        {
+            path: '/payment',
+            name: 'appPagePayment',
+            component: appPagePayment
         },
         {
             path: '/404',
