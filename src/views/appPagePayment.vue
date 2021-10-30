@@ -160,7 +160,6 @@
         width: 29rem;
         flex-grow: 1;
         border-radius: 15px;
-        cursor: pointer;
         background-color: rgba(255,255,255,0.8);
         box-shadow: 1px 10px 20px 0 rgba(0,0,0,0.1);
     }
