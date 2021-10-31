@@ -27,7 +27,7 @@
                     <p>доступ в виртуальный класс с учебными материалами</p>
                     <p>задания для закрепления материалов каждого занятия</p>
                     <a onclick="ipayCheckout({
-    amount:50,
+    amount:5360,
     currency:'RUB',
     order_number:'',
     description: '8 занятий в мини-группе из 4 человек'},
@@ -47,7 +47,14 @@
                         <p>занятия с преподавателями (один урок - 60 мин)</p>
                         <p>доступ в виртуальный класс с учебными материалами</p>
                         <p>задания для закрепления материалов каждого занятия</p>
-                        <button class="btn">Оплата</button>
+                        <a onclick="ipayCheckout({
+    amount:8560,
+    currency:'RUB',
+    order_number:'',
+    description: '8 занятий в мини-группе из 2 человек'},
+    function(order) { showSuccessfulPurchase(order) },
+    function(order) { showFailurefulPurchase(order) })">
+                            <button class="btn">Оплата</button></a>
                     </div>
                 </div>
                 <div class="price-card">
@@ -60,7 +67,14 @@
                         <p>занятия с преподавателями (один урок - 60 мин)</p>
                         <p>доступ в виртуальный класс с учебными материалами</p>
                         <p>задания для закрепления материалов каждого занятия</p>
-                        <button class="btn">Оплата</button>
+                        <a onclick="ipayCheckout({
+    amount:1470,
+    currency:'RUB',
+    order_number:'',
+    description: 'Индивидуальное занятие с русскоязычным преподавателем'},
+    function(order) { showSuccessfulPurchase(order) },
+    function(order) { showFailurefulPurchase(order) })">
+                        <button class="btn">Оплата</button></a>
                     </div>
                 </div>
                 <div class="price-card">
@@ -73,7 +87,13 @@
                         <p>занятия с преподавателями (один урок - 60 мин)</p>
                         <p>доступ в виртуальный класс с учебными материалами</p>
                         <p>задания для закрепления материалов каждого занятия</p>
-                        <button class="btn">Оплата</button>
+                        <a onclick="ipayCheckout({
+    amount:1970,
+    currency:'RUB',
+    order_number:'',
+    description: '1 персональное занятие с Носителем языка'},
+    function(order) { showSuccessfulPurchase(order) },
+    function(order) { showFailurefulPurchase(order) })"><button class="btn">Оплата</button></a>
                     </div>
                 </div>
                 <div class="price-card">
@@ -86,7 +106,13 @@
                         <p>занятия с преподавателями (один урок - 60 мин)</p>
                         <p>доступ в виртуальный класс с учебными материалами</p>
                         <p>задания для закрепления материалов каждого занятия</p>
-                        <button class="btn">Оплата</button>
+                        <a onclick="ipayCheckout({
+    amount:14700,
+    currency:'RUB',
+    order_number:'',
+    description: 'Подготовка к экзаменам А2'},
+    function(order) { showSuccessfulPurchase(order) },
+    function(order) { showFailurefulPurchase(order) })"><button class="btn">Оплата</button></a>
                     </div>
                 </div>
                 <div class="price-card">
@@ -99,7 +125,13 @@
                         <p>занятия с преподавателями (один урок - 60 мин)</p>
                         <p>доступ в виртуальный класс с учебными материалами</p>
                         <p>задания для закрепления материалов каждого занятия</p>
-                        <button class="btn">Оплата</button>
+                        <a onclick="ipayCheckout({
+    amount:19700,
+    currency:'RUB',
+    order_number:'',
+    description: 'Подготовка к экзаменам B1, B2, C1'},
+    function(order) { showSuccessfulPurchase(order) },
+    function(order) { showFailurefulPurchase(order) })"><button class="btn">Оплата</button></a>
                     </div>
                 </div>
         </section>

@@ -29,6 +29,12 @@
       >Цены</router-link>
       <router-link
               @click="scrollToTop"
+              :class="this.$route.path.includes('/payment') ? 'hover-item ' : ''"
+              class="navbar-menu-item"
+              to="/payment"
+      >Оплата</router-link>
+      <router-link
+              @click="scrollToTop"
               :class="this.$route.path.includes('/teachers') ? 'hover-item ' : ''"
               class="navbar-menu-item"
               to="/teachers"
@@ -71,7 +77,13 @@
                       :class="this.$route.path.includes('/prices') ? 'hover-item ' : ''"
                       class="dropdown-menu-item"
                       to="/prices"
-              >Цены и оплата</router-link>
+              >Цены</router-link>
+              <router-link
+                      @click="dropdownMenu"
+                      :class="this.$route.path.includes('/payment') ? 'hover-item ' : ''"
+                      class="navbar-menu-item"
+                      to="/payment"
+              >Оплата</router-link>
               <router-link
                       @click="dropdownMenu"
                       :class="this.$route.path.includes('/teachers') ? 'hover-item ' : ''"
