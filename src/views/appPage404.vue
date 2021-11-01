@@ -16,7 +16,22 @@
 </template>
 
 <script>
+    import { useHead } from '@vueuse/head'
     export default {
+        setup() {
+            useHead({
+                title: {
+                    inner: 'Ой! Страница не найдена!'
+                },
+                meta: [
+                    {
+                        name: `viewport`,
+                        content: 'width=device-width',
+                    },
+                ],
+
+            })
+        },
         methods: {
             routerPush() {
                 window.scrollTo(0,0);

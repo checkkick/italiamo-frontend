@@ -89,8 +89,23 @@
 </template>
 
 <script>
+    import { useHead } from '@vueuse/head'
     export default {
-        name: "appPagePublicOferta"
+        name: "appPagePublicOferta",
+        setup() {
+            useHead({
+                title: {
+                    inner: 'Публичная оферта'
+                },
+                meta: [
+                    {
+                        name: `viewport`,
+                        content: 'width=device-width',
+                    },
+                ],
+
+            })
+        },
     }
 </script>
 
