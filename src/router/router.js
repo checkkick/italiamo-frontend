@@ -12,6 +12,7 @@ import appPagePayment from "../views/appPagePayment"
 import appPage404 from "../views/appPage404";
 
 export default createRouter({
+    mode: 'history',
     history: createWebHistory(process.env.BASE_URL),
     routes: [
         {
