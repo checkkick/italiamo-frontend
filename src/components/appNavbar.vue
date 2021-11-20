@@ -81,7 +81,7 @@
               <router-link
                       @click="dropdownMenu"
                       :class="this.$route.path.includes('/payment') ? 'hover-item ' : ''"
-                      class="navbar-menu-item"
+                      class="dropdown-menu-item"
                       to="/payment"
               >Оплата</router-link>
               <router-link

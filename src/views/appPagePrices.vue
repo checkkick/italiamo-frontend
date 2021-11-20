@@ -13,7 +13,7 @@
             </tr>
             </thead>
             <tr class="table-row-1">
-                <td class="table-row-item" aria-label="Типы занятий">Занятие с рускоязычным - преподавателем</td>
+                <td class="table-row-item" aria-label="Типы занятий">Занятие с русскоязычным - преподавателем</td>
                 <td class="table-row-item" aria-label="Мини-группа 4 человека">670 руб.</td>
                 <td class="table-row-item" aria-label="Мини-группа 2 человека">1070 руб.</td>
                 <td class="table-row-item" aria-label="Индивидуальные">1470 руб.</td>
@@ -43,7 +43,7 @@
         </div>
         <section class="flex-column">
             <h2>Цены на подготовку к экзаменам</h2>
-            <h3>Подготовка к экзаменам происходит в минигруппе из 4-х человек</h3>
+            <h3>Подготовка к экзаменам происходит в мини-группе из 4-х человек</h3>
             <div class="flex-row">
                 <div class="price-card">
                     <div class="price-card-title">
