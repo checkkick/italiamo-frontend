@@ -1,6 +1,6 @@
 <template>
   <metainfo>
-    <template v-slot:title="{ content }">{{ content ? `${content} | Italiamo` : `Italiamo` }}</template>
+    <template v-slot:title="{ content }">{{ content ? `${content} | - Онлайн школа Italiamo` : `Онлайн школа Italiamo` }}</template>
   </metainfo>
   <app-navbar></app-navbar>
   <router-view></router-view>

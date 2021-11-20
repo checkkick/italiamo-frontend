@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /? 
 Disallow: /404.html
 Sitemap: https://italiamo.online/sitemap.xml

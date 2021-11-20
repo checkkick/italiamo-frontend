@@ -156,18 +156,14 @@
 </template>
 
 <script>
-    import { useHead } from '@vueuse/head'
+    import {useMeta} from "vue-meta";
     export default {
         setup() {
-
-            useHead({
-                meta: [
-                    {
-                        name: `viewport`,
-                        content: 'width=device-width',
-                    },
-                ],
-
+            useMeta({
+                title: 'Оплата обучения',
+                description: 'Онлайн школа обучения итальянскому языку Italiamo - ☎ +7 (930) 030-99-22 ',
+                keywords: ' курсы итальянского, итальянский язык онлайн, учить итальянский язык по скайпу, Италиамо',
+                htmlAttrs: {lang: 'ru'}
             })
         },
 
