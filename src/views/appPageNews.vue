@@ -18,28 +18,42 @@
 
 <script>
     import appCardsNews from "../components/appCardsNews";
-    import {mapGetters, mapActions} from "vuex";
+    import {mapGetters, mapActions, useStore} from "vuex";
     import { useMeta } from 'vue-meta'
+    import {computed} from "vue";
+
     export default {
         computed:{
             ...mapGetters('Backend', {
-                NEWS: 'NEWS',
+                NEWS: 'NEWS'
             })
         },
         setup() {
-            useMeta({
-                title: 'Новости',
-                description: 'Новости и интересные факты о Италии - Онлайн школа обучения итальянскому языку Italiamo - ☎ +7 (930) 030-99-22 ',
-                keywords: 'культура италии, новости италии,курсы итальянского, итальянский язык онлайн, учить итальянский язык по скайпу, Италиамо',
-                htmlAttrs: {lang: 'ru'}
-            })
+            const store = useStore()
+            const computedMeta = computed(() => ({
+                title:
+                    store.getters['Backend/CONTENT'].length > 0
+                        ? store.getters['Backend/CONTENT'][0].title
+                        : 'Онлайн-школа итальянского языка Италиамо',
+                description:
+                    store.getters['Backend/CONTENT'].length > 0
+                        ? store.getters['Backend/CONTENT'][0].description
+                        : 'Онлайн-школа итальянского языка Италиамо',
+                keywords:
+                    store.getters['Backend/CONTENT'].length > 0
+                        ? store.getters['Backend/CONTENT'][0].keywords
+                        : 'Италиамо, онлайн-школа, итальянский',
+            }))
+            useMeta(computedMeta)
         },
         methods: {
             ...mapActions('Backend', {
-                GET_NEWS : 'GET_NEWS'
+                GET_NEWS : 'GET_NEWS',
+                GET_CONTENT : 'GET_CONTENT',
             })
         },
         mounted() {
+            this.GET_CONTENT(2)
             this.GET_NEWS()
         },
         name: "appPageNews",

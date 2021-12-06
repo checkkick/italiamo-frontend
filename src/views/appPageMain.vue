@@ -161,11 +161,12 @@
 <script>
     import appMainTeachers from "../components/appCardsTeachers";
     import appMainClients from "../components/appCardsClients";
-    import {mapActions, mapGetters} from 'vuex'
     import {Carousel, Navigation, Pagination, Slide} from 'vue3-carousel';
     import { VueCollapsiblePanelGroup, VueCollapsiblePanel } from '@dafcoe/vue-collapsible-panel'
     import '@dafcoe/vue-collapsible-panel/dist/vue-collapsible-panel.css'
     import 'vue3-carousel/dist/carousel.css'
+    import { mapActions, mapGetters, useStore } from 'vuex'
+    import { computed } from 'vue'
     import { useMeta } from 'vue-meta'
     export default {
         data() {
@@ -216,12 +217,22 @@
             }
         },
         setup() {
-            useMeta({
-                title: 'Курсы итальянского языка онлайн',
-                description: 'Курсы итальянского языка по передовым методикам с носителями  языка. Занятия индивидуальные или в мини группах до 4 чел. От 670 руб за занятие. P.R.I.A. ☎ +7 (930) 030-99-22 ',
-                keywords: ' курсы итальянского, итальянский язык онлайн, учить итальянский язык по скайпу, Италиамо',
-                htmlAttrs: {lang: 'ru'}
-            })
+            const store = useStore()
+            const computedMeta = computed(() => ({
+                title:
+                    store.getters['Backend/CONTENT'].length > 0
+                        ? store.getters['Backend/CONTENT'][0].title
+                        : 'Онлайн-школа итальянского языка Италиамо',
+                description:
+                    store.getters['Backend/CONTENT'].length > 0
+                        ? store.getters['Backend/CONTENT'][0].description
+                        : 'Онлайн-школа итальянского языка Италиамо',
+                keywords:
+                    store.getters['Backend/CONTENT'].length > 0
+                        ? store.getters['Backend/CONTENT'][0].keywords
+                        : 'Италиамо, онлайн-школа, итальянский',
+            }))
+            useMeta(computedMeta)
         },
         components: {
             appMainTeachers,
@@ -259,7 +270,7 @@
             },
         },
         mounted() {
-            this.GET_CONTENT(1).then()
+            this.GET_CONTENT(1)
             this.GET_CLIENTS()
             this.GET_TEACHERS()
             this.GET_PROGRAMS()

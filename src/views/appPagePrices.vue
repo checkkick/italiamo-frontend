@@ -78,8 +78,13 @@
 
 <script>
     import { useMeta } from 'vue-meta'
+    import {mapActions, useStore} from "vuex";
+    import {computed} from "vue";
     export default {
         methods: {
+            ...mapActions('Backend', {
+                GET_CONTENT : 'GET_CONTENT',
+            }),
             routerPush(path) {
                 window.scrollTo(0,0)
                 this.$router.push(path)
@@ -87,12 +92,25 @@
         },
         name: "appPagePrices",
         setup() {
-            useMeta({
-                title: 'Цены на онлайн курсы',
-                description: 'Акутальные цены на онлайн курсы итальянского языка. Занятия индивидуальные или в мини группах до 4 чел. От 670 руб за часовое занятие. ☎ +7 (930) 030-99-22',
-                htmlAttrs: {lang: 'ru'},
-                keywords: 'стоймость, занятия в группах,курсы итальянского, итальянский язык онлайн, учить итальянский язык по скайпу, Италиамо',
-            })
+            const store = useStore()
+            const computedMeta = computed(() => ({
+                title:
+                    store.getters['Backend/CONTENT'].length > 0
+                        ? store.getters['Backend/CONTENT'][0].title
+                        : 'Онлайн-школа итальянского языка Италиамо',
+                description:
+                    store.getters['Backend/CONTENT'].length > 0
+                        ? store.getters['Backend/CONTENT'][0].description
+                        : 'Онлайн-школа итальянского языка Италиамо',
+                keywords:
+                    store.getters['Backend/CONTENT'].length > 0
+                        ? store.getters['Backend/CONTENT'][0].keywords
+                        : 'Италиамо, онлайн-школа, итальянский',
+            }))
+            useMeta(computedMeta)
+        },
+        mounted() {
+            this.GET_CONTENT(5)
         },
     }
 </script>

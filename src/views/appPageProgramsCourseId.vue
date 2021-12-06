@@ -57,13 +57,35 @@
 </template>
 
 <script>
-    import {mapActions, mapGetters} from "vuex";
+    import {mapActions, mapGetters, useStore} from "vuex";
+    import { useRoute } from 'vue-router'
+    import {computed} from "vue";
+    import {useMeta} from "vue-meta";
 
     export default {
         data() {
             return {
                 programContent: {}
             }
+        },
+        setup() {
+            const store = useStore()
+            const routeId = useRoute().params.courseId
+            const computedMeta = computed(() => ({
+                title:
+                    store.getters['Backend/PROGRAMS'].length > 0
+                        ? store.getters['Backend/PROGRAMS'].find((e) => e.href.toString() === routeId).name
+                        : 'Онлайн-школа итальянского языка Италиамо',
+                description:
+                    store.getters['Backend/PROGRAMS'].length > 0
+                        ? store.getters['Backend/PROGRAMS'].find((e) => e.href.toString() === routeId).description
+                        : 'Онлайн-школа итальянского языка Италиамо',
+                keywords:
+                    store.getters['Backend/PROGRAMS'].length > 0
+                        ? store.getters['Backend/PROGRAMS'].find((e) => e.href.toString() === routeId).name
+                        : 'Италиамо, онлайн-школа, итальянский',
+            }))
+            useMeta(computedMeta)
         },
         computed:{
             ...mapGetters('Backend', {

@@ -16,16 +16,27 @@
 
 <script>
     import appCardsPrograms from "../components/appCardsPrograms";
-    import {mapActions, mapGetters} from "vuex";
+    import {mapActions, mapGetters, useStore} from "vuex";
     import { useMeta } from 'vue-meta'
+    import {computed} from "vue";
     export default {
         setup() {
-            useMeta({
-                title: 'Программы обучения',
-                description: 'Разнообразны программы обучения, Итальянский для бизнеса, для туризма, разговорный, детские програамы, курсы для подготовки к междунароным эксзаменам. ☎ +7 (930) 030-99-22',
-                htmlAttrs: {lang: 'ru'},
-                keywords: 'курсы итальянского, итальянский язык онлайн, учить итальянский язык по скайпу, Италиамо',
-            })
+            const store = useStore()
+            const computedMeta = computed(() => ({
+                title:
+                    store.getters['Backend/CONTENT'].length > 0
+                        ? store.getters['Backend/CONTENT'][0].title
+                        : 'Онлайн-школа итальянского языка Италиамо',
+                description:
+                    store.getters['Backend/CONTENT'].length > 0
+                        ? store.getters['Backend/CONTENT'][0].description
+                        : 'Онлайн-школа итальянского языка Италиамо',
+                keywords:
+                    store.getters['Backend/CONTENT'].length > 0
+                        ? store.getters['Backend/CONTENT'][0].keywords
+                        : 'Италиамо, онлайн-школа, итальянский',
+            }))
+            useMeta(computedMeta)
         },
         computed:{
             ...mapGetters('Backend', {
@@ -34,10 +45,12 @@
         },
         methods: {
             ...mapActions('Backend', {
-                GET_PROGRAMS : 'GET_PROGRAMS'
+                GET_PROGRAMS : 'GET_PROGRAMS',
+                GET_CONTENT : 'GET_CONTENT',
             })
         },
         mounted() {
+            this.GET_CONTENT(3)
             this.GET_PROGRAMS()
         },
         name: "appPagePrograms",

@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const state = () => ({
+    content: [],
     header: [],
     advantages: [],
     client: [],
@@ -11,6 +12,9 @@ const state = () => ({
 })
 
 const getters = {
+    CONTENT(state) {
+        return state.content;
+    },
     HEADER(state) {
         return state.header;
     },
@@ -36,6 +40,7 @@ const getters = {
 
 const mutations = {
     SET_CONTENT: (state, content) => {
+        state.content = content
         for (let i = 0; i < content[0].blocks.length; i++) {
             if (content[0].blocks[i].name == 'header') {
                 state.header = content[0].blocks[i].contents

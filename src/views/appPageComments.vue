@@ -14,17 +14,28 @@
 
 <script>
 import appCardsComments from "../components/appCardsComments";
-import {mapActions, mapGetters} from "vuex";
+import {mapActions, mapGetters, useStore} from "vuex";
 import { useMeta } from 'vue-meta'
+import {computed} from "vue";
 
 export default {
     setup() {
-        useMeta({
-            title: 'Отзывы о школе',
-            description: 'Реальные отзывы наших учеников - Онлайн школа обучения итальянскому языку Italiamo - ☎ +7 (930) 030-99-22',
-            keywords: 'курсы итальянского, итальянский язык онлайн, учить итальянский язык по скайпу, Италиамо',
-            htmlAttrs: {lang: 'ru'}
-        })
+        const store = useStore()
+        const computedMeta = computed(() => ({
+            title:
+                store.getters['Backend/CONTENT'].length > 0
+                    ? store.getters['Backend/CONTENT'][0].title
+                    : 'Онлайн-школа итальянского языка Италиамо',
+            description:
+                store.getters['Backend/CONTENT'].length > 0
+                    ? store.getters['Backend/CONTENT'][0].description
+                    : 'Онлайн-школа итальянского языка Италиамо',
+            keywords:
+                store.getters['Backend/CONTENT'].length > 0
+                    ? store.getters['Backend/CONTENT'][0].keywords
+                    : 'Италиамо, онлайн-школа, итальянский',
+        }))
+        useMeta(computedMeta)
     },
     computed:{
         ...mapGetters('Backend', {
@@ -33,11 +44,13 @@ export default {
     },
     methods: {
         ...mapActions('Backend', {
-            GET_CLIENTS : 'GET_CLIENTS'
+            GET_CLIENTS : 'GET_CLIENTS',
+            GET_CONTENT : 'GET_CONTENT',
         })
     },
     mounted() {
         this.GET_CLIENTS()
+        this.GET_CONTENT(7)
     },
     name: "appPageComments",
     components: {

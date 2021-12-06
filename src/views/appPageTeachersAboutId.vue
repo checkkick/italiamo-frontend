@@ -24,9 +24,12 @@
 </template>
 
 <script>
-    import {mapActions, mapGetters} from 'vuex'
+    import {mapActions, mapGetters, useStore} from 'vuex'
     import {mask} from 'vue-the-mask'
     import axios from "axios";
+    import {useRoute} from "vue-router";
+    import {computed} from "vue";
+    import {useMeta} from "vue-meta";
 
     export default {
         data() {
@@ -35,6 +38,25 @@
                 inputTelephone: '',
                 teacherContent: {}
             }
+        },
+        setup() {
+            const store = useStore()
+            const routeId = useRoute().params.teacherId
+            const computedMeta = computed(() => ({
+                title:
+                    store.getters['Backend/TEACHERS'].length > 0
+                        ? store.getters['Backend/TEACHERS'].find((e) => e.href.toString() === routeId).name
+                        : 'Онлайн-школа итальянского языка Италиамо',
+                description:
+                    store.getters['Backend/TEACHERS'].length > 0
+                        ? store.getters['Backend/TEACHERS'].find((e) => e.href.toString() === routeId).description
+                        : 'Онлайн-школа итальянского языка Италиамо',
+                keywords:
+                    store.getters['Backend/TEACHERS'].length > 0
+                        ? store.getters['Backend/TEACHERS'].find((e) => e.href.toString() === routeId).name
+                        : 'Италиамо, онлайн-школа, итальянский',
+            }))
+            useMeta(computedMeta)
         },
         computed: {
             ...mapGetters('Backend', {

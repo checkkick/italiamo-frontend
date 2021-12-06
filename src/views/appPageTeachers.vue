@@ -18,16 +18,27 @@
 
 <script>
     import appMainTeachers from "../components/appCardsTeachers";
-    import {mapActions, mapGetters} from "vuex";
+    import {mapActions, mapGetters, useStore} from "vuex";
     import { useMeta } from 'vue-meta'
+    import {computed} from "vue";
     export default {
         setup() {
-            useMeta({
-                title: 'Наши преподаватели-репетиторы итальянского языка',
-                description: 'Профессиональные преподаватели, носители языка - Онлайн школа обучения итальянскому языку Italiamo - ☎ +7 (930) 030-99-22 ',
-                htmlAttrs: {lang: 'ru'},
-                keywords: 'занятия в группах,курсы итальянского, итальянский язык онлайн, учить итальянский язык по скайпу, Италиамо',
-            })
+            const store = useStore()
+            const computedMeta = computed(() => ({
+                title:
+                    store.getters['Backend/CONTENT'].length > 0
+                        ? store.getters['Backend/CONTENT'][0].title
+                        : 'Онлайн-школа итальянского языка Италиамо',
+                description:
+                    store.getters['Backend/CONTENT'].length > 0
+                        ? store.getters['Backend/CONTENT'][0].description
+                        : 'Онлайн-школа итальянского языка Италиамо',
+                keywords:
+                    store.getters['Backend/CONTENT'].length > 0
+                        ? store.getters['Backend/CONTENT'][0].keywords
+                        : 'Италиамо, онлайн-школа, итальянский',
+            }))
+            useMeta(computedMeta)
         },
         name: "appPageTeachers",
         computed: {
@@ -37,11 +48,13 @@
         },
         methods: {
             ...mapActions('Backend', {
-                GET_TEACHERS : 'GET_TEACHERS'
+                GET_TEACHERS : 'GET_TEACHERS',
+                GET_CONTENT : 'GET_CONTENT',
             })
         },
         mounted() {
             this.GET_TEACHERS()
+            this.GET_CONTENT(6)
         },
         components: {
             appMainTeachers

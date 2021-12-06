@@ -89,22 +89,36 @@
 </template>
 
 <script>
-    import { useHead } from '@vueuse/head'
+    import {mapActions, useStore} from "vuex";
+    import {computed} from "vue";
+    import {useMeta} from "vue-meta";
     export default {
         name: "appPagePublicOferta",
         setup() {
-            useHead({
-                title: {
-                    inner: 'Публичная оферта'
-                },
-                meta: [
-                    {
-                        name: `viewport`,
-                        content: 'width=device-width',
-                    },
-                ],
-
+            const store = useStore()
+            const computedMeta = computed(() => ({
+                title:
+                    store.getters['Backend/CONTENT'].length > 0
+                        ? store.getters['Backend/CONTENT'][0].title
+                        : 'Онлайн-школа итальянского языка Италиамо',
+                description:
+                    store.getters['Backend/CONTENT'].length > 0
+                        ? store.getters['Backend/CONTENT'][0].description
+                        : 'Онлайн-школа итальянского языка Италиамо',
+                keywords:
+                    store.getters['Backend/CONTENT'].length > 0
+                        ? store.getters['Backend/CONTENT'][0].keywords
+                        : 'Италиамо, онлайн-школа, итальянский',
+            }))
+            useMeta(computedMeta)
+        },
+        methods: {
+            ...mapActions('Backend', {
+                GET_CONTENT : 'GET_CONTENT',
             })
+        },
+        mounted() {
+            this.GET_CONTENT(8)
         },
     }
 </script>

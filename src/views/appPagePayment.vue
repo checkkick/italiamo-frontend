@@ -151,22 +151,37 @@
 
 <script>
     import {useMeta} from "vue-meta";
+    import {mapActions, useStore} from "vuex";
+    import {computed} from "vue";
     export default {
         setup() {
-            useMeta({
-                title: 'Оплата обучения',
-                description: 'Онлайн школа обучения итальянскому языку Italiamo - ☎ +7 (930) 030-99-22 ',
-                keywords: ' курсы итальянского, итальянский язык онлайн, учить итальянский язык по скайпу, Италиамо',
-                htmlAttrs: {lang: 'ru'}
-            })
+            const store = useStore()
+            const computedMeta = computed(() => ({
+                title:
+                    store.getters['Backend/CONTENT'].length > 0
+                        ? store.getters['Backend/CONTENT'][0].title
+                        : 'Онлайн-школа итальянского языка Италиамо',
+                description:
+                    store.getters['Backend/CONTENT'].length > 0
+                        ? store.getters['Backend/CONTENT'][0].description
+                        : 'Онлайн-школа итальянского языка Италиамо',
+                keywords:
+                    store.getters['Backend/CONTENT'].length > 0
+                        ? store.getters['Backend/CONTENT'][0].keywords
+                        : 'Италиамо, онлайн-школа, итальянский',
+            }))
+            useMeta(computedMeta)
         },
-
-
-
         methods: {
+            ...mapActions('Backend', {
+                GET_CONTENT : 'GET_CONTENT',
+            }),
             scrollToTop() {
                 window.scrollTo(0,0)
             }
+        },
+        mounted() {
+            this.GET_CONTENT(4)
         },
         name: "appPagePayment",
     }
