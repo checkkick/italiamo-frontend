@@ -24,6 +24,15 @@
                         <a href="https://www.youtube.com/channel/UCqXjhRF6y0E-R2KnyuKK9IA">
                             <img class="social-logo" src="../assets/youtube-logo.png" alt="youtube logo">
                         </a>
+                        <a href="whatsapp://send?phone=79300309922">
+                            <img class="social-logo" src="../assets/whatsapp.png" alt="whatsapp logo">
+                        </a>
+                        <a href="https://t.me/joinchat/HgROd6tT_NsyZTJi">
+                            <img class="social-logo" src="../assets/telegram.png" alt="telegram logo">
+                        </a>
+                        <a href="viber://add?number=79300309922">
+                            <img class="social-logo" src="../assets/viber.png" alt="viber logo">
+                        </a>
                     </span>
                 </div>
             </div>
@@ -102,7 +111,7 @@
 <style scoped>
     .footer {
         margin: 2rem 0 0 0;
-        padding: 2rem 0 0 0;
+        padding: 2rem 0 2rem 0;
         background-color: rgba(255, 252, 230, 0.6);
         box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.3);
     }
