@@ -4,7 +4,7 @@
     </header>
     <main class="main">
         <section class="course-about flex-row card-shadow">
-            <p>{{ programContent.description }}</p>
+            <p v-html="programContent.description"></p>
             <img class="card-shadow" :src="programContent.img" :alt="programContent.name">
         </section>
 

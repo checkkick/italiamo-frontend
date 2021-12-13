@@ -2,11 +2,11 @@
         <section class="card" >
             <div class="front"
                  :style="{background: `url(${image}) no-repeat center / cover`}">
-                <p>{{ titleText }}</p>
+                <p v-html="titleText"></p>
                 <button @click="routerPush(href)" class="mobile btn">Подробнее</button>
             </div>
             <div class="back">
-                <div><p  class="back-text">{{ aboutText }}</p></div>
+                <div><p v-html="aboutText" class="back-text"></p></div>
                 <p @click="routerPush(href)" class="btn">Подробнее</p>
             </div>
         </section>
@@ -81,9 +81,9 @@
             padding: 2rem 1rem;
         }
     .back-text {
-        max-height: 10.5rem;
+        max-height: 11rem;
         display: -webkit-box;
-        -webkit-line-clamp: 10;
+        -webkit-line-clamp: 8;
         -webkit-box-orient: vertical;  
         overflow: hidden;
     }
