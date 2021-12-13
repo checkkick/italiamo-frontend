@@ -11,12 +11,16 @@
                 <div class="flex-column" v-html="el.text"
                      v-if="el.name=='slogan'">
                 </div>
-                <img v-bind:alt="el.file[0].alt" v-bind:src="el.file[0].file"
-                     v-if="el.name=='slogan'">
                 <span class="image-description" v-html="el.text"
                      v-if="el.name=='slogan-2'">
                 </span>
             </template>
+            <YouTube
+                ref="youtube"
+                class="video-player"
+                width="100%"
+                height="250px"
+                src="https://www.youtube.com/watch?v=uHl1b9xAIS4" />             
         </div>
     </main>
 
@@ -168,6 +172,9 @@
     import { mapActions, mapGetters, useStore } from 'vuex'
     import { computed } from 'vue'
     import { useMeta } from 'vue-meta'
+    import YouTube from 'vue3-youtube'
+
+
     export default {
         data() {
             return {
@@ -242,7 +249,8 @@
             Navigation,
             Pagination,
             VueCollapsiblePanelGroup,
-            VueCollapsiblePanel
+            VueCollapsiblePanel,
+            YouTube
         },
         computed: {
             ...mapGetters('Backend', {
@@ -279,6 +287,9 @@
 </script>
 
 <style>
+    .video-player {
+        width: 30rem;
+    }
     .carousel {
         margin: 0 1.5rem;
         cursor: grab;
@@ -532,6 +543,9 @@
         cursor: pointer;
     }
     @media (max-width: 650px) {
+        .video-player {
+            width: 20rem;
+        }
         .carousel {
             margin: 0;
         }

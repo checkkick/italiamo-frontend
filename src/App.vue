@@ -1,6 +1,6 @@
 <template>
   <metainfo>
-    <template #title="{ content }">{{ content }}</template>
+    <template #title="{ content  }">{{ content + ' - Онлайн-школа итальнского языка ITALIAMO' }}</template>
   </metainfo>
   <app-navbar></app-navbar>
   <router-view></router-view>
