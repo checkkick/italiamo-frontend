@@ -16,11 +16,13 @@
                 </span>
             </template>
             <YouTube
+                v-if="ready >= 0"
                 ref="youtube"
                 class="video-player"
                 width="100%"
+                @ready="OnReady(1)"
                 height="250px"
-                src="https://www.youtube.com/watch?v=uHl1b9xAIS4" />             
+                src="https://www.youtube.com/watch?v=uHl1b9xAIS4" />     
         </div>
     </main>
 
@@ -34,6 +36,32 @@
                 <h3>{{adv.name}}</h3>
                 <span v-html="adv.text"></span>
             </div>
+        </div>
+        <div class="article-videos flex-row">
+            <YouTube
+                v-if="ready >= 1"
+                ref="youtube"
+                class="small-video-player"
+                width="100%"
+                @ready="OnReady(2)"
+                height="200px"
+                src="https://www.youtube.com/watch?v=fmzK9DEybZ4&t=18s" />
+            <YouTube
+                v-if="ready >= 2"
+                ref="youtube"
+                class="small-video-player"
+                width="100%"
+                @ready="OnReady(3)"
+                height="200px"
+                src="https://www.youtube.com/watch?v=WlKgsk7gELY" />
+            <YouTube
+                v-if="ready >= 3"
+                ref="youtube"
+                class="small-video-player"
+                width="100%"
+                @ready="OnReady(4)"
+                height="200px"
+                src="https://www.youtube.com/watch?v=xClzRb00YYg" />
         </div>
     </article>
 
@@ -178,6 +206,7 @@
     export default {
         data() {
             return {
+                ready: 0,
                 settings: {
                     autoplay: 3500,
                     wrapAround: true
@@ -263,6 +292,9 @@
             })
         },
         methods: {
+            OnReady(num) {
+                this.ready = num
+            },
             ...mapActions('Backend', {
                 GET_CONTENT : 'GET_CONTENT',
                 GET_CLIENTS : 'GET_CLIENTS',
@@ -287,6 +319,11 @@
 </script>
 
 <style>
+    .small-video-player {
+        flex-grow: 1;
+        max-width: 30rem;
+        margin: 1rem;
+    }
     .video-player {
         width: 30rem;
     }
@@ -543,6 +580,13 @@
         cursor: pointer;
     }
     @media (max-width: 650px) {
+        .article-videos {
+            margin-top: 2rem;
+        }
+        .small-video-player {
+            max-width: 30rem;
+            margin: 0 1rem;
+        }
         .video-player {
             width: 20rem;
         }
