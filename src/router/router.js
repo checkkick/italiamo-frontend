@@ -12,8 +12,7 @@ import appPageTeachers from '../views/appPageTeachers'
 import appPageTeachersAboutId from '../views/appPageTeachersAboutId'
 
 export default createRouter({
-	mode: 'history',
-	history: createWebHistory(process.env.BASE_URL),
+	history: createWebHistory(),
 	routes: [
 		{
 			path: '/',
@@ -29,6 +28,7 @@ export default createRouter({
 			path: '/programs',
 			name: 'appPagePrograms',
 			component: appPagePrograms,
+			alias: '/main_course',
 		},
 		{
 			path: '/prices',
@@ -71,7 +71,7 @@ export default createRouter({
 			component: appPage404,
 		},
 		{
-			path: '/:pathMatch(.*)*',
+			path: '/:pathMatch(.*)',
 			redirect: '/404',
 		},
 	],

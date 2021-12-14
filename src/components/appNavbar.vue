@@ -157,6 +157,7 @@ export default {
     .img-logo {
         cursor: pointer;
         width: 100%;
+        max-width: 5rem;
         max-height: 5rem;
     }
     .img-menu {
