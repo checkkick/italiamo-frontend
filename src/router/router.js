@@ -70,9 +70,9 @@ export default createRouter({
 			name: '404',
 			component: appPage404,
 		},
-		// {
-		//     path: '/:pathMatch(.*)*',
-		//     redirect: '/404'
-		// }
+		{
+			path: '/:pathMatch(.*)*',
+			redirect: '/404',
+		},
 	],
 })
