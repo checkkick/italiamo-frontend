@@ -1,8 +1,32 @@
 <template>
     <header class="header main-header">
         <h1>Онлайн школа итальянского языка</h1>
-        <img alt="изображение Italiamo" src="../assets/logo-1.png">
-            <button href="#contacts" v-smooth-scroll="{ updateHistory: false }" class="btn">Оставить заявку</button>
+        <img class="italiamo-logo" alt="изображение Italiamo" src="../assets/logo-1.png">
+        <button href="#contacts" v-smooth-scroll="{ updateHistory: false }" class="btn">Оставить заявку</button>
+        <div class="flex-column contacts-text">
+                <div class="telephones">
+                    <h4><a href="tel:+78007001355">+7 (800) 700-13-55</a></h4>
+                    <h4><a href="tel:+79300309922">+7 (930) 030-99-22</a></h4>
+                    <h4><a href="mailto:info@italiamo.online">info@italiamo.online</a></h4>
+                </div>
+                <div class="about-us flex-row">
+                    <a class="social-logo" href="https://www.instagram.com/italiamo.online/">
+                        <img src="../assets/insta-logo.png" alt="instagram logo">
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCqXjhRF6y0E-R2KnyuKK9IA">
+                        <img class="social-logo" src="../assets/youtube-logo.png" alt="youtube logo">
+                    </a>
+                    <a href="whatsapp://send?phone=79300309922">
+                        <img class="social-logo" src="../assets/whatsapp.png" alt="whatsapp logo">
+                    </a>
+                    <a href="https://t.me/joinchat/HgROd6tT_NsyZTJi">
+                        <img class="social-logo" src="../assets/telegram.png" alt="telegram logo">
+                    </a>
+                    <a href="viber://add?number=79300309922">
+                        <img class="social-logo" src="../assets/viber.png" alt="viber logo">
+                    </a>
+                </div>
+            </div>
     </header>
 
     <main class="main-section">
@@ -319,6 +343,37 @@
 </script>
 
 <style>
+    .flex-column.contacts-text {
+        margin: 1rem 0 0 0;
+        justify-content: space-between;
+    }
+    .telephones h4 {
+        margin: 0;
+    }
+    .telephones h4 a {
+        font-weight: bold;
+    }
+    .about-us h4 {
+        font-size: 1.2rem;
+        margin: 0.5rem;
+    }
+    .social-logo {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        width: 100%;
+        max-width: 3rem;
+        max-height: 3rem;
+        margin: 1rem 2rem;
+    }
+    .about-us img {
+        max-width: 3rem;
+        max-height: 3rem;
+        width: 100%;
+    }
+    .about-us .flex-row {
+        justify-content: center;
+    }
     .small-video-player {
         flex-grow: 1;
         max-width: 30rem;
@@ -361,7 +416,7 @@
     }
     .main-header {
         text-align: center;
-        padding: 4rem;
+        padding: 4rem 2rem 2rem 2rem;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -596,8 +651,25 @@
         .carousel-navigation {
             display: none;
         }
-        .main-header img {
+        .italiamo-logo {
             display: none;
+        }
+        .social-logo {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            width: 100%;
+            max-width: 2rem;
+            max-height: 2rem;
+            margin: 1rem;
+        }
+        .about-us img {
+            max-width: 2rem;
+            max-height: 2rem;
+            width: 100%;
+        }
+        .main-header {
+            padding: 4rem 1rem 1rem 1rem;
         }
         .main-section img {
             width: 100%;
