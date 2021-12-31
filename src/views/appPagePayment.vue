@@ -19,14 +19,14 @@
             <div class="price-card">
                 <div class="price-card-title">
                     <h3>8 занятий в мини-группе из 4 человек</h3>
-                    <h3>5360 р.</h3>
+                    <h3>5520 р.</h3>
                 </div>
                 <div class="price-card-text"> 
                     <p>занятия с преподавателями (один урок - 60 мин)</p>
                     <p>доступ в виртуальный класс с учебными материалами</p>
                     <p>задания для закрепления материалов каждого занятия</p>
                     <a onclick="ipayCheckout({
-    amount:5360,
+    amount:5520,
     currency:'RUB',
     order_number:'',
     description: '8 занятий в мини-группе из 4 человек'},

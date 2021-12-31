@@ -13,8 +13,9 @@
                 </div>
                 <div class="about-us">
                     <router-link to="/oferta">
-                        <h4 @click="scrollToTop" class="oferta-link">Публичная оферта</h4>
+                        <h3 @click="scrollToTop" class="oferta-link">Публичная оферта</h3>
                     </router-link>
+                    <h3 @click="readFile" class="oferta-link">Выписка из реестра лицензий</h3>
                     <h4>ОГРНИП 320332800003572</h4>
                     <h4>Italiamo, ©2020—2021</h4>
                     <span class="flex-row">
@@ -76,6 +77,9 @@
             };
         },
         methods: {
+            readFile() {
+                window.open('license.pdf', '_blank') //to open in new tab
+            },
             scrollToTop() {
                 window.scrollTo(0,0)
             },
@@ -148,6 +152,7 @@
     }
     .oferta-link {
         text-decoration: underline;
+        cursor: pointer;
     }
     @media (max-width: 985px) {
         .flex-contacts {

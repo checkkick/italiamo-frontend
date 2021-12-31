@@ -8,6 +8,7 @@
                     <h4><a href="tel:+78007001355">+7 (800) 700-13-55</a></h4>
                     <h4><a href="tel:+79300309922">+7 (930) 030-99-22</a></h4>
                     <h4><a href="mailto:info@italiamo.online">info@italiamo.online</a></h4>
+                    <h4 @click="readFile" class="oferta-link">Выписка из реестра лицензий</h4>
                 </div>
                 <div class="about-us flex-row">
                     <a class="social-logo" href="https://www.instagram.com/italiamo.online/">
@@ -316,6 +317,9 @@
             })
         },
         methods: {
+            readFile() {
+                window.open('license.pdf', '_blank') //to open in new tab
+            },
             OnReady(num) {
                 this.ready = num
             },
@@ -343,6 +347,10 @@
 </script>
 
 <style>
+    .oferta-link {
+        text-decoration: underline;
+        cursor: pointer;
+    }
     .flex-column.contacts-text {
         margin: 1rem 0 0 0;
         justify-content: space-between;

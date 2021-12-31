@@ -14,7 +14,7 @@
             </thead>
             <tr class="table-row-1">
                 <td class="table-row-item" aria-label="Типы занятий">Занятие с русскоязычным - преподавателем</td>
-                <td class="table-row-item" aria-label="Мини-группа 4 человека">670 руб.</td>
+                <td class="table-row-item" aria-label="Мини-группа 4 человека">690 руб.</td>
                 <td class="table-row-item" aria-label="Мини-группа 2 человека">1070 руб.</td>
                 <td class="table-row-item" aria-label="Индивидуальные">1470 руб.</td>
             </tr>
@@ -26,7 +26,7 @@
             </tr>
             <tr class="table-row-1">
                 <td class="table-row-item" aria-label="Типы занятий">Минимальный пакет</td>
-                <td class="table-row-item" aria-label="Мини-группа 4 человека">5360 руб. (8 занятий)</td>
+                <td class="table-row-item" aria-label="Мини-группа 4 человека">5520 руб. (8 занятий)</td>
                 <td class="table-row-item" aria-label="Мини-группа 2 человека">8560 руб. (8 занятий)</td>
                 <td class="table-row-item" aria-label="Индивидуальные">5880 руб. (4 занятия)</td>
             </tr>
