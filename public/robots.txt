@@ -1,9 +1,9 @@
 User-agent: *
 Allow: /
 Disallow: /? 
-Dissalow: /tilda/
-Dissalow: /tpost/
-Dissalow: /blog/
+Disallow: /tilda/
+Disallow: /tpost/
+Disallow: /blog/
 Disallow: /main_cource
 Disallow: /404.html
 Sitemap: https://italiamo.online/sitemap.xml

@@ -1,29 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url>
-        <loc>https://italiamo.online/</loc>
-        <lastmod>2021-10-26</lastmod>
-        <changefreq>monthly</changefreq>
-            <priority>1</priority>
-    </url>
-    <url>
-        <loc>https://italiamo.online/programs</loc>
-    </url>
-    <url>
-        <loc>https://italiamo.online/teachers</loc>
-    </url>
-    <url>
-        <loc>https://italiamo.online/news</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-    </url>
-    <url>
-        <loc>https://italiamo.online/prices</loc>
-    </url>
-    <url>
-        <loc>https://italiamo.online/comments</loc>
-    </url>
-    <url>
-        <loc>https://italiamo.online/oferta</loc>
-    </url>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/siteindex.xsd">
+  <url>
+<loc>https://italiamo.online/</loc>
+<lastmod>2021-10-26</lastmod>
+<changefreq>monthly</changefreq>
+<priority>1</priority>
+</url>
+<url>
+<loc>https://italiamo.online/news</loc>
+<changefreq>weekly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
+<loc>https://italiamo.online/programs</loc>
+<changefreq>weekly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
+<loc>https://italiamo.online/prices</loc>
+<changefreq>weekly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
+<loc>https://italiamo.online/payment</loc>
+<changefreq>weekly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
+<loc>https://italiamo.online/teachers</loc>
+<changefreq>weekly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
+<loc>https://italiamo.online/comments</loc>
+<changefreq>weekly</changefreq>
+<priority>0.5</priority>
+</url>
 </urlset>
