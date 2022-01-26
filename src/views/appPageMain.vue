@@ -91,7 +91,7 @@
     </article>
 
     <section class="main-comments flex-column">
-        <h2>Что пишут нашу ученики?</h2>
+        <h2>Что пишут наши ученики?</h2>
         <carousel :breakpoints="breakpointsComments" :settings="settings">
             <slide :key="index"
                    v-for="(client, index) in clients" >
