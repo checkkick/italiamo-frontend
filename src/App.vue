@@ -22,7 +22,7 @@ export default {
   setup() {
     useMeta({
       title: 'Онлайн-школа итальнского языка ITALIAMO',
-      htmlAttrs: { lang: 'ru', amp: true },
+      htmlAttrs: { lang: 'ru' },
     })
   },
 }
