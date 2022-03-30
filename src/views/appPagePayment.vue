@@ -216,14 +216,22 @@ export default {
 				store.getters['Backend/CONTENT'].length > 0
 					? store.getters['Backend/CONTENT'][0].title
 					: 'Онлайн-школа итальянского языка Италиамо',
-			description:
-				store.getters['Backend/CONTENT'].length > 0
-					? store.getters['Backend/CONTENT'][0].description
-					: 'Онлайн-школа итальянского языка Италиамо',
-			keywords:
-				store.getters['Backend/CONTENT'].length > 0
-					? store.getters['Backend/CONTENT'][0].keywords
-					: 'Италиамо, онлайн-школа, итальянский',
+			meta: [
+				{
+					name: 'description',
+					content:
+						store.getters['Backend/CONTENT'].length > 0
+							? store.getters['Backend/CONTENT'][0].description
+							: 'Онлайн-школа итальянского языка Италиамо',
+				},
+				{
+					name: 'keywords',
+					content:
+						store.getters['Backend/CONTENT'].length > 0
+							? store.getters['Backend/CONTENT'][0].keywords
+							: 'Италиамо, онлайн-школа, итальянский',
+				},
+			],
 		}))
 		useMeta(computedMeta)
 	},
