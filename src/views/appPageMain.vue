@@ -13,9 +13,9 @@
 				<h4 @click="readFile" class="oferta-link">Выписка из реестра лицензий</h4>
 			</div>
 			<div class="about-us flex-row">
-				<a class="social-logo" href="https://www.instagram.com/italiamo.online/">
+				<!-- <a class="social-logo" href="https://www.instagram.com/italiamo.online/">
 					<img src="../assets/insta-logo.png" alt="instagram logo" />
-				</a>
+				</a> -->
 				<a href="https://www.youtube.com/channel/UCqXjhRF6y0E-R2KnyuKK9IA">
 					<img class="social-logo" src="../assets/youtube-logo.png" alt="youtube logo" />
 				</a>
