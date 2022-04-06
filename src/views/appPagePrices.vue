@@ -36,7 +36,7 @@
 				<td class="table-row-item" aria-label="Мини-группа 2 человека">
 					8560 руб. (8 занятий)
 				</td>
-				<td class="table-row-item" aria-label="Индивидуальные">5880 руб. (4 занятия)</td>
+				<td class="table-row-item" aria-label="Индивидуальные">7880 руб. (4 занятия)</td>
 			</tr>
 		</table>
 
