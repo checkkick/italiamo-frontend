@@ -2,7 +2,7 @@
 	<footer id="contacts" class="footer flex-column">
 		<h2>Наши контакты</h2>
 		<h3>Заполните форму и мы свяжемся с Вами!</h3>
-		<section class="flex-row flex-contacts">
+		<form @submit.prevent class="flex-row flex-contacts">
 			<div class="flex-column contacts-text">
 				<div class="telephones">
 					<h4><a href="tel:+78007001355">+7 (800) 700-13-55</a></h4>
@@ -60,13 +60,13 @@
 				></textarea>
 				<button class="btn" @click="sendPostContacts">Отправить</button>
 			</div>
-		</section>
+		</form>
 	</footer>
 </template>
 
 <script>
-import axios from 'axios'
 import { mask } from 'vue-the-mask'
+import { mapActions } from 'vuex'
 
 export default {
 	data() {
@@ -78,6 +78,10 @@ export default {
 		}
 	},
 	methods: {
+		...mapActions('Backend', {
+			CAPCHA_VERIFICATION: 'CAPCHA_VERIFICATION',
+			SEND_FORM: 'SEND_FORM',
+		}),
 		readFile() {
 			window.open('license.pdf', '_blank') //to open in new tab
 		},
@@ -90,23 +94,30 @@ export default {
 					(this.inputEmail.includes('@') && this.inputEmail.length > 6)) &&
 				this.inputName.length !== 0
 			) {
-				axios
-					.post('https://italiamo-backend.bexram.online/forms/', {
-						telephone: this.inputTelephone,
-						email: this.inputEmail,
-						name: this.inputName,
-						other: this.inputComment,
+				this.$recaptchaLoaded().then(() => {
+					this.$recaptcha('login').then((token) => {
+						this.CAPCHA_VERIFICATION({
+							token,
+						}).then((response) => {
+							if (response.success) {
+								const data = {
+									telephone: this.inputTelephone,
+									email: this.inputEmail,
+									name: this.inputName,
+									other: this.inputComment,
+								}
+								this.SEND_FORM(data).then((response) => {
+									if (response !== 'error') {
+										this.inputTelephone = ''
+										this.inputEmail = ''
+										this.inputName = ''
+										this.inputComment = ''
+									}
+								})
+							}
+						})
 					})
-					.then((response) => {
-						console.log(response)
-						this.inputTelephone = ''
-						this.inputEmail = ''
-						this.inputName = ''
-						this.inputComment = ''
-					})
-					.catch((error) => {
-						console.log(error)
-					})
+				})
 			} else {
 				alert('Проверьте правильность ввода всех полей!')
 			}
