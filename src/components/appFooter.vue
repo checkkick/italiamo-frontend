@@ -8,10 +8,6 @@
 					<h4><a href="tel:+78007001355">+7 (800) 700-13-55</a></h4>
 					<h4><a href="tel:+79300309922">+7 (930) 030-99-22</a></h4>
 					<h4><a href="mailto:info@italiamo.online">info@italiamo.online</a></h4>
-					<h4>
-						Дизайн: <a href="mailto:adelina.sinitsyna@mail.ru">adelina.sinitsyna@mail.ru</a>
-					</h4>
-					<h4>Разработка: <a href="mailto:bexram33@mail.ru">bexram33@mail.ru</a></h4>
 				</div>
 				<div class="about-us">
 					<router-link to="/oferta">
@@ -20,10 +16,11 @@
 					<h3 @click="readFile" class="oferta-link">Выписка из реестра лицензий</h3>
 					<h4>ОГРНИП 320332800003572</h4>
 					<h4>Italiamo, ©2020—2021</h4>
+					<h4>
+						Дизайн: <a href="mailto:adelina.sinitsyna@mail.ru">adelina.sinitsyna@mail.ru</a>
+					</h4>
+					<h4>Разработка: <a href="mailto:bexram33@mail.ru">bexram33@mail.ru</a></h4>
 					<span class="flex-row">
-						<!-- <a class="social-logo" href="https://www.instagram.com/italiamo.online/">
-                            <img src="../assets/insta-logo.png" alt="instagram logo">
-                        </a> -->
 						<a href="https://www.youtube.com/channel/UCqXjhRF6y0E-R2KnyuKK9IA">
 							<img class="social-logo" src="../assets/youtube-logo.png" alt="youtube logo" />
 						</a>
